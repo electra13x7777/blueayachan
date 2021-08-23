@@ -27,6 +27,7 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !demongacha - Returns a random demon (currently only smt nocturne demons) of rarity 0 - 5 Stars
 #### Misc/Quote
 * !cfb - Generates a random text string using 'c', 'f', and 'b'
+* !pasta - Returns a random copypasta (Has a 90 second timeout after each use on a "per-channel" basis)
 * !dreamboumtweet - Returns a random tweet made by THE [@dreamboum](https://twitter.com/Dreamboum) on twitter
 #### Join/Leave
 * !joinch - Adds a user's channel to channels.txt and joins bot to channel if they are not in the file.
