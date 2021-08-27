@@ -3,23 +3,23 @@ Project: BlueAyaChan - Twitch IRC Bot
 File: blueayachan.py
 Author: Alex Barney
 '''
-import async_timeout
-import twitchio.dataclasses
+#import async_timeout
+#import twitchio.dataclasses
 from twitchio.ext import commands
 #from twitchio.ext import
 from pybooru import Danbooru, Moebooru
-from googletrans import Translator
+#from googletrans import Translator
 from datetime import datetime, timedelta
 import random
 import asyncio
-import time
-import os
+#import time
 #import re
 #import os
-'''
-                                            GLOBALS
-'''
-#timer = time.sleep(60)
+
+# -------------------------------------------------------------------------------------------------------------#
+#################################################### GLOBALS ###################################################
+# -------------------------------------------------------------------------------------------------------------#
+
 last_pasta_call = datetime.now()
 
 ha_list = [
@@ -661,9 +661,10 @@ silenced = \
         "TIUYMI"
     ]
 pasta_dict = {} # Empty dictionary used for pasta cooldown
-'''
-                                           CLASS DEF
-'''
+
+# -------------------------------------------------------------------------------------------------------------#
+##################################################### CLASS ####################################################
+# -------------------------------------------------------------------------------------------------------------#
 
 class BlueAyaChan(commands.Bot):
     def __init__(self):
@@ -699,45 +700,9 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'Hello {ctx.author.name}!')
     '''
 
-    '''
-        Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
-    '''
-    @commands.command(name='cfb')
-    async def cfb_string_gen(self, ctx):
-        # populate lists for !cfb
-        c_list = []
-        f_list = []
-        b_list = []
-        #TODO: add '-v' for verbose cfb
-        cfb_txt = open('20k.txt', 'r')
-        cfb_str = cfb_txt.readlines()
-        cfb_txt.close()
-        for i in cfb_str:
-            if (i[0] == 'c'):
-                c_list.append(i)
-            if (i[0] == 'f'):
-                f_list.append(i)
-            if (i[0] == 'b'):
-                b_list.append(i)
-        #print(str(len(c_list)) + ' ' + str(len(f_list)) + ' ' + str(len(b_list)))
-        await ctx.send(f'' + c_list[random.randint(0,len(c_list))] + ' ' + f_list[random.randint(0,len(f_list))] + ' ' + b_list[random.randint(0,len(b_list))])
-
-    '''
-        Command: !lunch - dumb meme
-    '''
-    @commands.command(name='lunch')
-    async def lunch(self, ctx):
-        await ctx.send(f'{ctx.author.name} is logging this chatroom! TheForkies')
-
-    '''
-        Command: !carl - generates a random Carl Sagan name
-    '''
-    @commands.command(name='carl')
-    async def carl(self, ctx):
-        global cs_names
-        await ctx.send(f'Carl "' + cs_names[random.randint(0, len(cs_names)-1)] + '" Sagan')
-
-
+# -------------------------------------------------------------------------------------------------------------#
+##################################################### PASTA ####################################################
+# -------------------------------------------------------------------------------------------------------------#
     '''
         Command: !pasta - posts a random copypasta
     '''
@@ -754,11 +719,9 @@ class BlueAyaChan(commands.Bot):
             pasta_dict[str(ctx.channel)] = datetime.now()
         elif(str(ctx.channel) in pasta_dict.keys()):
             print(time_now.time())
-            #minutes_diff = (float(time_now.timestamp()) - float(pasta_dict[str(ctx.channel)].timestamp())) / 60.0
-            #print(minutes_diff)
             diff = (time_now.minute*60 + time_now.second) - (pasta_dict[str(ctx.channel)].minute*60 + pasta_dict[str(ctx.channel)].second)
             print(diff)
-            if(diff >= 90 or diff <= -1):
+            if(diff >= 90 or diff <= -1): # becomes negative when the hour rolls over since i don't check for that this works fine
                 try:
                     await ctx.send(f'' + str(pasta_str[random.randint(0, len(pasta_str) - 1)]))
                 except:
@@ -777,52 +740,6 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='pasta')
     async def runpasta(self, ctx):
         await asyncio.gather(self.pasta(ctx))
-
-    '''
-    Command: !mari - takes in a IRCstream and adds Marisa's flourishes to it
-    '''
-    @commands.command(name='mari')
-    async def mari_text(self, ctx):
-        irc_string = ctx.content[6:] #ignores command str len
-        #for i in irc_string:
-        flourishes = [" ze! ", " wa yo. ", " daro. "]
-        rand = random.randint(1, 5)
-        try:
-            if(rand % 3 == 0):
-                irc_string = irc_string.replace( ". ", flourishes[0], 1)
-                rand = random.randint(1, 5)
-            elif(rand % 3 == 1):
-                irc_string = irc_string.replace(". ", flourishes[2], 1)
-                rand = random.randint(1, 5)
-            elif(rand % 3 == 2):
-                irc_string = irc_string.replace(". ", flourishes[1], 1)
-                rand = random.randint(1, 5)
-        except:
-            IOError()
-        try:
-            irc_string = irc_string.replace( ", ", " da ze, ")
-        except:
-            IOError()
-        try:
-            irc_string = irc_string.replace("! ", " da! ")
-        except:
-            IOError()
-        try:
-            irc_string = irc_string.replace("? ", " ne da ze? ")
-        except:
-            IOError()
-        if(rand%2 == 0):
-            irc_string = "yare yare, " + irc_string
-        elif(rand%2 == 1):
-            irc_string += " yare yare..."
-        await ctx.send(f'' + irc_string)
-        '''
-               def find_sub(in_str, start, end):
-                    return re.sub(
-                        r'(?<={}).*?(?={})'.format(re.escape(start), re.escape(end)),
-                        lambda m: m.group().strip().replace('.', ' ze!'),
-                        in_str)
-                '''
 
 #-------------------------------------------------------------------------------------------------------------#
 ############################################### PICTURE SCRAPING ##############################################
@@ -901,7 +818,6 @@ class BlueAyaChan(commands.Bot):
     def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2):
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
-        #rand = random.randint(1, 21) # Frankly, I have no idea why this is here but I'll keep it just incase
         def get_img_url():
             try:
                 piclist = client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
@@ -917,7 +833,11 @@ class BlueAyaChan(commands.Bot):
             print(urls)
             url = urls[0].strip(" ").strip("'")
             return url
-        return get_img_url()
+        #query URLs until you get a result to avoid querying nothing
+        url = ['']
+        while(url == ['']):
+            url = get_img_url()
+        return url
 
     '''
         maripic for clod
@@ -1261,6 +1181,92 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + msg + ' ' + msg)
         await ctx.send(f'' + msg)
 '''
+
+    '''
+        Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
+    '''
+    @commands.command(name='cfb')
+    async def cfb_string_gen(self, ctx):
+        # populate lists for !cfb
+        c_list = []
+        f_list = []
+        b_list = []
+        # TODO: add '-v' for verbose cfb
+        cfb_txt = open('20k.txt', 'r')
+        cfb_str = cfb_txt.readlines()
+        cfb_txt.close()
+        for i in cfb_str:
+            if (i[0] == 'c'):
+                c_list.append(i)
+            if (i[0] == 'f'):
+                f_list.append(i)
+            if (i[0] == 'b'):
+                b_list.append(i)
+        # print(str(len(c_list)) + ' ' + str(len(f_list)) + ' ' + str(len(b_list)))
+        await ctx.send(
+            f'' + c_list[random.randint(0, len(c_list))] + ' ' + f_list[random.randint(0, len(f_list))] + ' ' + b_list[
+                random.randint(0, len(b_list))])
+
+    '''
+        Command: !lunch - dumb meme
+    '''
+    @commands.command(name='lunch')
+    async def lunch(self, ctx):
+        await ctx.send(f'{ctx.author.name} is logging this chatroom! TheForkies')
+
+    '''
+        Command: !carl - generates a random Carl Sagan name
+    '''
+    @commands.command(name='carl')
+    async def carl(self, ctx):
+        global cs_names
+        await ctx.send(f'Carl "' + cs_names[random.randint(0, len(cs_names) - 1)] + '" Sagan')
+
+    '''
+    Command: !mari - takes in a IRCstream and adds Marisa's flourishes to it
+    '''
+    @commands.command(name='mari')
+    async def mari_text(self, ctx):
+        irc_string = ctx.content[6:] #ignores command str len
+        #for i in irc_string:
+        flourishes = [" ze! ", " wa yo. ", " daro. "]
+        rand = random.randint(1, 5)
+        try:
+            if(rand % 3 == 0):
+                irc_string = irc_string.replace( ". ", flourishes[0], 1)
+                rand = random.randint(1, 5)
+            elif(rand % 3 == 1):
+                irc_string = irc_string.replace(". ", flourishes[2], 1)
+                rand = random.randint(1, 5)
+            elif(rand % 3 == 2):
+                irc_string = irc_string.replace(". ", flourishes[1], 1)
+                rand = random.randint(1, 5)
+        except:
+            IOError()
+        try:
+            irc_string = irc_string.replace( ", ", " da ze, ")
+        except:
+            IOError()
+        try:
+            irc_string = irc_string.replace("! ", " da! ")
+        except:
+            IOError()
+        try:
+            irc_string = irc_string.replace("? ", " ne da ze? ")
+        except:
+            IOError()
+        if(rand%2 == 0):
+            irc_string = "yare yare, " + irc_string
+        elif(rand%2 == 1):
+            irc_string += " yare yare..."
+        await ctx.send(f'' + irc_string)
+        '''
+               def find_sub(in_str, start, end):
+                    return re.sub(
+                        r'(?<={}).*?(?={})'.format(re.escape(start), re.escape(end)),
+                        lambda m: m.group().strip().replace('.', ' ze!'),
+                        in_str)
+                '''
 
     @commands.command(name='reggie')
     async def reggie(self, ctx):
