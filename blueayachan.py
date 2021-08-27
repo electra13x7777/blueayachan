@@ -395,12 +395,6 @@ backup_links = \
         f'https://pbs.twimg.com/media/E4rX8I2WQAQz1JP?format=jpg&name=large'
     ]
 prev_url = ['dummy text']
-fiends = \
-    [
-        f'David',
-        f'Pale Rider',
-        f'Daisoujou',
-    ] #TODO: Implement this
 takuya_quotes = \
     [
         "(I pray that this teacher remains employed...)",
@@ -463,75 +457,75 @@ demons_nocturne = \
         'Mot': 'https://static.wikia.nocookie.net/megamitensei/images/e/eb/Mot.jpg/revision/latest/scale-to-width-down/309?cb=20190328171656',
         'Beelzebub (fly)': 'https://static.wikia.nocookie.net/megamitensei/images/7/7c/KazumaKaneko-Beelzebub.jpg/revision/latest/scale-to-width-down/350?cb=20090219082929',
         #vile
-        'Arahabaki': '',
-        'Baphomet': '',
-        'Pazuzu': '',
-        'Girimehkala': '',
-        'Tao Tie': '',
-        'Samael': '',
-        'Mada': '',
+        'Arahabaki': 'https://static.wikia.nocookie.net/megamitensei/images/f/fb/ArahabakiKC.jpg/revision/latest/scale-to-width-down/301?cb=20080705222447',
+        'Baphomet': 'https://static.wikia.nocookie.net/megamitensei/images/3/33/Baphomet.jpg/revision/latest/scale-to-width-down/350?cb=20080802231114',
+        'Pazuzu': 'https://static.wikia.nocookie.net/megamitensei/images/e/ea/PazuzuSMT2.jpg/revision/latest/scale-to-width-down/337?cb=20080806165033',
+        'Girimehkala': 'https://static.wikia.nocookie.net/megamitensei/images/4/4a/KazumaKaneko-Girimehkala.jpg/revision/latest/scale-to-width-down/335?cb=20090404041239',
+        'Tao Tie': 'https://static.wikia.nocookie.net/megamitensei/images/f/f5/Tao_Tie_%282%29.jpg/revision/latest/scale-to-width-down/350?cb=20190330150732',
+        'Samael': 'https://static.wikia.nocookie.net/megamitensei/images/5/59/Samael.jpg/revision/latest/scale-to-width-down/348?cb=20110611102937',
+        'Mada': 'https://static.wikia.nocookie.net/megamitensei/images/3/38/Mada2.jpg/revision/latest/scale-to-width-down/322?cb=20151130235912',
         #wilder
-        'Zhen': '',
-        'Bicorn': '',
-        'Raiju': '',
-        'Nue': '',
-        'Mothman': '',
-        'Hrezvelgr': '',
+        'Zhen': 'https://static.wikia.nocookie.net/megamitensei/images/4/43/Zhen.png/revision/latest/scale-to-width-down/1000?cb=20190401160319',
+        'Bicorn': 'https://static.wikia.nocookie.net/megamitensei/images/4/48/KWBicorn.jpg/revision/latest/scale-to-width-down/350?cb=20110904050857',
+        'Raiju': 'https://static.wikia.nocookie.net/megamitensei/images/5/5a/514_-_Raiju.jpg/revision/latest/scale-to-width-down/340?cb=20120514051105',
+        'Nue': 'https://static.wikia.nocookie.net/megamitensei/images/b/be/Nue.jpg/revision/latest/scale-to-width-down/350?cb=20080617063258',
+        'Mothman': 'https://static.wikia.nocookie.net/megamitensei/images/e/e0/Mothmanof.png/revision/latest/scale-to-width-down/350?cb=20190328182520',
+        'Hrezvelgr': 'https://static.wikia.nocookie.net/megamitensei/images/2/29/Hresvelgr.JPG/revision/latest/scale-to-width-down/350?cb=20190328203244',
         #avatar
-        'Makami': '',
-        'Cai-Zhi': '',
-        'Yatagarasu': '',
-        'Barong': '',
+        'Makami': 'https://static.wikia.nocookie.net/megamitensei/images/7/71/Makami_-_Nocturne.jpg/revision/latest/scale-to-width-down/350?cb=20080920172200',
+        'Cai-Zhi': 'https://static.wikia.nocookie.net/megamitensei/images/c/c1/KaichiDS.jpg/revision/latest/scale-to-width-down/350?cb=20190328190351',
+        'Yatagarasu': 'https://static.wikia.nocookie.net/megamitensei/images/5/57/Yatagarasu3.JPG/revision/latest/scale-to-width-down/350?cb=20190330162439',
+        'Barong': 'https://static.wikia.nocookie.net/megamitensei/images/1/14/Barong3.JPG/revision/latest/scale-to-width-down/350?cb=20190328174958',
         #avian
-        'Garuda': '',
+        'Garuda': 'https://static.wikia.nocookie.net/megamitensei/images/8/82/Garuda_%282%29.jpg/revision/latest/scale-to-width-down/325?cb=20190328225002',
         #deity
-        'Horus': '',
-        'Atavaka': '',
-        'Amaterasu': '',
-        'Odin': '',
-        'Mithra': '',
-        'Vishnu': '',
+        'Horus': 'https://static.wikia.nocookie.net/megamitensei/images/2/2b/KazumaKaneko-Horus.jpg/revision/latest/scale-to-width-down/350?cb=20090315020228',
+        'Atavaka': 'https://static.wikia.nocookie.net/megamitensei/images/2/2d/SMTIIAtavaka.png/revision/latest/scale-to-width-down/350?cb=20090513035957',
+        'Amaterasu': 'https://static.wikia.nocookie.net/megamitensei/images/4/4f/Amaterasu_%28Devil_Summoner_Art%29.png/revision/latest/scale-to-width-down/350?cb=20210821003120',
+        'Odin': 'https://static.wikia.nocookie.net/megamitensei/images/7/75/OdinKW.jpg/revision/latest/scale-to-width-down/322?cb=20080612231621',
+        'Mithra': 'https://static.wikia.nocookie.net/megamitensei/images/a/a4/MithraSMT3.jpg/revision/latest/scale-to-width-down/262?cb=20151130235513',
+        'Vishnu': 'https://static.wikia.nocookie.net/megamitensei/images/e/e8/Vishnu_%28Soul_Hackers_Art%29.png/revision/latest/scale-to-width-down/350?cb=20210703011829',
         #dragon
-        'Gui Xian': '',
-        'Long': '',
+        'Gui Xian': 'https://static.wikia.nocookie.net/megamitensei/images/c/c8/Genbu232.JPG/revision/latest/scale-to-width-down/309?cb=20190328230315',
+        'Long': 'https://static.wikia.nocookie.net/megamitensei/images/d/dc/Seiryu.JPG/revision/latest/scale-to-width-down/350?cb=20190328230357',
         #element
-        'Erthys': '',
-        'Aeros': '',
-        'Aquans': '',
-        'Flaemis': '',
+        'Erthys': 'https://static.wikia.nocookie.net/megamitensei/images/7/7b/EarthiesSMT2.jpg/revision/latest/scale-to-width-down/350?cb=20080806041550',
+        'Aeros': 'https://static.wikia.nocookie.net/megamitensei/images/4/44/Aeros2.jpg/revision/latest/scale-to-width-down/350?cb=20080806033020',
+        'Aquans': 'https://static.wikia.nocookie.net/megamitensei/images/6/64/Aquans2.jpg/revision/latest/scale-to-width-down/264?cb=20080806032351',
+        'Flaemis': 'https://static.wikia.nocookie.net/megamitensei/images/2/2f/FlamiesSMT.jpg/revision/latest/scale-to-width-down/319?cb=20080802001254',
         #mitama
-        'Ara Mitama': '',
-        'Nigi Mitama': '',
-        'Kusi Mitama': '',
-        'Saki Mitama': '',
+        'Ara Mitama': 'https://static.wikia.nocookie.net/megamitensei/images/f/f7/Ara_Mitama_%28Devil_Summoner_Art%29.png/revision/latest/scale-to-width-down/345?cb=20210821003118',
+        'Nigi Mitama': 'https://static.wikia.nocookie.net/megamitensei/images/0/0e/NigiMitamaP4.png/revision/latest/scale-to-width-down/350?cb=20190402144926',
+        'Kusi Mitama': 'https://static.wikia.nocookie.net/megamitensei/images/6/68/KusiMitamaP4.png/revision/latest/scale-to-width-down/350?cb=20190402144809',
+        'Saki Mitama': 'https://static.wikia.nocookie.net/megamitensei/images/d/dd/SakiMitamaP4.png/revision/latest/scale-to-width-down/350?cb=20190402144703',
         #entity
-        'Albion': '',
+        'Albion': 'https://static.wikia.nocookie.net/megamitensei/images/c/c1/AlbionandCo.jpg/revision/latest/scale-to-width-down/350?cb=20090405043841',
         #fury
-        'Dionysus': '',
-        'Wu Kong': '',
-        'Beiji-Weng': '',
-        'Shiva': '',
+        'Dionysus': 'https://static.wikia.nocookie.net/megamitensei/images/a/a2/Dionysius.jpg/revision/latest/scale-to-width-down/279?cb=20190328152501',
+        'Wu Kong': 'https://static.wikia.nocookie.net/megamitensei/images/3/3d/SeitenteiseiSMT.jpg/revision/latest/scale-to-width-down/350?cb=20080706003024',
+        'Beiji-Weng': 'https://static.wikia.nocookie.net/megamitensei/images/3/3a/Hokutoseikun-1-.jpg/revision/latest/scale-to-width-down/350?cb=20130825110711',
+        'Shiva': 'https://static.wikia.nocookie.net/megamitensei/images/4/45/Shiva2.JPG/revision/latest/scale-to-width-down/350?cb=20151130225129',
         #genma
-        'Kurama': '',
-        'Hanuman': '',
-        'Cu Chulainn': '',
+        'Kurama': 'https://static.wikia.nocookie.net/megamitensei/images/2/20/Kurama2.jpg/revision/latest/scale-to-width-down/350?cb=20080708185322',
+        'Hanuman': 'https://static.wikia.nocookie.net/megamitensei/images/f/fd/HanumanSMT.jpg/revision/latest/scale-to-width-down/255?cb=20080802034006',
+        'Cu Chulainn': 'https://static.wikia.nocookie.net/megamitensei/images/1/1c/CuChulainn2.jpg/revision/latest/scale-to-width-down/350?cb=20080708183926',
         #holy
-        'Shiisaa': '',
-        'Unicorn': '',
-        'Senri': '',
-        'Feng Huang': '',
-        'Baihu': '',
-        'Chimera': '',
+        'Shiisaa': 'https://static.wikia.nocookie.net/megamitensei/images/a/a1/ShiisaaDS.jpg/revision/latest/scale-to-width-down/350?cb=20190331161840',
+        'Unicorn': 'https://static.wikia.nocookie.net/megamitensei/images/5/53/UnicornSMT.jpg/revision/latest/scale-to-width-down/350?cb=20080801225707',
+        'Senri': 'https://static.wikia.nocookie.net/megamitensei/images/6/63/Senri_-_Nocturne.jpg/revision/latest/scale-to-width-down/350?cb=20080920172616',
+        'Feng Huang': 'https://static.wikia.nocookie.net/megamitensei/images/a/af/Suzaku.jpg/revision/latest/scale-to-width-down/350?cb=20190328230049',
+        'Baihu': 'https://static.wikia.nocookie.net/megamitensei/images/4/40/ByakkoSMT2.jpg/revision/latest/scale-to-width-down/350?cb=20080808014542',
+        'Chimera': 'https://static.wikia.nocookie.net/megamitensei/images/9/9b/Chimera2.JPG/revision/latest/scale-to-width-down/350?cb=20190328211529',
         #kishin
-        'Minakata': '',
-        'Zouchou': '',
-        'Koumoku': '',
-        'Okuninushi': '',
-        'Mikazuchi': '',
-        'Jikoku': '',
-        'Futomimi': '',
-        'Bishamon': '',
-        'Thor': '',
+        'Minakata': 'https://static.wikia.nocookie.net/megamitensei/images/0/06/Minakata.jpg/revision/latest/scale-to-width-down/316?cb=20080728203159',
+        'Zouchouten': 'https://static.wikia.nocookie.net/megamitensei/images/8/87/Zouchou.png/revision/latest/scale-to-width-down/346?cb=20080728210910',
+        'Koumokuten': 'https://static.wikia.nocookie.net/megamitensei/images/9/95/18_-_Komokuten.jpg/revision/latest/scale-to-width-down/350?cb=20120325011542',
+        'Okuninushi': 'https://static.wikia.nocookie.net/megamitensei/images/0/05/Okuninushi2.jpg/revision/latest/scale-to-width-down/205?cb=20190501013035',
+        'Mikazuchi': 'https://static.wikia.nocookie.net/megamitensei/images/1/1c/TakemikazuchiSMT.jpg/revision/latest/scale-to-width-down/309?cb=20080706004955',
+        'Jikokuten': 'https://static.wikia.nocookie.net/megamitensei/images/c/c0/P3Jikokuten.jpg/revision/latest/scale-to-width-down/313?cb=20090903054909',
+        'Futomimi': 'https://static.wikia.nocookie.net/megamitensei/images/1/16/SMT3Futomimi.png/revision/latest/scale-to-width-down/191?cb=20201118132550',
+        'Bishamonten': 'https://static.wikia.nocookie.net/megamitensei/images/2/23/Bishamonten.png/revision/latest/scale-to-width-down/350?cb=20090516182036',
+        'Thor': 'https://static.wikia.nocookie.net/megamitensei/images/2/23/Thor.jpg/revision/latest/scale-to-width-down/350?cb=20080613190606',
         #lady
         'Kikuri-Hime': '',
         'Kushinada': '',
@@ -1006,7 +1000,7 @@ class BlueAyaChan(commands.Bot):
     async def tsukihime_picture_sfw(self, ctx):
         global melty_tags
         tags = ["tsukihime", "melty_blood"]
-        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc"]
+        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako"]
         chat = str(ctx.content)
         msg = chat[10:].strip()
         if(msg.lower() in melty_tags.keys()):
@@ -1016,11 +1010,15 @@ class BlueAyaChan(commands.Bot):
             for i in melty_tags.keys():
                 keys.append(i)
             await ctx.send(f'{str(keys).strip("[").strip("]")}')
-        elif (msg.lower() == "-tags"):
+        elif(msg.lower() == "-tags"):
             tags = []
             for i in melty_tags.values():
                 tags.append(i)
             await ctx.send(f'{str(tags).strip("[").strip("]")}, nakadashi ;)')
+        elif(msg.lower() == "hisui drip"):
+            url = 'https://i.imgur.com/9oCJoKQ.png'
+            await ctx.send(f'' + url)
+            return
         if(msg.lower() in little_art):
             url = self.danbooru_picture_sfw(tags, limit_p=20, init_p=1)
         else:
@@ -1178,7 +1176,7 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(0, len(demon_names) - 1)
         #if(ctx.message[6:].lower() == 'gacha'):
         g_rand = random.randint(0, 101)
-        stars = 0
+        stars = 1
         if (g_rand >= 1 and g_rand <= 45):
             stars = 1
         elif (g_rand > 45 and g_rand <= 70):
@@ -1189,10 +1187,7 @@ class BlueAyaChan(commands.Bot):
             stars = 4
         elif (g_rand > 97 and g_rand <= 100):
             stars = 5
-        await ctx.send(f'{ctx.author.name} summoned a {stars}☆ {demon_names[rand]}!')
-
-       # await ctx.send(f'{ctx.author.name} summoned {demon_names[rand]}!')
-
+        await ctx.send(f'{ctx.author.name} summoned a {stars}☆ {demon_names[rand]}! {demons_nocturne[demon_names[rand]]}')
 
     # -------------------------------------------------------------------------------------------------------------#
     ##############################################   QUOTE COMMANDS   ##############################################
@@ -1398,7 +1393,7 @@ class BlueAyaChan(commands.Bot):
             print(f'file: channels.txt - opened as readonly+')
             for l in fin.readlines():
                 print(ch + '|' + l.strip())
-                if (ch == l.strip()):
+                if (ch.lower() == l.strip().lower()):
                     await ctx.send(f'' + ch + ' is already in the list of joined channels')
                     print(f'status: breaking loop')
                     print(f'file: channels.txt - closed')
