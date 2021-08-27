@@ -24,7 +24,7 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !melty - Gives you a new main in Melty Blood Actress Again Current Code
 * !melee - Gives you a new main in SSB Melee
 * !soku - Gives you a new main in Touhou 12.3 Hisoutensoku
-* !demongacha - Returns a random demon (currently only smt nocturne demons) of rarity 0 - 5 Stars
+* !demongacha - Returns a random demon (currently only smt nocturne demons) of rarity 1 - 5 Stars
 #### Misc/Quote
 * !cfb - Generates a random text string using 'c', 'f', and 'b'
 * !pasta - Returns a random copypasta (Has a 90 second timeout after each use on a "per-channel" basis)
@@ -44,6 +44,9 @@ It's pretty obvious, but this project was heavily inspired by bots that came bef
 * Frigbot by Flameberger
 
 These bots have all entertained me immensely over the years and I am very thankful to their creator's hard work to make such simple programs create such engaging user experiences.
+
+### Contribution
+Now that this has a repo I suppose I should actually clean up the codebase a bit and create some style guidelines. I will eventually get around to doing this as well as a detailed explanation of the file parsing formats and such. If you would like to help with the bot feel free to reach out and I'll start getting something together.
 
 ### Contact Me!
 [Twitch](https://www.twitch.tv/electra_RTA)
