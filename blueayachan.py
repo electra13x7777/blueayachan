@@ -690,18 +690,8 @@ class BlueAyaChan(commands.Bot):
     async def event_message(self, message):
         curtime = datetime.now()
         print(f'[' + str(curtime.strftime("%H:%M:%S")) + '] #' + str(message.channel) + " <" + message.author.name +">: " + message.content)
-        #if(message.author.name not in silenced):
         await self.handle_commands(message)
-        #else:
-        #    return
 
-    ''' new_msg = ''
-            i = 0
-            while(i < len(raw_msg)):
-                new_msg += raw_msg[i]
-                if(i % 80 == 0):
-                    new_msg += '\n'
-        '''
     '''################- C O M M A N D S -################'''
     '''
     @commands.command(name='test')
@@ -710,7 +700,7 @@ class BlueAyaChan(commands.Bot):
     '''
 
     '''
-    Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
+        Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
     '''
     @commands.command(name='cfb')
     async def cfb_string_gen(self, ctx):
@@ -733,27 +723,14 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + c_list[random.randint(0,len(c_list))] + ' ' + f_list[random.randint(0,len(f_list))] + ' ' + b_list[random.randint(0,len(b_list))])
 
     '''
-    Command: !grim 
-    TODO: fix this shit
-    '''
-    #@commands.command(name='grim_do_not_run')
-    async def grim(self, ctx):
-        grim_txt = open('grim2.txt', 'r')
-        grim_str = grim_txt.readlines()
-        grim_txt.close()
-        #print(grim_str[0:13])
-        await ctx.send(f'      ' + str(grim_str[0:5]))
-        #await ctx.send(f'' + str(grim_str[13:-1]))
-
-    '''
-    Command: !lunch - dumb meme
+        Command: !lunch - dumb meme
     '''
     @commands.command(name='lunch')
     async def lunch(self, ctx):
         await ctx.send(f'{ctx.author.name} is logging this chatroom! TheForkies')
 
     '''
-    Command: !carl - generates a random Carl Sagan name
+        Command: !carl - generates a random Carl Sagan name
     '''
     @commands.command(name='carl')
     async def carl(self, ctx):
@@ -762,12 +739,9 @@ class BlueAyaChan(commands.Bot):
 
 
     '''
-    Command: !pasta - posts a random copypasta
+        Command: !pasta - posts a random copypasta
     '''
     async def pasta(self, ctx):
-        '''def dt_to_float(dt):
-            timestamp = time.mktime(dt.timetuple()) + dt.microsecond / 1e6
-            return float(timestamp)'''
         global pasta_dict
         global pasta_str
         time_now = datetime.now()
@@ -800,44 +774,9 @@ class BlueAyaChan(commands.Bot):
                 await ctx.send(f'' + str(pasta_str[random.randint(0, len(pasta_str) - 1)]))
             return
 
-        #await asyncio.wait_for(timeout=60, fut=60)
-        #self.remove_check(pasta())
-
     @commands.command(name='pasta')
     async def runpasta(self, ctx):
         await asyncio.gather(self.pasta(ctx))
-        #task = self.remove_check(pasta(ctx))
-
-    '''
-    # async with async_timeout.timeout(60):
-    async def x(self,ctx):
-        with async_timeout.timeout(60):
-           await pasta(ctx)
-'''
-    #await async_timeout(60) #non clocking sleep for 1 minute
-
-    '''
-    Command: !pointsbetting
-    '''
-    #@commands.command(name='alert')
-    async def alert(self, ctx):
-        memetext = ['BOGGED GrimChamp REMEMBER TO VOTE NO SINCE THE STREAMER PLANS TO THROW THIS PREDICTION!!! GrimChamp BOGGED', 'REMEMBER TO VOTE YES SINCE THE STREAMER HOT ON HIS GAMING TONIGHT!!! WR BABY LETS HECKIN GO!!! TheLegendaryRonald TheDaily']
-        await ctx.send(f'ALERT ALERT!!!! THE PREDICTION TIMER HAS STARTED!!! GET THOSE PREDICTIONS IN!!! ' + str(memetext[random.randint(0,len(memetext))]))
-    '''
-    
-    '''
-    @commands.command(name='advertise_server_to_increase_brand_recognition')
-    async def advertise(self, ctx):
-        await ctx.send(f'!discord DataFace')
-
-    '''
-    
-    '''
-    #@commands.command(name='savecfb')
-    async def save_cfb(self, ctx):
-
-       #if()
-       await None
 
     '''
     Command: !mari - takes in a IRCstream and adds Marisa's flourishes to it
@@ -1220,18 +1159,6 @@ class BlueAyaChan(commands.Bot):
     # -------------------------------------------------------------------------------------------------------------#
     ##############################################   MISC COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
-    '''
-    '''
-    #@commands.command(name='shittytl')
-    async def shittytl(self, ctx):
-        tran = Translator()
-        text = ctx.content[9:]
-        t = tran.translate(text=str(text), src='en', dest='es')
-        t = tran.translate(text=str(text), src='es', dest='en')
-        t = tran.translate(text=str(text), src='en', dest='es')
-        #t2 = tran.translate([text=str(t), dest='en')
-        #t3 = tran.translate(text=str(t2), dest='es')
-        print(str(t))
 
     '''
         pyramid
@@ -1347,17 +1274,6 @@ class BlueAyaChan(commands.Bot):
     async def four_three_four(self, ctx):
         await ctx.send(f'https://twitter.com/LiquidSquid_/status/1215446601810042880?s=20')
 
-    '''
-    
-    '''
-    #@commands.command(name='furpost')
-    async def furry_yiffer_response_generator(self, ctx):
-        text=\
-        [
-            'hmmm pog'
-        ]
-        return
-
     #@commands.command(name="uptime")
     async def uptime(self, ctx):
         time_now = datetime.now()
@@ -1406,8 +1322,8 @@ class BlueAyaChan(commands.Bot):
             await ctx.send(f'' + ch + ' is now joined and added to the list of joined channels')
 
     '''
-    Command: joinch - adds channel to channels.txt and joins bot to 
-             channel if they are not in the file.
+    Command: channeladd - adds channel to channels.txt and joins bot to 
+             channel if they are not in the file. SUPERUSER ONLY
     '''
     @commands.command(name='channeladd')
     async def channeladd(self, ctx):
@@ -1433,7 +1349,7 @@ class BlueAyaChan(commands.Bot):
             return
 
     '''
-
+        Command: leavech - removes sender from channels.txt if they are in the list of channels.
     '''
     @commands.command(name='leavech')
     async def leavech(self, ctx):
@@ -1462,7 +1378,7 @@ class BlueAyaChan(commands.Bot):
                     await ctx.send(f'' + ch + ' is not in the list of joined channels')
 
     '''
-
+        Command: channelremove - removes user from channels.txt if they are in the list of channels. SUPERUSER ONLY
     '''
     @commands.command(name='channelremove')
     async def channelremove(self, ctx):
@@ -1498,11 +1414,7 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='commandlist')
     async def my_command(self, ctx):
-        await ctx.send(f'{ctx.author.name}, here are the current list of commands: "!cfb",'
-                       f' "!grim" (NOT WORKING), "!lunch", "!carl", "!pyramid" (DEAD), '
-                       f'"!mari <CHAT_MSG>", "!(aya, mari, tsuki, etrian, ame)pic", "!hornedanimegacha", "!etrian",'
-                       f' "!joinch, !channeladd {ctx.author.name}", "!leavech, !channelremove {ctx.author.name}",'
-                       f' and "!pasta"')
+        await ctx.send(f'{ctx.author.name}, here are the current commands https://github.com/electra13x7777/blueayachan#readme')
 
     '''
     
@@ -1518,23 +1430,19 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1545')
+                       f' Questionable lines of code: 1448')
 
 '''             
-
+    main function
 '''
 if(__name__ == '__main__'):
     print(f'Total Pastas: {str(len(pasta_str))}')
     print(f'Total HornedAnimes: {str(len(ha_list))}')
     print(f'Total Etrians: {str(len(eo_classes))}')
-    '''x=0
-    for i in pasta_str:
-        if ("claude" in i or "Claude" in i or "Clod" in i or "clod" in i):
-            x+=1
-    print(f'Number of Claude Pastas: {x}')
-    '''#with open('copypastas', 'w') as fin:
-        #for i in pasta_str:
-    #    fin.writelines(str(pasta_str))
-
+    print(f'Total Meltys: {str(len(melty_chars) * 3)}')
+    print(f'Total Melees: {str(len(melee_chars))}')
+    print(f'Total Sokus: {str(len(soku_chars))}')
+    print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1618')
     blueayachan = BlueAyaChan()
     blueayachan.run()
