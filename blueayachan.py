@@ -744,67 +744,6 @@ class BlueAyaChan(commands.Bot):
 #-------------------------------------------------------------------------------------------------------------#
 ############################################### PICTURE SCRAPING ##############################################
 #-------------------------------------------------------------------------------------------------------------#
-
-    '''
-    Command: !ayapic - Queries safebooru and returns a link to a picture of
-                       Aya Shameimaru
-    '''
-    @commands.command(name='ayapic')
-    async def aya_picture_sfw(self, ctx):
-        #global prev_url
-        #print(ctx.channel)
-        global plebfilter
-        #print(noayapic[0])
-        if(str(ctx.channel).strip() in plebfilter):
-            await ctx.send(f"too hot for #{ctx.channel}")
-            return
-
-        global backup_links
-        '''try:
-            loc_purl = prev_url.pop()
-        except:
-            IndexError
-            loc_purl=''
-        client = Danbooru(site_name='safebooru')
-        ''''''
-        '
-        randr = random.randint(1,6)
-        if(randr==1):
-            init_page = random.randint(1,50)
-        elif(randr==2):
-            init_page = random.randint(51,100)
-        elif(randr==3):
-            init_page = random.randint(101,150)
-        elif(randr==4):
-            init_page = random.randint(151,200)
-        else:
-            init_page = random.randint(201, 250)
-        '''
-        client = Danbooru(site_name='safebooru')
-        #client = Moebooru(site_name='konachan')
-        init_page = random.randint(2, 250)
-        rand = random.randint(1,21)
-        def get_img_url():
-            try:
-                ayapiclist = client.post_list(limit=1, page=init_page, tags=["shameimaru_aya"], rand=True, rating='safe')
-                print('Image queried from ' + client.site_name)
-            except:
-                commands.CommandError
-                print('Image query from ' + client.site_name + ' failed. Sending local pulled image link.')
-                url = str(backup_links[random.randint(0, len(backup_links) - 1)])
-                return url
-
-            #    ayapiclist = client.post_list(limit=1, page=init_page+1, tags="shameimaru_aya", rand=True, rating='safe')
-            print(ayapiclist)
-            #really fucking gross code to partition metadata down to a single url
-            url_str = str(ayapiclist).partition("'file_url':")[2]
-            urls = url_str.split(',')
-            print(urls)
-            url = urls[0].strip(" ").strip("'")
-            return url
-        url = get_img_url()
-        await ctx.send(f'' + url)
-
     '''
         Function: danbooru_picture_sfw
         Parameters: 
@@ -838,6 +777,15 @@ class BlueAyaChan(commands.Bot):
         while(url == ['']):
             url = get_img_url()
         return url
+
+    '''
+    Command: !ayapic - Queries safebooru and returns a link to a picture of
+                       Aya Shameimaru
+    '''
+    @commands.command(name='ayapic')
+    async def aya_picture_sfw(self, ctx):
+        url = self.danbooru_picture_sfw('shameimaru_aya')
+        await ctx.send(f'{url}')
 
     '''
         maripic for clod
@@ -907,6 +855,15 @@ class BlueAyaChan(commands.Bot):
     async def etrian_picture_sfw(self, ctx):
         tags = ["sekaiju_no_meikyuu"]
         url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=7)
+        await ctx.send(f'' + url)
+
+    '''
+        maypic for mal
+    '''
+    @commands.command(name='maypic')
+    async def may_gg_picture_sfw(self, ctx):
+        tags = ["may_(guilty_gear)"]
+        url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
     '''
@@ -1419,15 +1376,19 @@ class BlueAyaChan(commands.Bot):
         else:
             return
 
+    # -------------------------------------------------------------------------------------------------------------#
+    #########################################      INFO COMMANDS      ##############################################
+    # -------------------------------------------------------------------------------------------------------------#
+
     '''
-    Command: !commandlist
+        Command: !commandlist
     '''
     @commands.command(name='commandlist')
     async def my_command(self, ctx):
         await ctx.send(f'{ctx.author.name}, here are the current commands https://github.com/electra13x7777/blueayachan#readme')
 
     '''
-    
+        Command: !infodump - dumps relevant info to the bot's commands
     '''
     @commands.command(name='infodump')
     async def infodump(self, ctx):
@@ -1440,7 +1401,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1448')
+                       f' Questionable lines of code: 1419')
 
 '''             
     main function
