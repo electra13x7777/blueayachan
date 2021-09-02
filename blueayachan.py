@@ -361,7 +361,9 @@ melty_tags = \
         "nac":"nekoarc_chaos",
         "hisui":"hisui_(tsukihime)",
         "neco":"nekoarc",
-        "kohaku":"kohaku_(tsukihime)"
+        "kohaku":"kohaku_(tsukihime)",
+        #type lumina
+        "noel":"noel_(tsukihime)"
     }
 backup_links = \
     [
@@ -807,7 +809,7 @@ class BlueAyaChan(commands.Bot):
     async def tsukihime_picture_sfw(self, ctx):
         global melty_tags
         tags = ["tsukihime", "melty_blood"]
-        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako"]
+        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako", "noel"]
         chat = str(ctx.content)
         msg = chat[10:].strip()
         if(msg.lower() in melty_tags.keys()):
@@ -863,6 +865,15 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='maypic')
     async def may_gg_picture_sfw(self, ctx):
         tags = ["may_(guilty_gear)"]
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
+
+    '''
+        dizzypic for clod
+    '''
+    @commands.command(name='dizzypic')
+    async def dizzy_gg_picture_sfw(self, ctx):
+        tags = ["dizzy_(guilty_gear)"]
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
@@ -1241,6 +1252,9 @@ class BlueAyaChan(commands.Bot):
     async def laughing_pointright_strive(self, ctx):
         await ctx.send(f'😆 👉 Strive')
 
+    @commands.command(name='mal')
+    async def malrodin(self, ctx):
+        await ctx.send(f'shaking may-chan legs ｡◕‿◕｡ breathless may-chan moaning (◡‿◡✿) little may-chan body twitches (◕‿◕✿) curled may-chan toes (ღ˘⌣˘ღ) may-chan whimpering (✿ ‿) quivering may-chan lips and glossed over eyes (ﾉ´∀`) may-chan having squirmy little orgasms :.｡. o(≧▽≦)o .｡.:')
     #@commands.command(name="uptime")
     async def uptime(self, ctx):
         time_now = datetime.now()
@@ -1401,7 +1415,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1419')
+                       f' Questionable lines of code: 1433')
 
 '''             
     main function
