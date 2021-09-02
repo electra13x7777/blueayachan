@@ -18,6 +18,8 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !tsukipic - Queries safebooru and returns a link to a picture of a character from tsukihime/melty blood. Can search for specific characters using the keywords for different tags. Find kewords with `!tsukipic -keys`
 * !amepic - Queries safebooru and returns a link to a picture of Amelia Watson
 * !etrianpic - Queries safebooru and returns a link to a picture from Etrian Odyssey
+* !maypic - Queries safebooru and returns a link to a picture of May from Guilty Gear
+* !dizzypic - Queries safebooru and returns a link to a picture of Dizzy from Guilty Gear
 #### Gachas
 * !hornedanimegacha - Returns a random horned anime of rarity 0 - 5 Stars
 * !etrian - Returns an etrian class with witty flavor text
