@@ -175,16 +175,16 @@ cs_names = [
         "Trihex Brings Home My Bacon",
         "Matriarchy Malarkey",
         "Feminist Specialist",
-        "Immaculate Emasculate",  # we have opted to omit "Yessuh Massa Trihex"
+        "Immaculate Emasculate",
         "White Guilt Built",
         "Anita es Bonita",
         "Quinn Will Win",
         "Gate Is Hate",
         "Her Name Is Caitlyn",
         "Hilary Shillary",
-        "Redacted Holocaust 'Joke'", #"Six Million",  # we have also opted to omit "Hard On For Trayvon" as well as "Crown For Mike Brown"
+        "Redacted Holocaust 'Joke'",
         "Trigger Warning",
-        "Mighty Number 9 Backer",  # we have ALSO opted to omit "Freddie Gray Shall Have His Day"
+        "Mighty Number 9 Backer",
         "Gender Fluid Druid",
         "Bonafide White Genocide"
 ] # carl names | TODO: parse from file
@@ -365,6 +365,49 @@ melty_tags = \
         #type lumina
         "noel":"noel_(tsukihime)"
     }
+touhou_tags = \
+    {
+        #HRtP
+        "Reimu(pc98)": "hakurei_reimu_(pc-98)",
+        "Genji": "genjii_(touhou)",
+        "Shingyoku": "shingyoku_(touhou)",
+        "Yuugenmagan": "yuugenmagan",
+        "Elis": "elis_(touhou)",
+        "Sariel": "sariel_(touhou)",
+        "Mima": "mima_(touhou)",
+        "Kikuri": "kikuri_(touhou)",
+        "Konngara": "konngara_(touhou)",
+        #SoEW
+        "Rika": "rika_(touhou)",
+        "Noroiko": "noroiko",
+        "Meira": "meira_(touhou)",
+        "Marisa(pc98)": "kirisame_marisa_(pc-98)",
+        "Sigma": "evil_eye_sigma",
+        "Matenshi": "matenshi_(touhou)",
+        #PoDD
+        "Ellen": "ellen_(touhou)",
+        "Kotohime": "kotohime_(touhou)",
+        "Kanna": "kana_anaberal",
+        "Rikako": "asakura_rikako",
+        "Chiyuri": "kitashirakawa_chiyuri",
+        "Yumemi": "okazaki_yumemi",
+        #LLS
+        "Orange": "orange_(touhou)",
+        "Kurumi": "kurumi_(touhou)",
+        "Elly": "elly_(touhou)",
+        "Yuuka(pc98)": "kazami_yuuka_(pc-98)",
+        "Mugetsu": "mugetsu_(touhou)",
+        "Gengetsu": "gengetsu_(touhou)",
+        #MS
+        "Sara": "sara_(touhou)",
+        "Louise": "louise_(touhou)",
+        "Alice(pc98)": "alice_margatroid_(pc-98)",
+        "Yuki": "yuki_(touhou)",
+        "Mai": "mai_(touhou)",
+        "Yumeko": "yumeko_(touhou)",
+        "Shinki": "shinki_(touhou)",
+        "Trump": "trump_king"
+    }
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -529,50 +572,51 @@ demons_nocturne = \
         'Bishamonten': 'https://static.wikia.nocookie.net/megamitensei/images/2/23/Bishamonten.png',
         'Thor': 'https://static.wikia.nocookie.net/megamitensei/images/2/23/Thor.jpg',
         #lady
-        'Kikuri-Hime': '',
-        'Kushinada': '',
-        'Parvati': '',
-        'Kali': '',
-        'Skadi': '',
+        'Kikuri-Hime': 'https://static.wikia.nocookie.net/megamitensei/images/9/9c/Kikuri-hime.jpg',
+        'Kushinada': 'https://static.wikia.nocookie.net/megamitensei/images/3/38/Kushinada.jpg',
+        'Parvati': 'https://static.wikia.nocookie.net/megamitensei/images/7/77/Parvati.jpg',
+        'Kali': 'https://static.wikia.nocookie.net/megamitensei/images/b/be/Kali2.JPG',
+        'Skadi': 'https://static.wikia.nocookie.net/megamitensei/images/9/9c/KazumaKaneko-Skadi.jpg',
         #megami
-        'Uzume': '',
-        'Sarasvati': '',
-        'Sati': '',
-        'Lakshmi': '',
-        'Scathach': '',
+        'Uzume': 'https://static.wikia.nocookie.net/megamitensei/images/6/6a/Uzume.jpg',
+        'Sarasvati': 'https://static.wikia.nocookie.net/megamitensei/images/5/51/Sarasvati.jpg',
+        'Sati': 'https://static.wikia.nocookie.net/megamitensei/images/1/18/Sati.jpg',
+        'Lakshmi': 'https://static.wikia.nocookie.net/megamitensei/images/3/37/1674255-lakshmi.jpg',
+        'Scathach': 'https://static.wikia.nocookie.net/megamitensei/images/5/5b/1150253-scathach.png',
         #seraph
-        'Uriel': '',
-        'Raphael': '',
-        'Gabriel': '',
-        'Michael': '',
-        'Metatron': '',
+        'Uriel': 'https://static.wikia.nocookie.net/megamitensei/images/c/c9/UrielSMT2.jpg',
+        'Raphael': 'https://static.wikia.nocookie.net/megamitensei/images/8/84/RaphaelSMT2.jpg',
+        'Gabriel': 'https://static.wikia.nocookie.net/megamitensei/images/5/5f/GabrielSMT2.jpg',
+        'Michael': 'https://static.wikia.nocookie.net/megamitensei/images/5/54/MichaelSMT2.jpg',
+        'Metatron': 'https://static.wikia.nocookie.net/megamitensei/images/4/45/MetatronSH.JPG',
         #wargod
-        'Valkyrie': '',
-        'Ganesha': '',
+        'Valkyrie': 'https://static.wikia.nocookie.net/megamitensei/images/e/ee/Valkyrie_%28DSSH_Art%29.png',
+        'Ganesha': 'https://static.wikia.nocookie.net/megamitensei/images/e/e1/GaneshaSMT.jpg',
         #beast
-        'Inugami': '',
-        'Nekomata': '',
-        'Babd Catha': '',
-        'Orthrus': '',
-        'Sparna': '',
-        'Cerberus': '',
+        'Inugami': 'https://static.wikia.nocookie.net/megamitensei/images/1/1a/478_-_Inugami.jpg',
+        'Nekomata': 'https://static.wikia.nocookie.net/megamitensei/images/7/71/NekomataSMT3.jpg',
+        'Babd Catha': 'https://static.wikia.nocookie.net/megamitensei/images/9/90/BadbCathaSMT.jpg',
+        'Orthrus': 'https://static.wikia.nocookie.net/megamitensei/images/1/1a/Orthrus.jpg',
+        'Sparna': 'https://static.wikia.nocookie.net/megamitensei/images/2/2a/SparnaSMT2.jpg',
+        'Cerberus': 'https://static.wikia.nocookie.net/megamitensei/images/a/a7/Cerberus2.JPG',
         #brute
-        'Shikigami': '',
-        'Momunofu': '',
-        'Oni': '',
-        'Shiki-Ouji': '',
-        'Kin-Ki': '',
-        'Sui-Ki': '',
-        'Fuu-Ki': '',
-        'Ongyo-Ki': '',
+        'Shikigami': 'https://static.wikia.nocookie.net/megamitensei/images/9/9f/Shikigami.jpg',
+        'Momunofu': 'https://static.wikia.nocookie.net/megamitensei/images/6/62/MomunofuSMT.jpg',
+        'Oni': 'https://static.wikia.nocookie.net/megamitensei/images/a/a7/Oni.jpg',
+        'Ikusa': 'https://static.wikia.nocookie.net/megamitensei/images/c/ce/IkusaSMTIII.jpg',
+        'Shiki-Ouji': 'https://static.wikia.nocookie.net/megamitensei/images/9/96/Shiki-OujiSMTN.jpg',
+        'Kin-Ki': 'https://static.wikia.nocookie.net/megamitensei/images/e/e8/Kin-ki.jpg',
+        'Sui-Ki': 'https://static.wikia.nocookie.net/megamitensei/images/1/13/Sui-ki.jpg',
+        'Fuu-Ki': 'https://static.wikia.nocookie.net/megamitensei/images/d/d1/Fuu-ki.jpg',
+        'Ongyo-Ki': 'https://static.wikia.nocookie.net/megamitensei/images/c/ce/Ongyo-ki.jpg',
         #divine
-        'Angel': '',
-        'Archangel': '',
-        'Principality': '',
-        'Power': '',
-        'Virtue': '',
-        'Dominion': '',
-        'Throne': '',
+        'Angel': 'https://static.wikia.nocookie.net/megamitensei/images/8/83/Angel.png',
+        'Archangel': 'https://static.wikia.nocookie.net/megamitensei/images/1/19/Archangel_%28Devil_Summoner_Art%29.png',
+        'Principality': 'https://static.wikia.nocookie.net/megamitensei/images/e/ee/Principality.jpg',
+        'Power': 'https://static.wikia.nocookie.net/megamitensei/images/e/e4/PowerDS.jpg',
+        'Virtue': 'https://static.wikia.nocookie.net/megamitensei/images/9/98/Virtue_%28Devil_Summoner_Art%29.png',
+        'Dominion': 'https://static.wikia.nocookie.net/megamitensei/images/f/f5/1540636-dominion.jpg',
+        'Throne': 'https://static.wikia.nocookie.net/megamitensei/images/e/e2/ThroneDS.jpg',
         #fairy
         'Pixie': '',
         'Jack Frost': '',
@@ -786,8 +830,36 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='ayapic')
     async def aya_picture_sfw(self, ctx):
-        url = self.danbooru_picture_sfw('shameimaru_aya')
-        await ctx.send(f'{url}')
+        global backup_links
+        client = Danbooru(site_name='safebooru')
+        # client = Moebooru(site_name='konachan')
+        init_page = random.randint(2, 250)
+        rand = random.randint(1, 21)
+
+        def get_img_url():
+            try:
+                ayapiclist = client.post_list(limit=1, page=init_page, tags=["shameimaru_aya"], rand=True,
+                                              rating='safe')
+                print('Image queried from ' + client.site_name)
+            except:
+                commands.CommandError
+                print('Image query from ' + client.site_name + ' failed. Sending local pulled image link.')
+                url = str(backup_links[random.randint(0, len(backup_links) - 1)])
+                return url
+
+            #    ayapiclist = client.post_list(limit=1, page=init_page+1, tags="shameimaru_aya", rand=True, rating='safe')
+            print(ayapiclist)
+            # really fucking gross code to partition metadata down to a single url
+            url_str = str(ayapiclist).partition("'file_url':")[2]
+            urls = url_str.split(',')
+            print(urls)
+            url = urls[0].strip(" ").strip("'")
+            return url
+
+        url = get_img_url()
+        await ctx.send(f'' + url)
+        #url = self.danbooru_picture_sfw('shameimaru_aya')
+        #await ctx.send(f'{url}')
 
     '''
         maripic for clod
@@ -834,6 +906,22 @@ class BlueAyaChan(commands.Bot):
             url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
+    '''
+        2hupic for EVERYONE
+    '''
+    @commands.command(name='touhoupic')
+    async def touhou_picture_sfw(self, ctx):
+        global touhou_tags
+        tags = ['touhou']
+        chat = str(ctx.content)
+        msg = chat[11:].strip()
+        keys = touhou_tags.keys()
+        for i in keys:
+            i.lower()
+        if (msg.lower() in keys):
+            tags.append(touhou_tags[msg.lower()])
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
     '''
         amepic for amy
     '''
