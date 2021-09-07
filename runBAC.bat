@@ -1,0 +1,1 @@
+C:\Users\alexf\PycharmProjects\blueayachan\venv\Scripts\python.exe C:\Users\alexf\PycharmProjects\blueayachan\blueayachan.py

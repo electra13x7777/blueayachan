@@ -22,7 +22,8 @@ import asyncio
 
 last_pasta_call = datetime.now()
 
-ha_list = [
+ha_list = \
+    [
             "HornedAnime",
             "CornedAnime",
             "PiratedAnime",
@@ -56,7 +57,8 @@ ha_list = [
             "HornedAnimeWithAnimeDreamingOfWRSleepingBehindHerHorns",
             "HornedGrimChamp"
 ] #horned animes | TODO: parse from file
-pasta_str = [
+pasta_str = \
+    [
             'Hey TheClaude sorry to bother you. When you said "FFMQ sub2 is impossible" do you mean you speedrun the game, or are you a mod on speedrun.com and never see sub-2 runs submitted? Just curious =)',
             "Hey TheClaude sorry to bother you. When you said" + '"1.3 is finished"' + " do you mean you completed the game, or are you the creator of 1.3 and that's an old message? Just curious =)",
             "Hey claude. I see youre already up 3 minutes. What new gameshark code/" + '"route change"' + " are you using this time?",
@@ -162,7 +164,8 @@ pasta_str = [
             f"All of my previous and upcoming records in DKC are fraudulent. This is the unmistakable truth. I have chosen of my own free will to admit fraud and be permanently banned from the SRC, so I have no intention of further developing the story.",
             f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!"
     ] #copypastas | TODO: parse from file THIS IS URGENT
-cs_names = [
+cs_names = \
+    [
         "White Knight From The Weeb Fright",
         "No Whore Shall Suffer Word Gore",
         "Fedora Over My Menorah",
@@ -618,78 +621,78 @@ demons_nocturne = \
         'Dominion': 'https://static.wikia.nocookie.net/megamitensei/images/f/f5/1540636-dominion.jpg',
         'Throne': 'https://static.wikia.nocookie.net/megamitensei/images/e/e2/ThroneDS.jpg',
         #fairy
-        'Pixie': '',
-        'Jack Frost': '',
-        'High Pixie': '',
-        'Pyro Jack': '',
-        'Kelpie': '',
-        'Troll': '',
-        'Setanta': '',
-        'Oberon': '',
-        'Titania': '',
+        'Pixie': 'https://static.wikia.nocookie.net/megamitensei/images/5/59/PixieSMT3.jpg',
+        'Jack Frost': 'https://static.wikia.nocookie.net/megamitensei/images/4/4b/Jack_frost_transparent.png',
+        'High Pixie': 'https://static.wikia.nocookie.net/megamitensei/images/f/f5/Smt2highpixie.jpg',
+        'Pyro Jack': 'https://static.wikia.nocookie.net/megamitensei/images/3/35/PyrojackDS.jpg',
+        'Kelpie': 'https://static.wikia.nocookie.net/megamitensei/images/3/37/Kelpie.jpg',
+        'Troll': 'https://static.wikia.nocookie.net/megamitensei/images/8/85/Troll2.jpg',
+        'Setanta': 'https://static.wikia.nocookie.net/megamitensei/images/3/34/Setanta.jpg',
+        'Oberon': 'https://static.wikia.nocookie.net/megamitensei/images/c/cc/541_-_Oberon.jpg',
+        'Titania': 'https://static.wikia.nocookie.net/megamitensei/images/f/fe/TitaniaSMT2.jpg',
         #fallen
-        'Forneus': '',
-        'Eligor': '',
-        'Berith': '',
-        'Ose': '',
-        'Decarabia': '',
-        'Flauros': '',
+        'Forneus': 'https://static.wikia.nocookie.net/megamitensei/images/c/ce/549_-_Forneus.jpg',
+        'Eligor': 'https://static.wikia.nocookie.net/megamitensei/images/0/0f/KWEligor.jpg',
+        'Berith': 'https://static.wikia.nocookie.net/megamitensei/images/e/e4/BerithSMT.jpg',
+        'Ose': 'https://static.wikia.nocookie.net/megamitensei/images/0/01/NOse.jpg',
+        'Decarabia': 'https://static.wikia.nocookie.net/megamitensei/images/c/c9/548_-_Decarabia.jpg',
+        'Flauros': 'https://static.wikia.nocookie.net/megamitensei/images/8/8c/545_-_Flauros.jpg',
         #femme
-        'Datsue-Ba': '',
-        'Taraka': '',
-        'Shikiome': '',
-        'Yaksini': '',
-        'Dakini': '',
-        'Clotho': '',
-        'Lachesis': '',
-        'Atropos': '',
-        'Rangda': '',
+        'Datsue-Ba': 'https://static.wikia.nocookie.net/megamitensei/images/d/d2/DatsueBa.jpg',
+        'Taraka': 'https://static.wikia.nocookie.net/megamitensei/images/6/65/NTaraka.jpg',
+        'Shikiome': 'https://static.wikia.nocookie.net/megamitensei/images/c/c6/Yomotsu-Shikome.png',
+        'Yaksini': 'https://static.wikia.nocookie.net/megamitensei/images/c/c5/YaksiniSMT.jpg',
+        'Dakini': 'https://static.wikia.nocookie.net/megamitensei/images/7/75/Dakini.jpg',
+        'Clotho': 'https://static.wikia.nocookie.net/megamitensei/images/9/9c/Clotho2.jpg',
+        'Lachesis': 'https://static.wikia.nocookie.net/megamitensei/images/d/db/Lachesis2.jpg',
+        'Atropos': 'https://static.wikia.nocookie.net/megamitensei/images/9/91/Atropos2.jpg',
+        'Rangda': 'https://static.wikia.nocookie.net/megamitensei/images/5/56/Rangda.jpg',
         #jirae
-        'Kodama': '',
-        'Hua Po': '',
-        'Sudama': '',
-        'Sarutahiko': '',
-        'Titan': '',
-        'Gogmagog': '',
+        'Kodama': 'https://static.wikia.nocookie.net/megamitensei/images/8/80/180px-Kodama.jpg',
+        'Hua Po': 'https://static.wikia.nocookie.net/megamitensei/images/2/2e/HuaPo.jpg',
+        'Sudama': 'https://static.wikia.nocookie.net/megamitensei/images/e/e4/Sudama.jpg',
+        'Sarutahiko': 'https://static.wikia.nocookie.net/megamitensei/images/2/2c/Sarutahiko.jpg',
+        'Titan': 'https://static.wikia.nocookie.net/megamitensei/images/d/db/Titan.jpg',
+        'Gogmagog': 'https://static.wikia.nocookie.net/megamitensei/images/d/d5/Gog_Magog.jpg',
         #night
-        'Lilim': '',
-        'Fomor': '',
-        'Incubus': '',
-        'Succubus': '',
-        'Kaiwan': '',
-        'Loa': '',
-        'Queen Mab': '',
-        'Black Frost': '',
-        'Nyx': '',
-        'Lilith': '',
+        'Lilim': 'https://static.wikia.nocookie.net/megamitensei/images/b/ba/Lilim.jpg',
+        'Fomor': 'https://static.wikia.nocookie.net/megamitensei/images/1/13/Fomor.jpg',
+        'Incubus': 'https://static.wikia.nocookie.net/megamitensei/images/f/fb/Incubus_%28DSSH_Art%29.png',
+        'Succubus': 'https://static.wikia.nocookie.net/megamitensei/images/2/26/Succubus2.JPG',
+        'Kaiwan': 'https://static.wikia.nocookie.net/megamitensei/images/0/0d/Kaiwan.jpg',
+        'Loa': 'https://static.wikia.nocookie.net/megamitensei/images/7/7b/LoaSMT.jpg',
+        'Queen Medb': 'https://static.wikia.nocookie.net/megamitensei/images/6/62/QueenMab2.jpg',
+        'Black Frost': 'https://static.wikia.nocookie.net/megamitensei/images/9/9e/BlackFrostSMT3.jpg',
+        'Nyx': 'https://static.wikia.nocookie.net/megamitensei/images/d/d8/NyxSMT2.jpg',
+        'Lilith': 'https://static.wikia.nocookie.net/megamitensei/images/a/a0/NLilith.jpg',
         #snake
-        'Nozuchi': '',
-        'Naga': '',
-        'Mizuchi': '',
-        'Raja Naga': '',
-        'Quetzalcoatl': '',
-        'Yurlungur': '',
+        'Nozuchi': 'https://static.wikia.nocookie.net/megamitensei/images/9/91/Nozuchi.jpg',
+        'Naga': 'https://static.wikia.nocookie.net/megamitensei/images/3/35/Naga.png',
+        'Mizuchi': 'https://static.wikia.nocookie.net/megamitensei/images/f/f0/MizuchiSMTIII.jpg',
+        'Raja Naga': 'https://static.wikia.nocookie.net/megamitensei/images/a/a0/RajaNagaSMT.jpg',
+        'Quetzalcoatl': 'https://static.wikia.nocookie.net/megamitensei/images/5/58/Quetzalcoatl_2.jpg',
+        'Yurlungur': 'https://static.wikia.nocookie.net/megamitensei/images/4/41/Yurlungur.jpg',
         #yoma
-        'Apsaras': '',
-        'Isora': '',
-        'Koppa': '',
-        'Dis': '',
-        'Karasu': '',
-        'Onkot': '',
-        'Jinn': '',
-        'Purski': '',
-        'Efreet': '',
+        'Apsaras': 'https://static.wikia.nocookie.net/megamitensei/images/6/60/ApsarasP4.png',
+        'Isora': 'https://static.wikia.nocookie.net/megamitensei/images/b/bc/Imagine-Isora.jpg',
+        'Koppa': 'https://static.wikia.nocookie.net/megamitensei/images/7/70/Koppa_Tengu_-_Nocturne.jpg',
+        'Dis': 'https://static.wikia.nocookie.net/megamitensei/images/3/3d/Dis.jpg',
+        'Karasu': 'https://static.wikia.nocookie.net/megamitensei/images/d/db/KarasuKanekoWorksIII.jpg',
+        'Onkot': 'https://static.wikia.nocookie.net/megamitensei/images/6/69/OngkotSMT.jpg',
+        'Jinn': 'https://static.wikia.nocookie.net/megamitensei/images/0/0c/JinnSMT2.jpg',
+        'Purski': 'https://static.wikia.nocookie.net/megamitensei/images/8/84/Purski2.jpg',
+        'Ifrit': 'https://static.wikia.nocookie.net/megamitensei/images/f/f9/Ifrit_%28MTII_Art%29.png',
         #fiend
-        'Matador': '',
-        'Daisoujou': '',
-        'Hell Biker': '',
-        'White Rider': '',
-        'Red Rider': '',
-        'Black Rider': '',
-        'Pale Rider': '',
-        'The Harlot': '',
-        'Trumpeter': '',
-        'Dante From The Devil May Cry Series': '',
+        'Matador': 'https://static.wikia.nocookie.net/megamitensei/images/d/d6/KazumaKaneko-Matador.jpg',
+        'Daisoujou': 'https://static.wikia.nocookie.net/megamitensei/images/0/0b/SMT-Daisoujou.jpg',
+        'Hell Biker': 'https://static.wikia.nocookie.net/megamitensei/images/9/9b/447.jpg',
+        'White Rider': 'https://static.wikia.nocookie.net/megamitensei/images/5/50/White_Rider.jpg',
+        'Red Rider': 'https://static.wikia.nocookie.net/megamitensei/images/a/a4/RedRider2.jpg',
+        'Black Rider': 'https://static.wikia.nocookie.net/megamitensei/images/9/9d/BlackRider2.jpg',
+        'Pale Rider': 'https://static.wikia.nocookie.net/megamitensei/images/6/6c/PaleRider2.jpg',
+        'Mother Harlot': 'https://static.wikia.nocookie.net/megamitensei/images/3/39/MotherHarlot.jpg',
+        'Trumpeter': 'https://static.wikia.nocookie.net/megamitensei/images/d/d6/TrumpeterP4.jpg',
+        'Dante From The Devil May Cry Series': 'https://static.wikia.nocookie.net/megamitensei/images/f/f7/DanteRender.png',
     }
 superuser = \
     [
@@ -944,7 +947,7 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='etrianpic')
     async def etrian_picture_sfw(self, ctx):
         tags = ["sekaiju_no_meikyuu"]
-        url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=7)
+        url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
 
     '''
@@ -1343,6 +1346,7 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='mal')
     async def malrodin(self, ctx):
         await ctx.send(f'shaking may-chan legs ｡◕‿◕｡ breathless may-chan moaning (◡‿◡✿) little may-chan body twitches (◕‿◕✿) curled may-chan toes (ღ˘⌣˘ღ) may-chan whimpering (✿ ‿) quivering may-chan lips and glossed over eyes (ﾉ´∀`) may-chan having squirmy little orgasms :.｡. o(≧▽≦)o .｡.:')
+
     #@commands.command(name="uptime")
     async def uptime(self, ctx):
         time_now = datetime.now()
@@ -1487,7 +1491,8 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='commandlist')
     async def my_command(self, ctx):
-        await ctx.send(f'{ctx.author.name}, here are the current commands https://github.com/electra13x7777/blueayachan#readme')
+        await ctx.send(f'{ctx.author.name}, '
+                       f'here are the current commands https://github.com/electra13x7777/blueayachan#readme')
 
     '''
         Command: !infodump - dumps relevant info to the bot's commands
