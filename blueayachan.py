@@ -336,7 +336,7 @@ soku_chars = \
         "Aya",
         "Iku",
         "Tenshi",
-        "Giant Catfish",
+        "Giant Catfish"
 
     ]
 melty_tags = \
@@ -833,6 +833,9 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='ayapic')
     async def aya_picture_sfw(self, ctx):
+        if (str(ctx.channel).strip() == "mpghappiness"):
+            await ctx.send(f"too hot for #{ctx.channel}")
+            return
         global backup_links
         client = Danbooru(site_name='safebooru')
         # client = Moebooru(site_name='konachan')
@@ -882,6 +885,9 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='tsukipic')
     async def tsukihime_picture_sfw(self, ctx):
+        if (str(ctx.channel).strip() == "mpghappiness"):
+            await ctx.send(f"too hot for #{ctx.channel}")
+            return
         global melty_tags
         tags = ["tsukihime", "melty_blood"]
         little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako", "noel"]
@@ -965,6 +971,15 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='dizzypic')
     async def dizzy_gg_picture_sfw(self, ctx):
         tags = ["dizzy_(guilty_gear)"]
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
+
+    '''
+        idolpic
+    '''
+    @commands.command(name='idolpic')
+    async def idol_pic_sfw(self, ctx):
+        tags = ['love_live!']
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
@@ -1508,7 +1523,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1433')
+                       f' Questionable lines of code: 1531')
 
 '''             
     main function
