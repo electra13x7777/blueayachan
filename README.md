@@ -15,11 +15,13 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 #### Image Scraping
 * !ayapic -  Queries safebooru and returns a link to a picture of Aya Shameimaru
 * !maripic - Queries safebooru and returns a link to a picture of Marisa Kirisame
+* !touhoupic - Queries safebooru and returns a link to a picture of a character from the Touhou™ series
 * !tsukipic - Queries safebooru and returns a link to a picture of a character from tsukihime/melty blood. Can search for specific characters using the keywords for different tags. Find kewords with `!tsukipic -keys`
 * !amepic - Queries safebooru and returns a link to a picture of Amelia Watson
 * !etrianpic - Queries safebooru and returns a link to a picture from Etrian Odyssey
 * !maypic - Queries safebooru and returns a link to a picture of May from Guilty Gear
 * !dizzypic - Queries safebooru and returns a link to a picture of Dizzy from Guilty Gear
+* !idolpic - gets you an idol. i really don't know much about that stuff... 
 #### Gachas
 * !hornedanimegacha - Returns a random horned anime of rarity 0 - 5 Stars
 * !etrian - Returns an etrian class with witty flavor text
@@ -27,6 +29,8 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !melee - Gives you a new main in SSB Melee
 * !soku - Gives you a new main in Touhou 12.3 Hisoutensoku
 * !demongacha - Returns a random demon (currently only smt nocturne demons) of rarity 1 - 5 Stars
+#### Music
+* !etrianost - Sends a link to a random song from Etrian Odyssey and sends the title to the song
 #### Misc/Quote
 * !cfb - Generates a random text string using 'c', 'f', and 'b'
 * !pasta - Returns a random copypasta (Has a 90 second timeout after each use on a "per-channel" basis)

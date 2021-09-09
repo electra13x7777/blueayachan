@@ -1,27 +1,29 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
+Date Published: 09/01/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
-#import async_timeout
-#import twitchio.dataclasses
+
 from twitchio.ext import commands
-#from twitchio.ext import
 from pybooru import Danbooru, Moebooru
-#from googletrans import Translator
 from datetime import datetime, timedelta
 import random
 import asyncio
 #import time
 #import re
 #import os
+#import async_timeout
+#import twitchio.dataclasses
+#from twitchio.ext import
+#from googletrans import Translator
 
 # -------------------------------------------------------------------------------------------------------------#
 #################################################### GLOBALS ###################################################
 # -------------------------------------------------------------------------------------------------------------#
 
 last_pasta_call = datetime.now()
-
+# Lists
 ha_list = \
     [
             "HornedAnime",
@@ -162,7 +164,8 @@ pasta_str = \
             f" t ｈｅｎ ｉ ｓｅｅ ｋｏｒｏｎｅ， ｍｙ ｈａｎｄ ａｕｔｏｍａｔｉｃａｌｌｙ ｇｏ ｔｏ ｔｈｅ ｄｉｃｋ． ｉ ｓｔｒｏｋｅ ｔｈｅ ｄｉｃｋ ａｎｄ ｆｅｅｌ ｉ ｈａｖｅ ｓｅｘ ｗｉｔｈ ｔｈｅ ｋｏｒｏｎｅ． ａｌｌ ｂｅｃｏｍｉｎｇ ＳＥＸしましょう",
             f"Yes I am in love with Amelia Watson, now you may say to me "'"'"isn't she just a fictional character?"'"'" well that is were you wrong by virtue of being a vtuber she is a real person with a fictional overlay, I dont like Amelia watson the character I love Amelia Watsion the person. I love the way she laughs, how she gets angry, her love for her pets and her inventive stream ideas. I love that she always tries her best and has fun while doing it.",
             f"All of my previous and upcoming records in DKC are fraudulent. This is the unmistakable truth. I have chosen of my own free will to admit fraud and be permanently banned from the SRC, so I have no intention of further developing the story.",
-            f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!"
+            f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!",
+            f"I'm currently working on my PhD in Human Psychology and I'm in the middle of completing a research project. My working theory is that cloth activates mechanoreceptors in your chest, thus raising your heartrate, making you more likely to lost focus on common tasks. It would really help my studies if you could disrobe yourself during the stream to see if you feel more clear headed. I promise I won't look at your webcam."
     ] #copypastas | TODO: parse from file THIS IS URGENT
 cs_names = \
     [
@@ -339,6 +342,72 @@ soku_chars = \
         "Giant Catfish"
 
     ]
+
+backup_links = \
+    [
+        f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
+        f'https://danbooru.donmai.us/data/original/fa/bb/fabb65e4dbf6a6af37680fdb7cecfad9.jpg',
+        f'https://konachan.com/image/0c9c4bdc5f8e5d671bda3bc58c3631f2/Konachan.com%20-%20201535%202girls%20clouds%20fan%20hat%20inubashiri_momiji%20izumi4195202%20japanese_clothes%20katana%20miko%20shameimaru_aya%20sky%20socks%20sword%20thighhighs%20touhou%20weapon%20wolfgirl.jpg',
+        f'https://konachan.com/image/74372dc58d1e627ff66ff1e91e69cc40/Konachan.com%20-%20234089%20black_hair%20building%20dress%20kneehighs%20mifuru%20petals%20pointed_ears%20shameimaru_aya%20short_hair%20touhou.jpg',
+        f'https://konachan.com/image/bfc2fc102119e19131bc864e88535a74/Konachan.com%20-%20208397%20chen%20cirno%20dahuang%20doll%20fairy%20food%20foxgirl%20group%20hat%20hourai%20maid%20mask%20miko%20myon%20nazrin%20rope%20rumia%20seiran%20skirt%20su-san%20touhou%20vampire%20wings%20wolfgirl.jpg',
+        f'https://konachan.com/image/0c00a308521e5f61d09a99ede9d56397/Konachan.com%20-%20263550%20barefoot%20brown_hair%20fallen_heaven%20flowers%20grass%20hat%20red_eyes%20ribbons%20shameimaru_aya%20short_hair%20skirt%20touhou.jpg',
+        f'https://konachan.com/image/0c00a308521e5f61d09a99ede9d56397/Konachan.com%20-%20263550%20barefoot%20brown_hair%20fallen_heaven%20flowers%20grass%20hat%20red_eyes%20ribbons%20shameimaru_aya%20short_hair%20skirt%20touhou.jpg',
+        f'https://danbooru.donmai.us/data/original/3e/35/3e35157038858361547d135cf3c27b1a.png',
+        f'https://danbooru.donmai.us/data/original/0b/b8/0bb848217217d6e60c7c1a07caaf6df3.jpg',
+        f'https://konachan.com/image/6316f2b34e68e3d8aeb184e9605c0dde/Konachan.com%20-%20231622%20bow%20braids%20brown_eyes%20brown_hair%20dress%20drink%20food%20forest%20group%20hat%20horns%20long_hair%20miko%20night%20pink_hair%20skirt%20tie%20touhou%20tree%20twintails%20wings.png',
+        f'https://konachan.com/image/9f71b66be8e29b70d963d3865cc6dbb5/Konachan.com%20-%20256833%20aliasing%20autumn%20black_hair%20cibo_%28killy%29%20gloves%20kneehighs%20leaves%20orange_eyes%20pointed_ears%20ribbons%20short_hair%20skirt%20touhou%20tree%20watermark%20wings.png',
+        f'https://konachan.com/image/e1c3464a7e2aa1cf6204187d9fa7d891/Konachan.com%20-%20190421%20hat%20nyuu_%28manekin-eko%29%20orange%20shameimaru_aya%20short_hair%20skirt%20touhou%20translation_request%20wings.jpg',
+        f'https://konachan.com/image/b465107c9ef33c03bb7218f740661d08/Konachan.com%20-%20185777%20black_hair%20fan%20feathers%20hat%20niwashi_%28yuyu%29%20panties%20red_eyes%20shameimaru_aya%20short_hair%20skirt%20sky%20thighhighs%20tie%20touhou%20underwear%20upskirt%20wings.jpg',
+        f'https://konachan.net/jpeg/a1e5fc4511d0588ec49bf0ac0d8878c6/Konachan.com%20-%20241020%20animal_ears%20black_hair%20boots%20gloves%20inubashiri_momiji%20pointed_ears%20red_eyes%20shameimaru_aya%20short_hair%20skirt%20thighhighs%20tie%20touhou%20wings.jpg',
+        f'https://konachan.net/jpeg/34755cc3490940b4c94c60e4f9199b16/Konachan.com%20-%20325247%20black_hair%20bow%20clouds%20fan%20feathers%20hat%20leaves%20orange_eyes%20shameimaru_aya%20shirt%20skirt%20sky%20thighhighs%20touhou%20wings%20yaye.jpg',
+        f'https://konachan.net/image/591f4f2495adff6d98be1d3f9116c1ec/Konachan.com%20-%20319540%20animal%20autumn%20bird%20black_hair%20brown_eyes%20camera%20hat%20kneehighs%20leaves%20rin_falcon%20scarf%20shameimaru_aya%20skirt%20touhou%20tree%20wings.jpg',
+        f'https://konachan.net/jpeg/76f1373139c640ce017dcee0827140e4/Konachan.com%20-%20299964%20animal%20bird%20brown_hair%20fan%20feathers%20hat%20nahaki%20red_eyes%20shameimaru_aya%20short_hair%20thighhighs%20touhou%20wings.jpg',
+        f'https://konachan.net/image/6937b6147863573350b8fed6c8a2fc82/Konachan.com%20-%20295576%20animal%20black_hair%20blush%20bow%20drink%20fish%20food%20hat%20ken_%28coffee_michikusa%29%20sake%20shameimaru_aya%20short_hair%20skirt%20touhou%20water%20wings.jpg',
+        f'https://konachan.net/jpeg/4dbd7ae35b56b4890afd0e57e7b214c2/Konachan.com%20-%20294029%20brown_eyes%20brown_hair%20clouds%20gray_hair%20long_hair%20phone%20red_eyes%20ribbons%20short_hair%20skirt%20sky%20tail%20tie%20touhou%20tree%20twintails%20waifu2x%20wolfgirl.jpg',
+        f'https://konachan.net/jpeg/6f0c26fd69c392dc2a464b4771945408/Konachan.com%20-%20293985%20animal_ears%20brown_hair%20clouds%20gray_hair%20red_eyes%20shameimaru_aya%20short_hair%20siyajiyatouhou%20sky%20touhou%20tree%20water%20waterfall%20wings%20wolfgirl.jpg',
+        f'https://konachan.net/jpeg/a46948c2beeef8449b573b7ce4fbfe1a/Konachan.com%20-%20290897%20animal%20apron%20autumn%20boots%20bow%20camera%20fang%20fire%20group%20hat%20leaves%20miko%20skirt%20sword%20syuri22%20touhou%20tree%20water%20weapon%20wink%20witch%20witch_hat%20wolfgirl.jpg',
+        f'https://konachan.net/jpeg/848059ba8ecd9522b97fb9ad76265e56/Konachan.com%20-%20288650%20animal_ears%20autumn%20brown_hair%20camera%20long_hair%20paper%20red_eyes%20shade%20short_hair%20skirt%20stairs%20thkani%20tie%20touhou%20tree%20twintails%20white_hair%20wolfgirl.jpg',
+        f'https://konachan.net/image/0a00365308c6118bcde032e3a02a5fa2/Konachan.com%20-%20263156%20black_hair%20brown_eyes%20cherry_blossoms%20cibo_%28killy%29%20clouds%20flowers%20katana%20long_hair%20petals%20shameimaru_aya%20skirt%20sky%20sword%20touhou%20weapon%20wings.jpg',
+        f'https://konachan.net/jpeg/0788f5fda279463618a5d5ab3bbfaeee/Konachan.com%20-%20241031%20camera%20group%20hakurei_reimu%20kirisame_marisa%20leaves%20leon_7%20miko%20remilia_scarlet%20shameimaru_aya%20touhou%20vampire%20wings%20witch%20yakumo_yukari.jpg',
+        f'https://konachan.net/image/9d0e955b121920a04133030f5b321215/Konachan.com%20-%20235613%20animal_ears%20black_hair%20blush%20brown_eyes%20drink%20fang%20food%20gray_hair%20green_eyes%20green_hair%20kimono%20morino_hon%20short_hair%20tokiko%20torii%20touhou%20wings.jpg',
+        f'https://konachan.net/image/a0e40c5ff467b229b690bf348ecbd007/Konachan.com%20-%20192820%20blush%20camera%20clouds%20glasses%20hat%20pyonsuke0141%20scarf%20shameimaru_aya%20signed%20skirt%20sky%20thighhighs%20touhou%20wings%20zettai_ryouiki.jpg',
+        f'https://konachan.net/image/47bea2c77896ce6c373097dc2c5741de/Konachan.com%20-%20135275%20excel_%28shena%29%20inubashiri_momiji%20red_eyes%20shameimaru_aya%20sky%20tail%20touhou%20water%20wings%20wolfgirl.jpg',
+        f'https://pbs.twimg.com/media/E4rX8I2WQAQz1JP?format=jpg&name=large'
+    ]
+prev_url = ['dummy text']
+takuya_quotes = \
+    [
+        "(I pray that this teacher remains employed...)",
+        "Really? Violence is bad, man.",
+        "It's all coming to me. There's no way that I could delete records of such a beautiful girl from my mental database.",
+        "*sniff*... *sniff* *sniff*... ",
+        "*gulp* *gulp* *gulp*... Fhwaa! This cup of water is what I've been living for!",
+        "I'm going to eat you!",
+        "(She must have farted or something)",
+        "(Wow... now that's what I'd call a foxy mama.)",
+        "I don't feel like studying at my desk. Oh well, let's just have some doggy style sex on top of it then.",
+        "(Everyone has the right to live, no matter how r*tarded they may be.)",
+        "(Oh God, I want to be that wrinkle.)",
+        "(This never fails to make me happy.)",
+        "(I want to be the wind.)",
+        "(I want to be those documents.)",
+        "........ What a sight.",
+        "I-I wasn't trying to grab your boobs or anything!",
+        "(Oh God, I want to be that desk.)",
+        "Woods? Woods as in how much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+        "(Oh God, I have such a small vocabulary.)",
+        "Hedonism is one of my trademarks.",
+        "No way... it was educational in all sorts of ways.",
+        "She suddenly burst into the room. We had no chance to hide.",
+        "Y-Yeah, it's gotten pretty hot in here, huh!",
+        "There's three people... then it must be a gangb... uh, never mind.",
+        "(Oh God... I want to be that towel.)",
+        "O Juliet, thine eyes strike me with the force of a million volts! ...How 'bout that?",
+        "I want to be scolded.",
+        "Former statements exit to be retracted.",
+        "Aaagh! Please don't dig up old shit like that!"
+    ]
+# Dictionaries <K,V>
 melty_tags = \
     {
         "aoko":"aozaki_aoko ",
@@ -411,74 +480,10 @@ touhou_tags = \
         "Shinki": "shinki_(touhou)",
         "Trump": "trump_king"
     }
-backup_links = \
-    [
-        f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
-        f'https://danbooru.donmai.us/data/original/fa/bb/fabb65e4dbf6a6af37680fdb7cecfad9.jpg',
-        f'https://konachan.com/image/0c9c4bdc5f8e5d671bda3bc58c3631f2/Konachan.com%20-%20201535%202girls%20clouds%20fan%20hat%20inubashiri_momiji%20izumi4195202%20japanese_clothes%20katana%20miko%20shameimaru_aya%20sky%20socks%20sword%20thighhighs%20touhou%20weapon%20wolfgirl.jpg',
-        f'https://konachan.com/image/74372dc58d1e627ff66ff1e91e69cc40/Konachan.com%20-%20234089%20black_hair%20building%20dress%20kneehighs%20mifuru%20petals%20pointed_ears%20shameimaru_aya%20short_hair%20touhou.jpg',
-        f'https://konachan.com/image/bfc2fc102119e19131bc864e88535a74/Konachan.com%20-%20208397%20chen%20cirno%20dahuang%20doll%20fairy%20food%20foxgirl%20group%20hat%20hourai%20maid%20mask%20miko%20myon%20nazrin%20rope%20rumia%20seiran%20skirt%20su-san%20touhou%20vampire%20wings%20wolfgirl.jpg',
-        f'https://konachan.com/image/0c00a308521e5f61d09a99ede9d56397/Konachan.com%20-%20263550%20barefoot%20brown_hair%20fallen_heaven%20flowers%20grass%20hat%20red_eyes%20ribbons%20shameimaru_aya%20short_hair%20skirt%20touhou.jpg',
-        f'https://konachan.com/image/0c00a308521e5f61d09a99ede9d56397/Konachan.com%20-%20263550%20barefoot%20brown_hair%20fallen_heaven%20flowers%20grass%20hat%20red_eyes%20ribbons%20shameimaru_aya%20short_hair%20skirt%20touhou.jpg',
-        f'https://danbooru.donmai.us/data/original/3e/35/3e35157038858361547d135cf3c27b1a.png',
-        f'https://danbooru.donmai.us/data/original/0b/b8/0bb848217217d6e60c7c1a07caaf6df3.jpg',
-        f'https://konachan.com/image/6316f2b34e68e3d8aeb184e9605c0dde/Konachan.com%20-%20231622%20bow%20braids%20brown_eyes%20brown_hair%20dress%20drink%20food%20forest%20group%20hat%20horns%20long_hair%20miko%20night%20pink_hair%20skirt%20tie%20touhou%20tree%20twintails%20wings.png',
-        f'https://konachan.com/image/9f71b66be8e29b70d963d3865cc6dbb5/Konachan.com%20-%20256833%20aliasing%20autumn%20black_hair%20cibo_%28killy%29%20gloves%20kneehighs%20leaves%20orange_eyes%20pointed_ears%20ribbons%20short_hair%20skirt%20touhou%20tree%20watermark%20wings.png',
-        f'https://konachan.com/image/e1c3464a7e2aa1cf6204187d9fa7d891/Konachan.com%20-%20190421%20hat%20nyuu_%28manekin-eko%29%20orange%20shameimaru_aya%20short_hair%20skirt%20touhou%20translation_request%20wings.jpg',
-        f'https://konachan.com/image/b465107c9ef33c03bb7218f740661d08/Konachan.com%20-%20185777%20black_hair%20fan%20feathers%20hat%20niwashi_%28yuyu%29%20panties%20red_eyes%20shameimaru_aya%20short_hair%20skirt%20sky%20thighhighs%20tie%20touhou%20underwear%20upskirt%20wings.jpg',
-        f'https://konachan.net/jpeg/a1e5fc4511d0588ec49bf0ac0d8878c6/Konachan.com%20-%20241020%20animal_ears%20black_hair%20boots%20gloves%20inubashiri_momiji%20pointed_ears%20red_eyes%20shameimaru_aya%20short_hair%20skirt%20thighhighs%20tie%20touhou%20wings.jpg',
-        f'https://konachan.net/jpeg/34755cc3490940b4c94c60e4f9199b16/Konachan.com%20-%20325247%20black_hair%20bow%20clouds%20fan%20feathers%20hat%20leaves%20orange_eyes%20shameimaru_aya%20shirt%20skirt%20sky%20thighhighs%20touhou%20wings%20yaye.jpg',
-        f'https://konachan.net/image/591f4f2495adff6d98be1d3f9116c1ec/Konachan.com%20-%20319540%20animal%20autumn%20bird%20black_hair%20brown_eyes%20camera%20hat%20kneehighs%20leaves%20rin_falcon%20scarf%20shameimaru_aya%20skirt%20touhou%20tree%20wings.jpg',
-        f'https://konachan.net/jpeg/76f1373139c640ce017dcee0827140e4/Konachan.com%20-%20299964%20animal%20bird%20brown_hair%20fan%20feathers%20hat%20nahaki%20red_eyes%20shameimaru_aya%20short_hair%20thighhighs%20touhou%20wings.jpg',
-        f'https://konachan.net/image/6937b6147863573350b8fed6c8a2fc82/Konachan.com%20-%20295576%20animal%20black_hair%20blush%20bow%20drink%20fish%20food%20hat%20ken_%28coffee_michikusa%29%20sake%20shameimaru_aya%20short_hair%20skirt%20touhou%20water%20wings.jpg',
-        f'https://konachan.net/jpeg/4dbd7ae35b56b4890afd0e57e7b214c2/Konachan.com%20-%20294029%20brown_eyes%20brown_hair%20clouds%20gray_hair%20long_hair%20phone%20red_eyes%20ribbons%20short_hair%20skirt%20sky%20tail%20tie%20touhou%20tree%20twintails%20waifu2x%20wolfgirl.jpg',
-        f'https://konachan.net/jpeg/6f0c26fd69c392dc2a464b4771945408/Konachan.com%20-%20293985%20animal_ears%20brown_hair%20clouds%20gray_hair%20red_eyes%20shameimaru_aya%20short_hair%20siyajiyatouhou%20sky%20touhou%20tree%20water%20waterfall%20wings%20wolfgirl.jpg',
-        f'https://konachan.net/jpeg/a46948c2beeef8449b573b7ce4fbfe1a/Konachan.com%20-%20290897%20animal%20apron%20autumn%20boots%20bow%20camera%20fang%20fire%20group%20hat%20leaves%20miko%20skirt%20sword%20syuri22%20touhou%20tree%20water%20weapon%20wink%20witch%20witch_hat%20wolfgirl.jpg',
-        f'https://konachan.net/jpeg/848059ba8ecd9522b97fb9ad76265e56/Konachan.com%20-%20288650%20animal_ears%20autumn%20brown_hair%20camera%20long_hair%20paper%20red_eyes%20shade%20short_hair%20skirt%20stairs%20thkani%20tie%20touhou%20tree%20twintails%20white_hair%20wolfgirl.jpg',
-        f'https://konachan.net/image/0a00365308c6118bcde032e3a02a5fa2/Konachan.com%20-%20263156%20black_hair%20brown_eyes%20cherry_blossoms%20cibo_%28killy%29%20clouds%20flowers%20katana%20long_hair%20petals%20shameimaru_aya%20skirt%20sky%20sword%20touhou%20weapon%20wings.jpg',
-        f'https://konachan.net/jpeg/0788f5fda279463618a5d5ab3bbfaeee/Konachan.com%20-%20241031%20camera%20group%20hakurei_reimu%20kirisame_marisa%20leaves%20leon_7%20miko%20remilia_scarlet%20shameimaru_aya%20touhou%20vampire%20wings%20witch%20yakumo_yukari.jpg',
-        f'https://konachan.net/image/9d0e955b121920a04133030f5b321215/Konachan.com%20-%20235613%20animal_ears%20black_hair%20blush%20brown_eyes%20drink%20fang%20food%20gray_hair%20green_eyes%20green_hair%20kimono%20morino_hon%20short_hair%20tokiko%20torii%20touhou%20wings.jpg',
-        f'https://konachan.net/image/a0e40c5ff467b229b690bf348ecbd007/Konachan.com%20-%20192820%20blush%20camera%20clouds%20glasses%20hat%20pyonsuke0141%20scarf%20shameimaru_aya%20signed%20skirt%20sky%20thighhighs%20touhou%20wings%20zettai_ryouiki.jpg',
-        f'https://konachan.net/image/47bea2c77896ce6c373097dc2c5741de/Konachan.com%20-%20135275%20excel_%28shena%29%20inubashiri_momiji%20red_eyes%20shameimaru_aya%20sky%20tail%20touhou%20water%20wings%20wolfgirl.jpg',
-        f'https://pbs.twimg.com/media/E4rX8I2WQAQz1JP?format=jpg&name=large'
-    ]
-prev_url = ['dummy text']
-takuya_quotes = \
-    [
-        "(I pray that this teacher remains employed...)",
-        "Really? Violence is bad, man.",
-        "It's all coming to me. There's no way that I could delete records of such a beautiful girl from my mental database.",
-        "*sniff*... *sniff* *sniff*... ",
-        "*gulp* *gulp* *gulp*... Fhwaa! This cup of water is what I've been living for!",
-        "I'm going to eat you!",
-        "(She must have farted or something)",
-        "(Wow... now that's what I'd call a foxy mama.)",
-        "I don't feel like studying at my desk. Oh well, let's just have some doggy style sex on top of it then.",
-        "(Everyone has the right to live, no matter how r*tarded they may be.)",
-        "(Oh God, I want to be that wrinkle.)",
-        "(This never fails to make me happy.)",
-        "(I want to be the wind.)",
-        "(I want to be those documents.)",
-        "........ What a sight.",
-        "I-I wasn't trying to grab your boobs or anything!",
-        "(Oh God, I want to be that desk.)",
-        "Woods? Woods as in how much wood would a woodchuck chuck if a woodchuck could chuck wood?",
-        "(Oh God, I have such a small vocabulary.)",
-        "Hedonism is one of my trademarks.",
-        "No way... it was educational in all sorts of ways.",
-        "She suddenly burst into the room. We had no chance to hide.",
-        "Y-Yeah, it's gotten pretty hot in here, huh!",
-        "There's three people... then it must be a gangb... uh, never mind.",
-        "(Oh God... I want to be that towel.)",
-        "O Juliet, thine eyes strike me with the force of a million volts! ...How 'bout that?",
-        "I want to be scolded.",
-        "Former statements exit to be retracted.",
-        "Aaagh! Please don't dig up old shit like that!"
-    ]
 demons_nocturne = \
     {
         #foul
-        "Will O' Wisp":'https://static.wikia.nocookie.net/megamitensei/images/3/34/Will_o%27_wisp.png',
+        "Will O' Wisp": 'https://static.wikia.nocookie.net/megamitensei/images/3/34/Will_o%27_wisp.png',
         'Slime': 'https://static.wikia.nocookie.net/megamitensei/images/1/19/Slime_SMT1.png',
         'Mou-Ryo': 'https://static.wikia.nocookie.net/megamitensei/images/f/fc/Mou-Ryo_SMTIV.png',
         'Blob': 'https://static.wikia.nocookie.net/megamitensei/images/c/ca/Blobartwork.jpg',
@@ -694,6 +699,39 @@ demons_nocturne = \
         'Trumpeter': 'https://static.wikia.nocookie.net/megamitensei/images/d/d6/TrumpeterP4.jpg',
         'Dante From The Devil May Cry Series': 'https://static.wikia.nocookie.net/megamitensei/images/f/f7/DanteRender.png',
     }
+etrian_ost = \
+    {
+        #eo1 (my rips)
+        "Spinning the Tale": "https://www.youtube.com/watch?v=G5FwtUUmFT4",
+        "That Name Was Engraved Into the 100th Volume!": "https://www.youtube.com/watch?v=Rd2gxKGAxPg",
+        "The Green Green Woodlands": "https://www.youtube.com/watch?v=-yFolN1DIsg",
+        "Initial Strike": "https://www.youtube.com/watch?v=CdGxInW6igk",
+        "Get the Treasure": "https://www.youtube.com/watch?v=_xxaYELkVrQ",
+        "The Vast Primeval Hidden Grove": "https://www.youtube.com/watch?v=Y240tCXroZ0",
+        "The Roadside Trees Outside the Window": "https://www.youtube.com/watch?v=Q7Gr1bYNnWY",
+        "A Sudden Gust of Wind Before Your Eyes": "https://www.youtube.com/watch?v=avys7ZO9hJs",
+        "The Lounge Where We Speak of Tomorrow": "https://www.youtube.com/watch?v=ibbs_A5tOn8",
+        "The Thousand Year Old Blue Woodlands": "https://www.youtube.com/watch?v=nniYSKUnGK0",
+        "Red and Black": "https://www.youtube.com/watch?v=QTZbGmC86jA",
+        "Dyed in Blood": "https://www.youtube.com/watch?v=AqLxYAlypVQ",
+        "Festival of Worship": "https://www.youtube.com/watch?v=TU5UnZRFXKg",
+        "The Withered Forest": "youtube.com/watch?v=EG99PAfSwKs",
+        "Destruction Begets Decay": "https://www.youtube.com/watch?v=tkEgIh2IlYo",
+        "The Capital of Shinjuku": "https://www.youtube.com/watch?v=GOMwzc2cfDI",
+        "Rising Again": "https://www.youtube.com/watch?v=rmHZm4jIGa8",
+        "Blue and White": "https://www.youtube.com/watch?v=okbGsnHOpjs",
+        "Throne of Creation": "https://www.youtube.com/watch?v=RmkX1lgJqPQ",
+        "The Story of the Heroes Birth Continues": "https://www.youtube.com/watch?v=vlKqK9W1yIc",
+        "Bird Shaped Vane on the Roof": "https://www.youtube.com/watch?v=EW0vdyA7d_c",
+        "The Cavern of True Red": "https://www.youtube.com/watch?v=6ptaJqDQJY4",
+        "Ecstasy": "https://www.youtube.com/watch?v=6i4mhm8CPiY",
+        "Scatter About": "https://www.youtube.com/watch?v=veQuCIOxIO8",
+        "The Adventure Has Ended for Your Group": "https://www.youtube.com/watch?v=iqUcJcAXteU",
+        "Until the Dawn of Another New Morning": "https://www.youtube.com/watch?v=6FSE-ZqB1u4",
+        "The Peace Between Mounds": "https://www.youtube.com/watch?v=0uMscKA-JIU",
+        "Reparation": "https://www.youtube.com/watch?v=4xp__a5eFjY"
+    }
+pasta_dict = {} # Empty dictionary used for pasta cooldown
 superuser = \
     [
         f'electra_rta'
@@ -707,9 +745,8 @@ plebfilter = \
     ]
 silenced = \
     [
-        "TIUYMI"
     ]
-pasta_dict = {} # Empty dictionary used for pasta cooldown
+
 
 # -------------------------------------------------------------------------------------------------------------#
 ##################################################### CLASS ####################################################
@@ -975,7 +1012,7 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + url)
 
     '''
-        idolpic
+        idolpic for PI
     '''
     @commands.command(name='idolpic')
     async def idol_pic_sfw(self, ctx):
@@ -997,8 +1034,7 @@ class BlueAyaChan(commands.Bot):
 # -------------------------------------------------------------------------------------------------------------#
 
     '''
-    Command: !hornedanimegacha
-    TODO: write to file to collect usage data for use later
+        Command: !hornedanimegacha
     '''
     @commands.command(name='hornedanimegacha')
     async def hornedanimes(self, ctx):
@@ -1121,6 +1157,20 @@ class BlueAyaChan(commands.Bot):
         elif (g_rand > 97 and g_rand <= 100):
             stars = 5
         await ctx.send(f'{ctx.author.name} summoned a {stars}☆ {demon_names[rand]}! {demons_nocturne[demon_names[rand]]}')
+
+    # -------------------------------------------------------------------------------------------------------------#
+    ##############################################   MUSIC COMMANDS   ##############################################
+    # -------------------------------------------------------------------------------------------------------------#
+
+    '''
+        etrianost
+    '''
+    @commands.command(name='etrianost')
+    async def etrian_ost_deliverer(self, ctx):
+        global etrian_ost
+        rand = random.randint(0, len(etrian_ost) - 1)
+        titles = list(etrian_ost.keys())
+        await ctx.send(f"{titles[rand]} {etrian_ost[titles[rand]]}")
 
     # -------------------------------------------------------------------------------------------------------------#
     ##############################################   QUOTE COMMANDS   ##############################################
@@ -1523,7 +1573,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1531')
+                       f' Questionable lines of code: 1591')
 
 '''             
     main function
