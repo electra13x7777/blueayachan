@@ -497,7 +497,7 @@ demons_nocturne = \
         'Yaka': 'https://static.wikia.nocookie.net/megamitensei/images/3/3b/KWYakka.jpg',
         'Chatterskull': 'https://static.wikia.nocookie.net/megamitensei/images/c/c4/Spn_chr_mob_chatterskull.png',
         'Pisaca': 'https://static.wikia.nocookie.net/megamitensei/images/7/71/Pisaca2.jpg',
-        'Legion': 'https://static.wikia.nocookie.net/megamitensei/images/d/de/LegionSMT.jpg',
+        'Legion': 'https://static.wikia.nocookie.net/megamitensei/images/6/6b/Rakshasa.jpg',
         'Rakshasa': 'https://static.wikia.nocookie.net/megamitensei/images/b/b3/Gurr.JPG',
         #raptor
         'Gurr': 'https://static.wikia.nocookie.net/megamitensei/images/b/b3/Gurr.JPG',
