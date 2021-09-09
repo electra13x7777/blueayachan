@@ -10,6 +10,10 @@ from pybooru import Danbooru, Moebooru
 from datetime import datetime, timedelta
 import random
 import asyncio
+import sys
+if not sys.warnoptions:
+    import warnings
+    warnings.simplefilter("ignore")
 #import time
 #import re
 #import os
@@ -497,8 +501,8 @@ demons_nocturne = \
         'Yaka': 'https://static.wikia.nocookie.net/megamitensei/images/3/3b/KWYakka.jpg',
         'Chatterskull': 'https://static.wikia.nocookie.net/megamitensei/images/c/c4/Spn_chr_mob_chatterskull.png',
         'Pisaca': 'https://static.wikia.nocookie.net/megamitensei/images/7/71/Pisaca2.jpg',
-        'Legion': 'https://static.wikia.nocookie.net/megamitensei/images/6/6b/Rakshasa.jpg',
-        'Rakshasa': 'https://static.wikia.nocookie.net/megamitensei/images/b/b3/Gurr.JPG',
+        'Legion': 'https://static.wikia.nocookie.net/megamitensei/images/d/de/LegionSMT.jpg',
+        'Rakshasa': 'https://static.wikia.nocookie.net/megamitensei/images/6/6b/Rakshasa.jpg',
         #raptor
         'Gurr': 'https://static.wikia.nocookie.net/megamitensei/images/b/b3/Gurr.JPG',
         #tyrant
@@ -701,7 +705,7 @@ demons_nocturne = \
     }
 etrian_ost = \
     {
-        #eo1 (my rips)
+        #eo1 (pc88)
         "Spinning the Tale": "https://www.youtube.com/watch?v=G5FwtUUmFT4",
         "That Name Was Engraved Into the 100th Volume!": "https://www.youtube.com/watch?v=Rd2gxKGAxPg",
         "The Green Green Woodlands": "https://www.youtube.com/watch?v=-yFolN1DIsg",
@@ -730,6 +734,7 @@ etrian_ost = \
         "Until the Dawn of Another New Morning": "https://www.youtube.com/watch?v=6FSE-ZqB1u4",
         "The Peace Between Mounds": "https://www.youtube.com/watch?v=0uMscKA-JIU",
         "Reparation": "https://www.youtube.com/watch?v=4xp__a5eFjY"
+        #eo2
     }
 pasta_dict = {} # Empty dictionary used for pasta cooldown
 superuser = \
