@@ -894,6 +894,9 @@ class BlueAyaChan(commands.Bot):
         if (str(ctx.channel).strip() == "mpghappiness"):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
+        url = self.danbooru_picture_sfw('shameimaru_aya')
+        await ctx.send(f'' + url)
+        '''
         global backup_links
         client = Danbooru(site_name='safebooru')
         # client = Moebooru(site_name='konachan')
@@ -924,6 +927,7 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + url)
         #url = self.danbooru_picture_sfw('shameimaru_aya')
         #await ctx.send(f'{url}')
+        '''
 
     '''
         maripic for clod
