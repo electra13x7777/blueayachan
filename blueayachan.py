@@ -7,7 +7,8 @@ Author: Alex Barney
 
 from twitchio.ext import commands
 from pybooru import Danbooru, Moebooru
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
+import calendar
 import random
 import asyncio
 import sys
@@ -346,7 +347,6 @@ soku_chars = \
         "Giant Catfish"
 
     ]
-
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -783,7 +783,6 @@ class BlueAyaChan(commands.Bot):
         curtime = datetime.now()
         print(f'[' + str(curtime.strftime("%H:%M:%S")) + '] #' + str(message.channel) + " <" + message.author.name +">: " + message.content)
         await self.handle_commands(message)
-
     '''################- C O M M A N D S -################'''
     '''
     @commands.command(name='test')
@@ -915,7 +914,7 @@ class BlueAyaChan(commands.Bot):
 
     @commands.command(name='maripic')
     async def mari_picture_sfw(self, ctx):
-        mari_channels = ["claude", "darko_rta","electra_rta", "thelcc"]
+        mari_channels = ["claude", "darko_rta", "electra_rta", "thelcc", "rosael_"]
         if (str(ctx.channel).strip().lower() not in mari_channels):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
@@ -1016,6 +1015,14 @@ class BlueAyaChan(commands.Bot):
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
+    '''
+        jampic for tsukibaka
+    '''
+    @commands.command(name='jampic')
+    async def jam_gg_picture_sfw(self, ctx):
+        tags = ["kuradoberi_jam"]
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
     '''
         idolpic for PI
     '''
@@ -1148,7 +1155,6 @@ class BlueAyaChan(commands.Bot):
         global demons_nocturne
         demon_names = list(demons_nocturne.keys())
         rand = random.randint(0, len(demon_names) - 1)
-        #if(ctx.message[6:].lower() == 'gacha'):
         g_rand = random.randint(0, 101)
         stars = 1
         if (g_rand >= 1 and g_rand <= 45):
@@ -1206,7 +1212,32 @@ class BlueAyaChan(commands.Bot):
                     x+=1
 
     # -------------------------------------------------------------------------------------------------------------#
-    ##############################################   MISC COMMANDS   ##############################################
+    ###############################################   TIME COMMANDS   ##############################################
+    # -------------------------------------------------------------------------------------------------------------#
+
+    @commands.command(name='streamtext')
+    async def claude_stream_over_text(self, ctx):
+        if (str(ctx.channel).strip() != "claude"):
+            await ctx.send(f"too hot for #{ctx.channel}")
+            return
+        dow = calendar.day_name[date.today().weekday()].lower() # gets the day of the week
+        if(dow == 'monday'):
+            await ctx.send("Happy Melty Monday! MechoStrong")
+        elif(dow == 'tuesday'):
+            await ctx.send("No stream today DataSleepy")
+        elif (dow == 'wednesday'):
+            await ctx.send("")
+        elif (dow == 'thursday'):
+            await ctx.send("")
+        elif (dow == 'friday'):
+            await ctx.send("")
+        elif (dow == 'saturday'):
+            await ctx.send("")
+        elif (dow == 'sundday'):
+            await ctx.send("")
+
+    # -------------------------------------------------------------------------------------------------------------#
+    ###############################################   MISC COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
 
     '''
@@ -1461,7 +1492,7 @@ class BlueAyaChan(commands.Bot):
             print(f'file: channels.txt - appended string: "' + ch)
             fin.close()
             print(f'file: channels.txt - closed')
-            # await self.event_join(ch)
+            await self.join_channels(ch)
             await ctx.send(f'' + ch + ' is now joined and added to the list of joined channels')
 
     '''
@@ -1486,7 +1517,7 @@ class BlueAyaChan(commands.Bot):
                 print(f'file: channels.txt - appended string: "' + ch)
                 fin.close()
                 print(f'file: channels.txt - closed')
-                # await self.event_join(ch)
+                await self.join_channels(ch)
                 await ctx.send(f'' + ch + ' is now joined and added to the list of joined channels')
         else:
             return
@@ -1513,6 +1544,7 @@ class BlueAyaChan(commands.Bot):
                         fin.write(l.strip() + '\n')
                     else:
                         succ += 1
+                        await self.part_channels(ch)
                         # await self.event_part(ch) #does nothing
                         await ctx.send(f'{self.nick} has left ' + ch + '')
                 if (succ == 1):
@@ -1543,6 +1575,7 @@ class BlueAyaChan(commands.Bot):
                             fin.write(l.strip() + '\n')
                         else:
                             succ += 1
+                            await self.part_channels(ch)
                             # await self.event_part(ch) #does nothing
                             await ctx.send(f'{self.nick} has left ' + ch + '')
                     if (succ == 1):
@@ -1580,7 +1613,14 @@ class BlueAyaChan(commands.Bot):
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
                        f' Questionable lines of code: 1591')
 
-'''             
+    '''
+    
+    '''
+    @commands.command(name='testall')
+    async def test_all_cmd(self, ctx):
+        if (ctx.author.name in superuser):
+            return
+'''
     main function
 '''
 if(__name__ == '__main__'):
