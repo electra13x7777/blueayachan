@@ -842,25 +842,34 @@ class BlueAyaChan(commands.Bot):
         Optional Parameters:
             limit_p - booru page limit when scraping
             init_p - initial page to start on when scraping (defaults to 2 to prevent nsfw)
+            show_meta - flag for printing meta tags
+            artist_flag - flag for including the artist sauce
         Description: Base to make image scraping really easy to do
     '''
-    def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2):
+    def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2, show_meta=False, artist_flag=True):
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
         def get_img_url():
             try:
-                piclist = client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
+                metadata = client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
                 print('Image queried from ' + client.site_name)
             except:
                 commands.CommandError
                 print('Image query from ' + client.site_name + ' failed.')
-            print(piclist)
+            if(show_meta):
+                print(metadata)
             # really fucking gross code to partition metadata down to a single url
             # its just a few string operations and is still fast enough so whatever
-            url_str = str(piclist).partition("'file_url':")[2]
+            url_str = str(metadata).partition("'file_url':")[2]
             urls = url_str.split(',')
-            print(urls)
+            if(show_meta):
+                print(urls)
             url = urls[0].strip(" ").strip("'")
+            if(artist_flag):
+                artist_str = str(metadata).partition("'tag_string_artist':")[2]
+                artist = artist_str.split(',')
+                artist_tag = artist[0].strip(" ").strip("'")
+                return url + " Sauce: " + artist_tag
             return url
         #query URLs until you get a result to avoid querying nothing
         url = ['']
