@@ -834,6 +834,7 @@ class BlueAyaChan(commands.Bot):
 #-------------------------------------------------------------------------------------------------------------#
 ############################################### PICTURE SCRAPING ##############################################
 #-------------------------------------------------------------------------------------------------------------#
+
     '''
         Function: danbooru_picture_sfw
         Parameters: 
@@ -844,37 +845,44 @@ class BlueAyaChan(commands.Bot):
             init_p - initial page to start on when scraping (defaults to 2 to prevent nsfw)
             show_meta - flag for printing meta tags
             artist_flag - flag for including the artist sauce
+        Helper Functions:
+            get_meta(Danbooru_Client booru_client) - pulls metadata from danbooru and returns it
+            get_img_url(String metadata) - gets the URL from the metadata string and returns it
+            get_artist_tag(String metadata) - gets the artist tag from the metadata string and returns it           
         Description: Base to make image scraping really easy to do
     '''
     def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2, show_meta=False, artist_flag=True):
-        client = Danbooru(site_name='safebooru')
-        init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
-        def get_img_url():
+        ## Helper Function Definitions ##
+        def get_meta(booru_client):
             try:
-                metadata = client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
-                print('Image queried from ' + client.site_name)
+                metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
+                print('Image queried from ' + booru_client.site_name)
             except:
                 commands.CommandError
-                print('Image query from ' + client.site_name + ' failed.')
+                print('Image query from ' + booru_client.site_name + ' failed.')
             if(show_meta):
                 print(metadata)
-            # really fucking gross code to partition metadata down to a single url
-            # its just a few string operations and is still fast enough so whatever
+            return metadata
+        def get_img_url(metadata):
             url_str = str(metadata).partition("'file_url':")[2]
             urls = url_str.split(',')
             if(show_meta):
                 print(urls)
             url = urls[0].strip(" ").strip("'")
-            if(artist_flag):
-                artist_str = str(metadata).partition("'tag_string_artist':")[2]
-                artist = artist_str.split(',')
-                artist_tag = artist[0].strip(" ").strip("'")
-                return url + " Sauce: " + artist_tag
             return url
-        #query URLs until you get a result to avoid querying nothing
-        url = ['']
-        while(url == ['']):
-            url = get_img_url()
+        def get_artist_tag(metadata):
+            artist_str = str(metadata).partition("'tag_string_artist':")[2]
+            artist = artist_str.split(',')
+            artist_tag = artist[0].strip(" ").strip("'")
+            return " Artist: " + artist_tag
+        ## Implementation ##
+        client = Danbooru(site_name='safebooru')
+        init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
+        meta = get_meta(client)
+        url = get_img_url(meta)
+        if (artist_flag):
+            artist = get_artist_tag(meta)
+            return url + artist
         return url
 
     '''
