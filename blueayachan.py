@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/01/2021
+Date Published: 09/17/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -199,67 +199,6 @@ cs_names = \
         "Gender Fluid Druid",
         "Bonafide White Genocide"
 ] # carl names | TODO: parse from file
-eo_classes = \
-    [
-        #eo1
-        'Alchemist https://static.wikia.nocookie.net/etrian/images/7/7b/EO1Alchemists.png',
-        'Dark Hunter https://static.wikia.nocookie.net/etrian/images/2/21/EO1DarkHunter.png',
-        'Landsknecht https://static.wikia.nocookie.net/etrian/images/7/75/EO1Landsknecht.png',
-        'Survivalist https://static.wikia.nocookie.net/etrian/images/2/2d/EO1Survivalists.png',
-        'Troubadour https://static.wikia.nocookie.net/etrian/images/d/d6/EO1Troubadour.png',
-        'Medic https://static.wikia.nocookie.net/etrian/images/7/75/EO1Medics.png',
-        'Ronin https://static.wikia.nocookie.net/etrian/images/a/a6/EO1Ronins.png',
-        'Hexer https://static.wikia.nocookie.net/etrian/images/7/7d/EO1Hexers.png',
-        'Protector https://static.wikia.nocookie.net/etrian/images/e/ef/EO1Protectors.png',
-        #eo2
-        'Gunner https://static.wikia.nocookie.net/etrian/images/5/56/EO2GunnersArt.png',
-        'War Magus https://static.wikia.nocookie.net/etrian/images/d/db/War_magus.png',
-        'Beast https://static.wikia.nocookie.net/etrian/images/1/17/Beast.png',
-        #eo3
-        'Princess https://static.wikia.nocookie.net/etrian/images/5/5d/Prince%28ss%29.png',
-        'Gladiator https://static.wikia.nocookie.net/etrian/images/e/ee/Warriors.png',
-        'Hoplite https://static.wikia.nocookie.net/etrian/images/6/60/Phalanxesb.png',
-        'Buccaneer https://static.wikia.nocookie.net/etrian/images/0/04/Piratesh.png',
-        'Ninja https://static.wikia.nocookie.net/etrian/images/7/75/Shinobis.png',
-        'Monk https://static.wikia.nocookie.net/etrian/images/f/fb/Ztxpp.jpg',
-        'Zodiac https://static.wikia.nocookie.net/etrian/images/7/7a/Zodiacs.png',
-        'Wildling https://static.wikia.nocookie.net/etrian/images/7/74/Beastmasters.png',
-        'Arbalist https://static.wikia.nocookie.net/etrian/images/3/36/Ballistas.png',
-        'Farmer https://static.wikia.nocookie.net/etrian/images/e/e8/Farmers.png',
-        'Shogun https://static.wikia.nocookie.net/etrian/images/9/96/Xooaiu.jpg',
-        'Yggdroid https://static.wikia.nocookie.net/etrian/images/3/3b/Yggdroid.png',
-        #eo4
-        'Landsknecht (EO4) https://vignette1.wikia.nocookie.net/vsbattles/images/c/c3/Etrian_Landsknecht.png',
-        'Nightseeker https://gamefaqs1.cbsistatic.com/faqs/15/76915-111.png',
-        'Fortress https://savepoint.es/wp-content/uploads/2013/01/Etrian-Odyssey-IV-fortress.jpg',
-        'Sniper https://2.bp.blogspot.com/-PL8elPUt1KA/Ut9qR466GxI/AAAAAAAAQgg/FR3g4O39vI0/s1600/Etrian-Odyssey-IV-18.jpg',
-        'Medic (EO4) https://img1.ak.crunchyroll.com/i/spire3/867efdc4bac7777491caeb99c215a4af1332989836_full.jpg',
-        'Runemaster https://cdn.eldojogamer.com/wp-content/uploads/2013/02/Etrian-Odyssey-IV-Runemaster.png',
-        'Dancer https://oyster.ignimgs.com/wordpress/stg.ign.com/2012/12/dancer1.jpg',
-        'Arcanist http://oyster.ignimgs.com/mediawiki/apis.ign.com/etrian-odyssey-iv-legends-of-the-titan/thumb/7/77/Arcanist-F1-610x667.jpg/228px-Arcanist-F1-610x667.jpg',
-        'Bushi https://www.legendra.com/media/artworks/3ds/etrian_odyssey_iv___legends_of_the_titan/etrian_odyssey_iv___legends_of_the_titan_art_47.jpg',
-        'Imperial https://www.akibagamers.it/wp-content/uploads/2018/04/etrian-odyssey-x-24.jpg',
-        #eo5
-        'Fencer https://static.wikia.nocookie.net/etrian/images/f/f1/Fencer_all.png',
-        'Dragoon https://static.wikia.nocookie.net/etrian/images/a/a6/Dragoon_all.png',
-        'Pugilist https://static.wikia.nocookie.net/etrian/images/e/e7/Cestus_all.png',
-        'Harbinger https://static.wikia.nocookie.net/etrian/images/4/47/Reaper_All.png',
-        'Warlock https://static.wikia.nocookie.net/etrian/images/a/a0/Warlock_all.png',
-        'Necromancer https://static.wikia.nocookie.net/etrian/images/f/f8/Necro_All.png',
-        'Rover https://static.wikia.nocookie.net/etrian/images/8/84/Hound_all.png',
-        'Masurao https://static.wikia.nocookie.net/etrian/images/7/71/Masurao_All.png',
-        'Shaman https://static.wikia.nocookie.net/etrian/images/4/4b/Shaman_all.png',
-        'Botanist https://static.wikia.nocookie.net/etrian/images/5/54/Herbalist_All.png',
-        #sqx
-        'Hero https://static.wikia.nocookie.net/etrian/images/9/91/Hero-0.png',
-        'Vampire https://static.wikia.nocookie.net/etrian/images/0/00/Vampire.jpg',
-        #emd
-        'Wanderer https://i0.wp.com/www.segalization.com/wp-content/uploads/2015/01/Etrian-MD_01-08-15.jpg',
-        #sekaiju to fusigi no danjon 2
-        'Kenkaku https://www.ducumon.com/wp-content/uploads/2019/07/etrianmysterydungeon2-compressed.jpg',
-        #misc
-        'Mediko!! https://static.wikia.nocookie.net/etrian/images/d/df/EO1ExplorersLog0.png',
-    ]
 melty_chars = \
     [
         "Aoko",
@@ -484,6 +423,69 @@ touhou_tags = \
         "Yumeko": "yumeko_(touhou)",
         "Shinki": "shinki_(touhou)",
         "Trump": "trump_king"
+    }
+eo_classes = \
+    {
+        #eo1
+        'Alchemist': 'https://static.wikia.nocookie.net/etrian/images/7/7b/EO1Alchemists.png',
+        'Dark Hunter': 'https://static.wikia.nocookie.net/etrian/images/2/21/EO1DarkHunter.png',
+        'Landsknecht': 'https://static.wikia.nocookie.net/etrian/images/7/75/EO1Landsknecht.png',
+        'Survivalist': 'https://static.wikia.nocookie.net/etrian/images/2/2d/EO1Survivalists.png',
+        'Troubadour': 'https://static.wikia.nocookie.net/etrian/images/d/d6/EO1Troubadour.png',
+        'Medic': 'https://static.wikia.nocookie.net/etrian/images/7/75/EO1Medics.png',
+        'Ronin': 'https://static.wikia.nocookie.net/etrian/images/a/a6/EO1Ronins.png',
+        'Hexer': 'https://static.wikia.nocookie.net/etrian/images/7/7d/EO1Hexers.png',
+        'Protector': 'https://static.wikia.nocookie.net/etrian/images/e/ef/EO1Protectors.png',
+        #eo2
+        'Gunner': 'https://static.wikia.nocookie.net/etrian/images/5/56/EO2GunnersArt.png',
+        'War Magus': 'https://static.wikia.nocookie.net/etrian/images/d/db/War_magus.png',
+        'Beast': 'https://static.wikia.nocookie.net/etrian/images/1/17/Beast.png',
+        #eo3
+        'Princess': 'https://static.wikia.nocookie.net/etrian/images/5/5d/Prince%28ss%29.png',
+        'Gladiator': 'https://static.wikia.nocookie.net/etrian/images/e/ee/Warriors.png',
+        'Hoplite': 'https://static.wikia.nocookie.net/etrian/images/6/60/Phalanxesb.png',
+        'Buccaneer': 'https://static.wikia.nocookie.net/etrian/images/0/04/Piratesh.png',
+        'Ninja': 'https://static.wikia.nocookie.net/etrian/images/7/75/Shinobis.png',
+        'Monk': 'https://static.wikia.nocookie.net/etrian/images/f/fb/Ztxpp.jpg',
+        'Zodiac': 'https://static.wikia.nocookie.net/etrian/images/7/7a/Zodiacs.png',
+        'Wildling': 'https://static.wikia.nocookie.net/etrian/images/7/74/Beastmasters.png',
+        'Arbalist': 'https://static.wikia.nocookie.net/etrian/images/3/36/Ballistas.png',
+        'Farmer': 'https://static.wikia.nocookie.net/etrian/images/e/e8/Farmers.png',
+        'Shogun': 'https://static.wikia.nocookie.net/etrian/images/9/96/Xooaiu.jpg',
+        'Yggdroid': 'https://static.wikia.nocookie.net/etrian/images/3/3b/Yggdroid.png',
+        #eo4
+        'Landsknecht (EO4)': 'https://vignette1.wikia.nocookie.net/vsbattles/images/c/c3/Etrian_Landsknecht.png',
+        'Nightseeker': 'https://gamefaqs1.cbsistatic.com/faqs/15/76915-111.png',
+        'Fortress': 'https://savepoint.es/wp-content/uploads/2013/01/Etrian-Odyssey-IV-fortress.jpg',
+        'Sniper': 'https://2.bp.blogspot.com/-PL8elPUt1KA/Ut9qR466GxI/AAAAAAAAQgg/FR3g4O39vI0/s1600/Etrian-Odyssey-IV-18.jpg',
+        'Medic (EO4)': 'https://img1.ak.crunchyroll.com/i/spire3/867efdc4bac7777491caeb99c215a4af1332989836_full.jpg',
+        'Runemaster': 'https://cdn.eldojogamer.com/wp-content/uploads/2013/02/Etrian-Odyssey-IV-Runemaster.png',
+        'Dancer': 'https://oyster.ignimgs.com/wordpress/stg.ign.com/2012/12/dancer1.jpg',
+        'Arcanist': 'http://oyster.ignimgs.com/mediawiki/apis.ign.com/etrian-odyssey-iv-legends-of-the-titan/thumb/7/77/Arcanist-F1-610x667.jpg/228px-Arcanist-F1-610x667.jpg',
+        'Bushi': 'https://www.legendra.com/media/artworks/3ds/etrian_odyssey_iv___legends_of_the_titan/etrian_odyssey_iv___legends_of_the_titan_art_47.jpg',
+        'Imperial': 'https://www.akibagamers.it/wp-content/uploads/2018/04/etrian-odyssey-x-24.jpg',
+        #eo5
+        'Fencer': 'https://static.wikia.nocookie.net/etrian/images/f/f1/Fencer_all.png',
+        'Dragoon': 'https://static.wikia.nocookie.net/etrian/images/a/a6/Dragoon_all.png',
+        'Pugilist': 'https://static.wikia.nocookie.net/etrian/images/e/e7/Cestus_all.png',
+        'Harbinger': 'https://static.wikia.nocookie.net/etrian/images/4/47/Reaper_All.png',
+        'Warlock': 'https://static.wikia.nocookie.net/etrian/images/a/a0/Warlock_all.png',
+        'Necromancer': 'https://static.wikia.nocookie.net/etrian/images/f/f8/Necro_All.png',
+        'Rover': 'https://static.wikia.nocookie.net/etrian/images/8/84/Hound_all.png',
+        'Masurao': 'https://static.wikia.nocookie.net/etrian/images/7/71/Masurao_All.png',
+        'Shaman': 'https://static.wikia.nocookie.net/etrian/images/4/4b/Shaman_all.png',
+        'Botanist': 'https://static.wikia.nocookie.net/etrian/images/5/54/Herbalist_All.png',
+        #eou1
+        'Highlander': 'https://cdn.donmai.us/original/ef/2d/__highlander_sekaiju_no_meikyuu_and_1_more_drawn_by_naga_u__ef2d3425c6170e693693dff736ee234b.jpg',
+        #sqx
+        'Hero': 'https://static.wikia.nocookie.net/etrian/images/9/91/Hero-0.png',
+        'Vampire': 'https://static.wikia.nocookie.net/etrian/images/0/00/Vampire.jpg',
+        #emd
+        'Wanderer': 'https://i0.wp.com/www.segalization.com/wp-content/uploads/2015/01/Etrian-MD_01-08-15.jpg',
+        #sekaiju to fusigi no danjon 2
+        'Kenkaku': 'https://www.ducumon.com/wp-content/uploads/2019/07/etrianmysterydungeon2-compressed.jpg',
+        #misc
+        'Mediko!!': 'https://static.wikia.nocookie.net/etrian/images/d/df/EO1ExplorersLog0.png'
     }
 demons_nocturne = \
     {
@@ -848,8 +850,7 @@ class BlueAyaChan(commands.Bot):
             artist_flag - flag for including the artist sauce
         Helper Functions:
             get_meta(Danbooru_Client booru_client) - pulls metadata from danbooru and returns it
-            get_img_url(String metadata) - gets the URL from the metadata string and returns it
-            get_artist_tag(String metadata) - gets the artist tag from the metadata string and returns it           
+            partition_meta(String metadata, String p_string) - searches for tag in meta and partitions out its value
         Description: Base to make image scraping really easy to do
     '''
     def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2, show_meta=False, artist_flag=True):
@@ -864,28 +865,22 @@ class BlueAyaChan(commands.Bot):
             if(show_meta):
                 print(metadata)
             return metadata
-        def get_img_url(metadata):
-            url_str = str(metadata).partition("'file_url':")[2]
-            urls = url_str.split(',')
+        def partition_meta(metadata, p_string):
+            meta_str = str(metadata).partition(p_string)[2]
+            tags = meta_str.split(',')
             if(show_meta):
-                print(urls)
-            url = urls[0].strip(" ").strip("'")
-            return url
-        def get_artist_tag(metadata):
-            artist_str = str(metadata).partition("'tag_string_artist':")[2]
-            artist = artist_str.split(',')
-            artist_tag = artist[0].strip(" ").strip("'")
-            return " Artist: " + artist_tag
+                print(tags)
+            tag = tags[0].strip(" ").strip("'")
+            return tag
         ## Implementation ##
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
         meta = get_meta(client)
-        url = get_img_url(meta)
+        url = partition_meta(meta, "'file_url':")
         if (artist_flag):
-            artist = get_artist_tag(meta)
-            return url + artist
+            artist = partition_meta(meta, "'tag_string_artist':")
+            return f'{url} Artist: {artist}'
         return url
-
     '''
     Command: !ayapic - Queries safebooru and returns a link to a picture of
                        Aya Shameimaru
@@ -1078,6 +1073,8 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='etrian')
     async def etrian(self, ctx):
+        global eo_classes
+        classes = list(eo_classes.keys())
         rand = random.randint(0,len(eo_classes)-1)
         metric = \
             [
@@ -1090,7 +1087,7 @@ class BlueAyaChan(commands.Bot):
                 'most weeb',
                 'most breakable',
                 'most underused',
-                'most loliposting',
+                'most loli',
                 'stupidest',
                 'most subclassable',
                 'least subclassable',
@@ -1101,10 +1098,11 @@ class BlueAyaChan(commands.Bot):
                 'fastest',
                 'slowest',
                 'least intelligent (with people)',
-                'most playtested'
+                'most playtested',
+                'most naga u drawn'
             ]
         met_rand = random.randint(0, len(metric)-1)
-        await ctx.send(f'The {metric[met_rand]} Etrian is {eo_classes[rand]}')
+        await ctx.send(f'The {metric[met_rand]} Etrian is {eo_classes[rand]} {eo_classes[classes[rand]]}')
 
     '''
         Melty
