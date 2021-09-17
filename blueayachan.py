@@ -414,32 +414,33 @@ takuya_quotes = \
 # Dictionaries <K,V>
 melty_tags = \
     {
-        "aoko":"aozaki_aoko ",
-        "tohno":"tohno_shiki ",
-        "hime":"archetype_earth",
-        "nanaya":"nanaya_shiki",
-        "kouma":"kishima_kouma",
-        "miyako":"arima_miyako",
-        "ciel":"ciel_(tsukihime)",
+        "aoko": "aozaki_aoko ",
+        "tohno": "tohno_shiki ",
+        "hime": "archetype_earth",
+        "nanaya": "nanaya_shiki",
+        "kouma": "kishima_kouma",
+        "miyako": "arima_miyako",
+        "ciel": "ciel_(tsukihime)",
         "sion": "sion_eltnam_atlasia",
-        "ries":"riesbyfe_stridberg",
-        "wara":"wallachia",
-        "roa":"michael_roa_valdamjong",
-        "akiha":"tohno_akiha",
-        "arc":"arcueid_brunestud",
-        "warc":"warcueid",
-        "mech":"mecha_hisui",
-        "satsuki":"yumizuka_satsuki",
-        "len":"len_(tsukihime) ",
-        "ryougi":"ryougi_shiki",
-        "wlen":"white_len_(tsukihime)",
-        "nero":"nrvnqsr_chaos",
-        "nac":"nekoarc_chaos",
-        "hisui":"hisui_(tsukihime)",
-        "neco":"nekoarc",
-        "kohaku":"kohaku_(tsukihime)",
+        "ries": "riesbyfe_stridberg",
+        "wara": "wallachia",
+        "roa": "michael_roa_valdamjong",
+        "akiha": "tohno_akiha",
+        "arc": "arcueid_brunestud",
+        "warc": "warcueid",
+        "mech": "mecha_hisui",
+        "satsuki": "yumizuka_satsuki",
+        "len": "len_(tsukihime) ",
+        "ryougi": "ryougi_shiki",
+        "wlen": "white_len_(tsukihime)",
+        "nero": "nrvnqsr_chaos",
+        "nac": "nekoarc_chaos",
+        "hisui": "hisui_(tsukihime)",
+        "neco": "nekoarc",
+        "kohaku": "kohaku_(tsukihime)",
         #type lumina
-        "noel":"noel_(tsukihime)"
+        "noel": "noel_(tsukihime)",
+        "vlov": "vlov_arkhangel"
     }
 touhou_tags = \
     {
@@ -896,38 +897,7 @@ class BlueAyaChan(commands.Bot):
             return
         url = self.danbooru_picture_sfw('shameimaru_aya')
         await ctx.send(f'' + url)
-        '''
-        global backup_links
-        client = Danbooru(site_name='safebooru')
-        # client = Moebooru(site_name='konachan')
-        init_page = random.randint(2, 250)
-        rand = random.randint(1, 21)
 
-        def get_img_url():
-            try:
-                ayapiclist = client.post_list(limit=1, page=init_page, tags=["shameimaru_aya"], rand=True,
-                                              rating='safe')
-                print('Image queried from ' + client.site_name)
-            except:
-                commands.CommandError
-                print('Image query from ' + client.site_name + ' failed. Sending local pulled image link.')
-                url = str(backup_links[random.randint(0, len(backup_links) - 1)])
-                return url
-
-            #    ayapiclist = client.post_list(limit=1, page=init_page+1, tags="shameimaru_aya", rand=True, rating='safe')
-            print(ayapiclist)
-            # really fucking gross code to partition metadata down to a single url
-            url_str = str(ayapiclist).partition("'file_url':")[2]
-            urls = url_str.split(',')
-            print(urls)
-            url = urls[0].strip(" ").strip("'")
-            return url
-
-        url = get_img_url()
-        await ctx.send(f'' + url)
-        #url = self.danbooru_picture_sfw('shameimaru_aya')
-        #await ctx.send(f'{url}')
-        '''
 
     '''
         maripic for clod
@@ -952,7 +922,7 @@ class BlueAyaChan(commands.Bot):
             return
         global melty_tags
         tags = ["tsukihime", "melty_blood"]
-        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako", "noel"]
+        little_art = ["roa", "mech", "neco", "nac", "wara", "hime", "nero", "nanaya", "warc", "miyako", "noel", "vlov"]
         chat = str(ctx.content)
         msg = chat[10:].strip()
         if(msg.lower() in melty_tags.keys()):
