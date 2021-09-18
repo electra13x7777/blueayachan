@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/17/2021
+Date Published: 09/18/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -865,6 +865,7 @@ class BlueAyaChan(commands.Bot):
             if(show_meta):
                 print(metadata)
             return metadata
+
         def partition_meta(metadata, p_string):
             meta_str = str(metadata).partition(p_string)[2]
             tags = meta_str.split(',')
@@ -872,6 +873,7 @@ class BlueAyaChan(commands.Bot):
                 print(tags)
             tag = tags[0].strip(" ").strip("'")
             return tag
+
         ## Implementation ##
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
@@ -881,6 +883,7 @@ class BlueAyaChan(commands.Bot):
             artist = partition_meta(meta, "'tag_string_artist':")
             return f'{url} Artist: {artist}'
         return url
+
     '''
     Command: !ayapic - Queries safebooru and returns a link to a picture of
                        Aya Shameimaru
@@ -1009,6 +1012,7 @@ class BlueAyaChan(commands.Bot):
         tags = ["kuradoberi_jam"]
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
+
     '''
         idolpic for PI
     '''
@@ -1594,7 +1598,7 @@ class BlueAyaChan(commands.Bot):
         global demons_nocturne
         await ctx.send(f'Pastas: {str(len(pasta_str))} |'
                        f' HornedAnimes: {str(len(ha_list))} |'
-                       f' Etrians: {str(len(eo_classes))} |'
+                       f' Etrians: {str(len(eo_classes.keys()))} |'
                        f' Meltys: {str(len(melty_chars) * 3)} |'
                        f' Melees: {str(len(melee_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
@@ -1609,6 +1613,7 @@ class BlueAyaChan(commands.Bot):
     async def test_all_cmd(self, ctx):
         if (ctx.author.name in superuser):
             return
+
 '''
     main function
 '''
@@ -1620,6 +1625,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1618')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1630')
     blueayachan = BlueAyaChan()
     blueayachan.run()
