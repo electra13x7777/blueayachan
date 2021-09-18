@@ -5,7 +5,7 @@
 blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's design to maximize enjoyment for the user.
 
 ### Features!
-* High speed "SFW" image scraping from Danbooru
+* High speed "SFW" image scraping from Danbooru (Now with 100% more sauce!)
 * Tons of gacha commands
 * Lots of good memes
 * User's can choose to omit commands they don't want to have in their channel (will eventually allow for this to be done in IRC)
@@ -21,13 +21,15 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !etrianpic - Queries safebooru and returns a link to a picture from Etrian Odyssey
 * !maypic - Queries safebooru and returns a link to a picture of May from Guilty Gear
 * !dizzypic - Queries safebooru and returns a link to a picture of Dizzy from Guilty Gear
+* !jampic - Queries safebooru and returns a link to a picture of Jam from Guilty Gear
 * !idolpic - gets you an idol. i really don't know much about that stuff... 
+* !mothmanpic - never scrapes images since there are like 2 mothman pics lol...
 #### Gachas
-* !hornedanimegacha - Returns a random horned anime of rarity 0 - 5 Stars
 * !etrian - Returns an etrian class with witty flavor text
 * !melty - Gives you a new main in Melty Blood Actress Again Current Code
 * !melee - Gives you a new main in SSB Melee
 * !soku - Gives you a new main in Touhou 12.3 Hisoutensoku
+* !hornedanimegacha - Returns a random horned anime of rarity 0 - 5 Stars
 * !demongacha - Returns a random demon (currently only smt nocturne demons) of rarity 1 - 5 Stars
 #### Music
 * !etrianost - Sends a link to a random song from Etrian Odyssey and sends the title to the song
@@ -55,6 +57,5 @@ These bots have all entertained me immensely over the years and I am very thankf
 Now that this has a repo I suppose I should actually clean up the codebase a bit and create some style guidelines. I will eventually get around to doing this as well as a detailed explanation of the file parsing formats and such. If you would like to help with the bot feel free to reach out and I'll start getting something together.
 
 ### Contact Me!
-[Twitch](https://www.twitch.tv/electra_RTA)
-
-[Twitter](https://twitter.com/electra_rta)
+* ###[Twitch](https://www.twitch.tv/electra_RTA)
+* ###[Twitter](https://twitter.com/electra_rta)
