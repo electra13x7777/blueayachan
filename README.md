@@ -57,5 +57,7 @@ These bots have all entertained me immensely over the years and I am very thankf
 Now that this has a repo I suppose I should actually clean up the codebase a bit and create some style guidelines. I will eventually get around to doing this as well as a detailed explanation of the file parsing formats and such. If you would like to help with the bot feel free to reach out and I'll start getting something together.
 
 ### Contact Me!
-###[Twitch](https://www.twitch.tv/electra_RTA)
-###[Twitter](https://twitter.com/electra_rta)
+
+* [Twitch](https://www.twitch.tv/electra_RTA)
+  
+* [Twitter](https://twitter.com/electra_rta)
