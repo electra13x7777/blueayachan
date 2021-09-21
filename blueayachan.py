@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/18/2021
+Date Published: 09/19/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -172,33 +172,6 @@ pasta_str = \
             f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!",
             f"I'm currently working on my PhD in Human Psychology and I'm in the middle of completing a research project. My working theory is that cloth activates mechanoreceptors in your chest, thus raising your heartrate, making you more likely to lost focus on common tasks. It would really help my studies if you could disrobe yourself during the stream to see if you feel more clear headed. I promise I won't look at your webcam."
     ] #copypastas | TODO: parse from file THIS IS URGENT
-cs_names = \
-    [
-        "White Knight From The Weeb Fright",
-        "No Whore Shall Suffer Word Gore",
-        "Fedora Over My Menorah",
-        "BBC Ecstasy",
-        "Bull With My Wife in the Wool",
-        "Lucky Cucky",
-        "Nice Guys Finish Last",
-        "Take My WR, Take My Wife",
-        "I'll Beat Puncay Someday",
-        "Trihex Brings Home My Bacon",
-        "Matriarchy Malarkey",
-        "Feminist Specialist",
-        "Immaculate Emasculate",
-        "White Guilt Built",
-        "Anita es Bonita",
-        "Quinn Will Win",
-        "Gate Is Hate",
-        "Her Name Is Caitlyn",
-        "Hilary Shillary",
-        "Redacted Holocaust 'Joke'",
-        "Trigger Warning",
-        "Mighty Number 9 Backer",
-        "Gender Fluid Druid",
-        "Bonafide White Genocide"
-] # carl names | TODO: parse from file
 melty_chars = \
     [
         "Aoko",
@@ -879,8 +852,13 @@ class BlueAyaChan(commands.Bot):
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
         meta = get_meta(client)
         url = partition_meta(meta, "'file_url':")
-        if (artist_flag):
+        if(url == None or url == '' or url == ['']): # check for valid url if none found recursively recall
+            self.danbooru_picture_sfw(tag)
+            return # not a necessary void return but y'know cosmic rays and shit
+        if(artist_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
+            if(artist == None or artist == '' or artist == ['']): # check if an artist has been parsed
+                return url
             return f'{url} Artist: {artist}'
         return url
 
@@ -896,11 +874,9 @@ class BlueAyaChan(commands.Bot):
         url = self.danbooru_picture_sfw('shameimaru_aya')
         await ctx.send(f'' + url)
 
-
     '''
         maripic for clod
      '''
-
     @commands.command(name='maripic')
     async def mari_picture_sfw(self, ctx):
         mari_channels = ["claude", "darko_rta", "electra_rta", "thelcc", "rosael_"]
@@ -1372,7 +1348,10 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='carl')
     async def carl(self, ctx):
-        global cs_names
+        cs_names = []
+        with open('cs.txt', 'r') as fin:
+            for l in fin:
+                cs_names.append(l)
         await ctx.send(f'Carl "' + cs_names[random.randint(0, len(cs_names) - 1)] + '" Sagan')
 
     '''
@@ -1625,6 +1604,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1630')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1609')
     blueayachan = BlueAyaChan()
     blueayachan.run()
