@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/19/2021
+Date Published: 09/20/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -852,12 +852,12 @@ class BlueAyaChan(commands.Bot):
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
         meta = get_meta(client)
         url = partition_meta(meta, "'file_url':")
-        if(url == None or url == '' or url == ['']): # check for valid url if none found recursively recall
+        if(url == '' or url == ['']): # check for valid url if none found recursively recall
             self.danbooru_picture_sfw(tag)
             return # not a necessary void return but y'know cosmic rays and shit
         if(artist_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
-            if(artist == None or artist == '' or artist == ['']): # check if an artist has been parsed
+            if(artist == '' or artist == ['']): # check if an artist has been parsed
                 return url
             return f'{url} Artist: {artist}'
         return url
