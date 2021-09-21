@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/20/2021
+Date Published: 09/21/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -1418,7 +1418,11 @@ class BlueAyaChan(commands.Bot):
 
     @commands.command(name='mal')
     async def malrodin(self, ctx):
-        await ctx.send(f'shaking may-chan legs ｡◕‿◕｡ breathless may-chan moaning (◡‿◡✿) little may-chan body twitches (◕‿◕✿) curled may-chan toes (ღ˘⌣˘ღ) may-chan whimpering (✿ ‿) quivering may-chan lips and glossed over eyes (ﾉ´∀`) may-chan having squirmy little orgasms :.｡. o(≧▽≦)o .｡.:')
+        mal = ''
+        with open('mal.txt', 'r') as fin:
+            for l in fin:
+                mal = l
+        await ctx.send(f'{mal}')
 
     #@commands.command(name="uptime")
     async def uptime(self, ctx):
@@ -1605,5 +1609,5 @@ if(__name__ == '__main__'):
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
     print(f'Total Dreamboum Tweets Locally Scraped: 1609')
-    blueayachan = BlueAyaChan()
-    blueayachan.run()
+    #blueayachan = BlueAyaChan()
+    #blueayachan.run()
