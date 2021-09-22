@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/21/2021
+Date Published: 09/22/2021
 File: blueayachan.py
 Author: Alex Barney
 '''
@@ -851,6 +851,8 @@ class BlueAyaChan(commands.Bot):
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
             self.danbooru_picture_sfw(tag)
             return # not a necessary void return but y'know cosmic rays and shit
+        elif(url == None):
+            return backup_links[-1] # post fumo image if we get nonetypes
         if(artist_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
             if(artist == '' or artist == ['']): # check if an artist has been parsed
@@ -867,7 +869,7 @@ class BlueAyaChan(commands.Bot):
         if (str(ctx.channel).strip() == "mpghappiness"):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
-        url = self.danbooru_picture_sfw('shameimaru_aya')
+        url = self.danbooru_picture_sfw('shameimaru_aya', init_p=1, limit_p=250)
         await ctx.send(f'' + url)
 
     '''
@@ -1006,7 +1008,7 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='datapic')
     async def data_pic_sfw(self, ctx):
         tags = ['data_(mega_man)']
-        url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=5)
+        url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=93)
         await ctx.send(f'' + url)
 
 # -------------------------------------------------------------------------------------------------------------#
