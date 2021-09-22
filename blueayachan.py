@@ -829,12 +829,8 @@ class BlueAyaChan(commands.Bot):
     def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2, show_meta=False, artist_flag=True):
         ## Helper Function Definitions ##
         def get_meta(booru_client):
-            try:
-                metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
-                print('Image queried from ' + booru_client.site_name)
-            except:
-                commands.CommandError
-                print('Image query from ' + booru_client.site_name + ' failed.')
+            metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
+            print('Image queried from ' + booru_client.site_name)
             if(show_meta):
                 print(metadata)
             return metadata
@@ -1608,6 +1604,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1613')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1609')
     blueayachan = BlueAyaChan()
     blueayachan.run()
