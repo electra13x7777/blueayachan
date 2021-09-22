@@ -1006,7 +1006,7 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='datapic')
     async def data_pic_sfw(self, ctx):
         tags = ['data_(mega_man)']
-        url = self.danbooru_picture_sfw(tags)
+        url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=5)
         await ctx.send(f'' + url)
 
 # -------------------------------------------------------------------------------------------------------------#
