@@ -1003,6 +1003,12 @@ class BlueAyaChan(commands.Bot):
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
+    @commands.command(name='datapic')
+    async def data_pic_sfw(self, ctx):
+        tags = ['data_(mega_man)']
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
+
 # -------------------------------------------------------------------------------------------------------------#
 ##############################################   GACHA COMMANDS   ##############################################
 # -------------------------------------------------------------------------------------------------------------#
@@ -1604,6 +1610,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1609')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1615')
     blueayachan = BlueAyaChan()
     blueayachan.run()
