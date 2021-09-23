@@ -63,7 +63,7 @@ ha_list = \
             "HornedAnimeWithBurgyOnHerHead",
             "HornedAnimeWithAnimeDreamingOfWRSleepingBehindHerHorns",
             "HornedGrimChamp"
-] #horned animes | TODO: parse from file
+    ] #horned animes | TODO: parse from file
 pasta_str = \
     [
             'Hey TheClaude sorry to bother you. When you said "FFMQ sub2 is impossible" do you mean you speedrun the game, or are you a mod on speedrun.com and never see sub-2 runs submitted? Just curious =)',
@@ -772,7 +772,7 @@ class BlueAyaChan(commands.Bot):
     '''
         Command: !pasta - posts a random copypasta
     '''
-    async def pasta(self, ctx):
+    async def pasta(self, ctx, timeout=90):
         global pasta_dict
         global pasta_str
         time_now = datetime.now()
@@ -787,7 +787,7 @@ class BlueAyaChan(commands.Bot):
             print(time_now.time())
             diff = (time_now.minute*60 + time_now.second) - (pasta_dict[str(ctx.channel)].minute*60 + pasta_dict[str(ctx.channel)].second)
             print(diff)
-            if(diff >= 90 or diff <= -1): # becomes negative when the hour rolls over since i don't check for that this works fine
+            if(diff >= timeout or diff <= -1): # becomes negative when the hour rolls over since i don't check for that this works fine
                 try:
                     await ctx.send(f'' + str(pasta_str[random.randint(0, len(pasta_str) - 1)]))
                 except:
@@ -851,8 +851,8 @@ class BlueAyaChan(commands.Bot):
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
             self.danbooru_picture_sfw(tag)
             return # not a necessary void return but y'know cosmic rays and shit
-        elif(url == None):
-            return backup_links[-1] # post fumo image if we get nonetypes
+        if(url == None): # will happen after a few recursive tries 
+            return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get nonetypes
         if(artist_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
             if(artist == '' or artist == ['']): # check if an artist has been parsed
@@ -1005,10 +1005,22 @@ class BlueAyaChan(commands.Bot):
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
+    '''
+        datapic for THE lcc
+    '''
     @commands.command(name='datapic')
     async def data_pic_sfw(self, ctx):
         tags = ['data_(mega_man)']
         url = self.danbooru_picture_sfw(tags, init_p=1, limit_p=93)
+        await ctx.send(f'' + url)
+    
+    '''
+        fftpic for the fft community
+    '''
+    @commands.command(name='fftpic')
+    async def fft_pic_sfw(self, ctx):
+        tags = ['final_fantasy_tactics']
+        url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
 # -------------------------------------------------------------------------------------------------------------#
@@ -1199,7 +1211,7 @@ class BlueAyaChan(commands.Bot):
         elif(dow == 'tuesday'):
             await ctx.send("No stream today DataSleepy")
         elif (dow == 'wednesday'):
-            await ctx.send("")
+            await ctx.send("hatDance Hat Today! hatDance")
         elif (dow == 'thursday'):
             await ctx.send("")
         elif (dow == 'friday'):
@@ -1216,10 +1228,9 @@ class BlueAyaChan(commands.Bot):
     '''
         pyramid
     '''
-    '''
     @commands.command(name='pyramid')
     async def pyramid(self, ctx):
-        if(ctx.author.name in silenced):
+        if(ctx.author.name not in superuser):
             return
         
         if(msg == '-h'):
@@ -1282,15 +1293,14 @@ class BlueAyaChan(commands.Bot):
         else:
             await pyramid_5_msgs(msg)
 
-    '''
+    
 
     '''
         pyramid5x
     '''
-    '''
     @commands.command(name='castle')
     async def castle(self, ctx):
-        if (ctx.author.name in silenced):
+        if (ctx.author.name not in superuser):
             return
         chat = str(ctx.content)
         msg = chat[8:].strip()
@@ -1313,7 +1323,6 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
         await ctx.send(f'' + msg + ' ' + msg)
         await ctx.send(f'' + msg)
-'''
 
     '''
         Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
@@ -1612,6 +1621,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1615')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1617')
     blueayachan = BlueAyaChan()
     blueayachan.run()

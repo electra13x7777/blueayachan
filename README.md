@@ -24,6 +24,8 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !jampic - Queries safebooru and returns a link to a picture of Jam from Guilty Gear
 * !idolpic - gets you an idol. i really don't know much about that stuff... 
 * !mothmanpic - never scrapes images since there are like 2 mothman pics lol...
+* !datapic - DataFace
+* !fftpic - Queries safebooru and returns a link to a picture of art from the hit game Final Fantasy Tactics
 #### Gachas
 * !etrian - Returns an etrian class with witty flavor text
 * !melty - Gives you a new main in Melty Blood Actress Again Current Code
