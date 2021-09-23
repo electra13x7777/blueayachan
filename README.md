@@ -1,4 +1,11 @@
-# blueayachan
+╭━━╮╭╮╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
+┃╭╮┃┃┃╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╱╱╱╱╱┃┃
+┃╰╯╰┫┃╭╮╭┳━━┫┃╱┃┣╮╱╭┳━━┳━━┫╰━┳━━┳━╮╱╭━━┳╮╱╭╮
+┃╭━╮┃┃┃┃┃┃┃━┫╰━╯┃┃╱┃┃╭╮┃╭━┫╭╮┃╭╮┃╭╮╮┃╭╮┃┃╱┃┃
+┃╰━╯┃╰┫╰╯┃┃━┫╭━╮┃╰━╯┃╭╮┃╰━┫┃┃┃╭╮┃┃┃┣┫╰╯┃╰━╯┃
+╰━━━┻━┻━━┻━━┻╯╱╰┻━╮╭┻╯╰┻━━┻╯╰┻╯╰┻╯╰┻┫╭━┻━╮╭╯
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃╱╭━╯┃
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯╱╰━━╯
 ## My third (and most functional) twitch IRC bot
 
 ### What is this?
@@ -57,6 +64,9 @@ These bots have all entertained me immensely over the years and I am very thankf
 
 ### Contribution
 Now that this has a repo I suppose I should actually clean up the codebase a bit and create some style guidelines. I will eventually get around to doing this as well as a detailed explanation of the file parsing formats and such. If you would like to help with the bot feel free to reach out and I'll start getting something together.
+
+### Forking
+As this is Free Software, feel free to fork this repository and use the code to write your own bot. (Obviously you will have to do heavy modification since you can't use the credentials I use for my own bot)
 
 ### Contact Me!
 

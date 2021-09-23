@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/22/2021
+Date Published: 09/23/2021
 File: blueayachan.py
 Author: Alex Barney
 
