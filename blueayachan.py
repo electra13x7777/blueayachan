@@ -3,6 +3,15 @@ Project: BlueAyaChan - Twitch IRC Bot
 Date Published: 09/22/2021
 File: blueayachan.py
 Author: Alex Barney
+
+╭━━╮╭╮╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
+┃╭╮┃┃┃╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╱╱╱╱╱┃┃
+┃╰╯╰┫┃╭╮╭┳━━┫┃╱┃┣╮╱╭┳━━┳━━┫╰━┳━━┳━╮╱╭━━┳╮╱╭╮
+┃╭━╮┃┃┃┃┃┃┃━┫╰━╯┃┃╱┃┃╭╮┃╭━┫╭╮┃╭╮┃╭╮╮┃╭╮┃┃╱┃┃
+┃╰━╯┃╰┫╰╯┃┃━┫╭━╮┃╰━╯┃╭╮┃╰━┫┃┃┃╭╮┃┃┃┣┫╰╯┃╰━╯┃
+╰━━━┻━┻━━┻━━┻╯╱╰┻━╮╭┻╯╰┻━━┻╯╰┻╯╰┻╯╰┻┫╭━┻━╮╭╯
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃╱╭━╯┃
+╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯╱╰━━╯
 '''
 
 from twitchio.ext import commands
@@ -735,6 +744,13 @@ silenced = \
 
 class BlueAyaChan(commands.Bot):
     def __init__(self):
+        # display ascii art on run
+        ayalist = []
+        with open('ayawink.txt','r+') as fin:
+            for l in fin:
+                ayalist.append(l)
+        for i in ayalist:
+            print(i.strip('\n'))
         # allocate channels list with IRC channels from plaintext
         channels = []
         print('allocating channels to bot')
@@ -1232,7 +1248,8 @@ class BlueAyaChan(commands.Bot):
     async def pyramid(self, ctx):
         if(ctx.author.name not in superuser):
             return
-        
+        chat = str(ctx.content)
+        msg = chat[9:].strip()
         if(msg == '-h'):
             await ctx.send(f'The !pyramid command creates customizable pyramids. '
                            f'Syntax: "!pyramid <EMOTE1> <EMOTE2> <EMOTE3> <ARG>". '
@@ -1600,7 +1617,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1591')
+                       f' Questionable lines of code: 1')
 
     '''
     
@@ -1621,6 +1638,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1617')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1643')
     blueayachan = BlueAyaChan()
     blueayachan.run()
