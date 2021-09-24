@@ -35,7 +35,8 @@ blueayachan is a twitch IRC Bot with a more "iterative" (lazy) approach to it's 
 * !fftpic - Queries safebooru and returns a link to a picture of art from the hit game Final Fantasy Tactics
 #### Gachas
 * !etrian - Returns an etrian class with witty flavor text
-* !melty - Gives you a new main in Melty Blood Actress Again Current Code
+* !melty - Gives you a new main in Melty Blood: Actress Again Current Code
+* !lumina - Gives you a new main in Melty Blood: Type Lumina
 * !melee - Gives you a new main in SSB Melee
 * !soku - Gives you a new main in Touhou 12.3 Hisoutensoku
 * !hornedanimegacha - Returns a random horned anime of rarity 0 - 5 Stars

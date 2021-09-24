@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/23/2021
+Date Published: 09/24/2021
 File: blueayachan.py
 Author: Alex Barney
 
@@ -214,6 +214,22 @@ melty_chars = \
         "Neco Arc",
         "Kohaku",
         "Neco-Mecho"
+    ]
+lumina_characters = \
+    [
+        "Shiki Tohno",
+        "Arcueid Brunestud",
+        "Akiha Tohno",
+        "Ciel",
+        "Hisui",
+        "Kohaku",
+        "Kouma Kishima",
+        "Miyako Arima",
+        "Noel",
+        "Michael Roa Valdamjong",
+        "Vlov Arkhangel",
+        "Red Arcueido",
+        "and more"
     ]
 melee_chars = \
     [
@@ -1128,6 +1144,15 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'{ctx.author.name} your new main in melty is {moons[moon_rand]} Moon {melty_chars[rand]}!')
 
     '''
+        Lumina
+    '''
+    @commands.command(name='lumina')
+    async def melty(self, ctx):
+        global lumina_characters
+        rand = random.randint(0, len(lumina_characters) - 1)
+        await ctx.send(f'{ctx.author.name} your new main in Melty Blood: Type Lumina is {lumina_characters[rand]}!')
+
+    '''
         Melee
     '''
     @commands.command(name='melee')
@@ -1638,6 +1663,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1643')
+    print(f'Total Dreamboum Tweets Locally Scraped: 1668')
     blueayachan = BlueAyaChan()
     blueayachan.run()
