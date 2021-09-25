@@ -882,7 +882,7 @@ class BlueAyaChan(commands.Bot):
         try:
             meta = get_meta(client)
             url = partition_meta(meta, "'file_url':")
-        except pybooru.PybooruHTTPError:
+        except pybooru.exceptions.PybooruHTTPError:
             url = 'https://imgur.com/a/vQsv7Rj'
             fail_flag = True
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
