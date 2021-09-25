@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/24/2021
+Date Published: 09/25/2021
 File: blueayachan.py
 Author: Alex Barney
 
@@ -881,8 +881,7 @@ class BlueAyaChan(commands.Bot):
         meta = get_meta(client)
         url = partition_meta(meta, "'file_url':")
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
-            self.danbooru_picture_sfw(tag)
-            return # not a necessary void return but y'know cosmic rays and shit
+            return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get
         if(url == None): # will happen after a few recursive tries 
             return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get nonetypes
         if(artist_flag):
