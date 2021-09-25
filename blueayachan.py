@@ -1641,7 +1641,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1')
+                       f' Questionable lines of code: 1667')
 
     '''
     
