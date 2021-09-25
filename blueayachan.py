@@ -878,15 +878,18 @@ class BlueAyaChan(commands.Bot):
         ## Implementation ##
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
-        meta = get_meta(client)
-        url = partition_meta(meta, "'file_url':")
+        fail_flag = False # flag to set if HTTP Error
+        try:
+            meta = get_meta(client)
+            url = partition_meta(meta, "'file_url':")
+        except pybooru.PybooruHTTPError:
+            url = 'https://imgur.com/a/vQsv7Rj'
+            fail_flag = True
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
             return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get
-        if(url == None): # will happen after a few recursive tries 
-            return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get nonetypes
-        if(artist_flag):
+        if(artist_flag and not fail_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
-            if(artist == '' or artist == ['']): # check if an artist has been parsed
+            if(artist == '' or artist == [''] or fail_flag): # check if an artist has been parsed
                 return url
             return f'{url} Artist: {artist}'
         return url
@@ -1641,7 +1644,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1667')
+                       f' Questionable lines of code: 1670')
 
     '''
     
