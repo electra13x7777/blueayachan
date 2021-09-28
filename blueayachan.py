@@ -180,6 +180,7 @@ pasta_str = \
             f"All of my previous and upcoming records in DKC are fraudulent. This is the unmistakable truth. I have chosen of my own free will to admit fraud and be permanently banned from the SRC, so I have no intention of further developing the story.",
             f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!",
             f"I'm currently working on my PhD in Human Psychology and I'm in the middle of completing a research project. My working theory is that cloth activates mechanoreceptors in your chest, thus raising your heartrate, making you more likely to lost focus on common tasks. It would really help my studies if you could disrobe yourself during the stream to see if you feel more clear headed. I promise I won't look at your webcam."
+            f"So by this game having 93 characters, tons of different mechanics, tons of different movement options, the overwhelming nature makes it a good thing because you have unlimited... unlimited choices, but it also instills the purest form of fear in your heart because you know, that, you know, the choices you make are the... choices you bake... in the oven, like cookies. Delicious cookies."
     ] #copypastas | TODO: parse from file THIS IS URGENT
 melty_chars = \
     [
@@ -1149,7 +1150,7 @@ class BlueAyaChan(commands.Bot):
         Lumina
     '''
     @commands.command(name='lumina')
-    async def melty(self, ctx):
+    async def melty_lumina(self, ctx):
         global lumina_characters
         rand = random.randint(0, len(lumina_characters) - 1)
         await ctx.send(f'{ctx.author.name} your new main in Melty Blood: Type Lumina is {lumina_characters[rand]}!')
