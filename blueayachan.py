@@ -230,6 +230,7 @@ lumina_characters = \
         "Michael Roa Valdamjong",
         "Vlov Arkhangel",
         "Red Arcueido",
+        "Saber From the Fate Series"
         "and more"
     ]
 melee_chars = \
@@ -1142,7 +1143,7 @@ class BlueAyaChan(commands.Bot):
     async def melty(self, ctx):
         global melty_chars
         moons = ["Crecent", "Half", "Full"]
-        rand = random.randint(0, len(melty_chars) - 1)
+        rand = random.randint(0, len(melty_chars.keys()) - 1)
         moon_rand = random.randint(0, len(moons) - 1)
         await ctx.send(f'{ctx.author.name} your new main in melty is {moons[moon_rand]} Moon {melty_chars[rand]}!')
 
@@ -1197,7 +1198,7 @@ class BlueAyaChan(commands.Bot):
         elif (g_rand > 97 and g_rand <= 100):
             stars = 5
         await ctx.send(f'{ctx.author.name} summoned a {stars}☆ {demon_names[rand]}! {demons_nocturne[demon_names[rand]]}')
-
+        
     # -------------------------------------------------------------------------------------------------------------#
     ##############################################   MUSIC COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
