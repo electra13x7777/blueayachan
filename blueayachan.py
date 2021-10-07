@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/25/2021
+Date Published: 10/5/2021
 File: blueayachan.py
 Author: Alex Barney
 
@@ -13,7 +13,7 @@ Author: Alex Barney
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱┃┃╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯╱╰━━╯
 '''
-
+import pybooru
 from twitchio.ext import commands
 from pybooru import Danbooru, Moebooru
 from datetime import datetime, timedelta, date
@@ -180,7 +180,9 @@ pasta_str = \
             f"All of my previous and upcoming records in DKC are fraudulent. This is the unmistakable truth. I have chosen of my own free will to admit fraud and be permanently banned from the SRC, so I have no intention of further developing the story.",
             f"Okay sooooo I'm a HUGE fan of the game Melty Blood Type Lumina (I've never played it but the 30-second trailers make it look AMAZING!!) and I noticed that this game" '"Melty Blood Actress Again Current Code”'" got rollback on PC. I have a question. Can the devs count?? I know the "'"Lumina"'" is an unreleased game but shouldn't "'"UNICLR"'" get rollback firs? I want to get this "'"Current Code”'" game but I think the ,UNICLR, game should be the play rollback first. Thanks!",
             f"I'm currently working on my PhD in Human Psychology and I'm in the middle of completing a research project. My working theory is that cloth activates mechanoreceptors in your chest, thus raising your heartrate, making you more likely to lost focus on common tasks. It would really help my studies if you could disrobe yourself during the stream to see if you feel more clear headed. I promise I won't look at your webcam."
-            f"So by this game having 93 characters, tons of different mechanics, tons of different movement options, the overwhelming nature makes it a good thing because you have unlimited... unlimited choices, but it also instills the purest form of fear in your heart because you know, that, you know, the choices you make are the... choices you bake... in the oven, like cookies. Delicious cookies."
+            f"So by this game having 93 characters, tons of different mechanics, tons of different movement options, the overwhelming nature makes it a good thing because you have unlimited... unlimited choices, but it also instills the purest form of fear in your heart because you know, that, you know, the choices you make are the... choices you bake... in the oven, like cookies. Delicious cookies.",
+            f"Why does everyone see me teleporting????? In most of my games everyone always has a bad connection with me, I have a good pc, in the lobby I always have an excellent connection from what they have told me and I see the game excellently, I have played with good PCs with people who have bad PCs and I always see everything perfect, I start to feel bad that people can't play well with me.",
+            f"This is GARBAGE Auto Combos aren't even "'"Turn Off" or "Optional"'" this is nothing like what I expected. I poured my life into MBAACC and this is just garbage. I can do insane combos with my eyes closed and absolutely 0 effort. It's just a fancy looking button masher. Insulting. At least make Auto Combos a damn option for those of us who don't want to play like that. Why have they not thought of that?!?!"
     ] #copypastas | TODO: parse from file THIS IS URGENT
 melty_chars = \
     [
@@ -230,7 +232,7 @@ lumina_characters = \
         "Michael Roa Valdamjong",
         "Vlov Arkhangel",
         "Red Arcueido",
-        "Saber From the Fate Series"
+        "Saber From the Fate Series",
         "and more"
     ]
 melee_chars = \
@@ -353,6 +355,7 @@ takuya_quotes = \
 # Dictionaries <K,V>
 melty_tags = \
     {
+        #mbaacc
         "aoko": "aozaki_aoko ",
         "tohno": "tohno_shiki ",
         "hime": "archetype_earth",
@@ -377,9 +380,10 @@ melty_tags = \
         "hisui": "hisui_(tsukihime)",
         "neco": "nekoarc",
         "kohaku": "kohaku_(tsukihime)",
-        #type lumina
+        #mbtl
         "noel": "noel_(tsukihime)",
-        "vlov": "vlov_arkhangel"
+        "vlov": "vlov_arkhangel",
+        "saber": "saber"
     }
 touhou_tags = \
     {
@@ -884,7 +888,7 @@ class BlueAyaChan(commands.Bot):
         try:
             meta = get_meta(client)
             url = partition_meta(meta, "'file_url':")
-        except pybooru.exceptions.PybooruHTTPError:
+        except pybooru.PybooruHTTPError:
             url = 'https://imgur.com/a/vQsv7Rj'
             fail_flag = True
         if(url == '' or url == ['']): # check for valid url if none found recursively recall
@@ -1143,7 +1147,7 @@ class BlueAyaChan(commands.Bot):
     async def melty(self, ctx):
         global melty_chars
         moons = ["Crecent", "Half", "Full"]
-        rand = random.randint(0, len(melty_chars.keys()) - 1)
+        rand = random.randint(0, len(melty_chars) - 1)
         moon_rand = random.randint(0, len(moons) - 1)
         await ctx.send(f'{ctx.author.name} your new main in melty is {moons[moon_rand]} Moon {melty_chars[rand]}!')
 
@@ -1151,7 +1155,7 @@ class BlueAyaChan(commands.Bot):
         Lumina
     '''
     @commands.command(name='lumina')
-    async def melty_lumina(self, ctx):
+    async def lumina(self, ctx):
         global lumina_characters
         rand = random.randint(0, len(lumina_characters) - 1)
         await ctx.send(f'{ctx.author.name} your new main in Melty Blood: Type Lumina is {lumina_characters[rand]}!')
