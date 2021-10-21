@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 10/5/2021
+Date Published: 10/20/2021
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1487,26 +1487,12 @@ class BlueAyaChan(commands.Bot):
                 mal = l
         await ctx.send(f'{mal}')
 
-    #@commands.command(name="uptime")
-    async def uptime(self, ctx):
-        time_now = datetime.now()
-        time_started = self.get_channel(ctx.channel).started_at()
-        time_live_sec = (time_now.hour*3600 + time_now.minute*60 + time_now.second) - (time_started.hour*3600 + time_started.minute*60 + time_started.second)
-        hrs = 0
-        mins = 0
-        secs = 0
-        while(time_live_sec > 0):
-            if(time_live_sec >= 3600):
-                hrs+=1
-                time_live_sec -= 3600
-            elif(time_live_sec < 3600 and time_live_sec >= 60):
-                mins+=1
-                time_live_sec -= 60
-            elif(time_live_sec < 60):
-                secs = time_live_sec
-                time_live_sec = 0
-        await ctx.send(f"{ctx.channel} has been live for {hrs} Hours {mins} Minutes and {secs} Seconds") #whisper coroutine
-
+    @commands.command(name='hentai')
+    async def hentai(self, ctx):
+        hentext = ['This game is hentai DataSweat', 'This game is NOT hentai YoumuAngry', 'This game could possibly be hentai, but more testing is needed MarisaFace']
+        rand = random.randint(0,len(hentext)-1)
+        await ctx.send(f'{hentext[rand]}')
+    
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
