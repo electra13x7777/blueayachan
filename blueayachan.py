@@ -1234,13 +1234,16 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx):
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_11_09_2021.txt"):
         rand = random.randint(0, 1618 - 1)
-        with open('pt.txt', 'r', encoding='utf8') as fin:
+        with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
                 if(x == rand):
-                    await ctx.send(f'{l[0:-13]}')
+                    if(l[-14] != ' '):
+                        await ctx.send(f'{l[0:-14]}')
+                    else:
+                        await ctx.send(f'{l[0:-13]}')
                     return
                 else:
                     x+=1
@@ -1492,6 +1495,11 @@ class BlueAyaChan(commands.Bot):
         hentext = ['This game is hentai DataSweat', 'This game is NOT hentai YoumuAngry', 'This game could possibly be hentai, but more testing is needed MarisaFace']
         rand = random.randint(0,len(hentext)-1)
         await ctx.send(f'{hentext[rand]}')
+    
+    @commands.command(name="fuck")
+    async def fuck(self, ctx):
+        fucktext = 'fuck' + ctx[5:]
+        ctx.send(f'{fucktext}') 
     
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
