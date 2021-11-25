@@ -1235,7 +1235,7 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='dreamboumtweet')
     async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_11_09_2021.txt"):
-        rand = random.randint(0, 1618 - 1)
+        rand = random.randint(0, 2650 - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
