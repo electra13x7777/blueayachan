@@ -1231,7 +1231,7 @@ class BlueAyaChan(commands.Bot):
         BBCF
     """
     @commands.command(name ='bbcf')
-    async def soku(self, ctx):
+    async def bbcf(self, ctx):
         global bbcf_chars
         rand = random.randint(0, len(bbcf_chars) - 1)
         await ctx.send(f'{ctx.author.name} your new main in Blaz Blue Central Fiction is {bbcf_chars[rand]}!')
