@@ -288,6 +288,43 @@ soku_chars = \
         "Giant Catfish"
 
     ]
+bbcf_chars = \
+    [
+        "Amane Nishiki",
+        "Arakune",
+        "Azrael",
+        "Bang Shishigami",
+        "Bullet",
+        "Carl Clover",
+        "Celica A. Mercury",
+        "Es",
+        "Hakumen",
+        "Hazama",
+        "Hibiki Kohaku",
+        "Iron Tiger",
+        "Jin Kisaragi",
+        "Jubei",
+        "Kagura Mutsuki",
+        "Kokonoe",
+        "Lambda-11",
+        "Litchi Faye Ling",
+        "Mai Natsume",
+        "Makoto Nanaya",
+        "Mu-12",
+        "Naoto Kurogane",
+        "Nine the Phantom",
+        "Noel Vermillion",
+        "Nu-13",
+        "Platinum the Trinity",
+        "Rachel Alucard",
+        "Ragna the Bloodedge",
+        "Relius Clover",
+        "Susano'o",
+        "Taokaka",
+        "Tsubaki Yayoi",
+        "Valkenhayn R. Hellsing",
+        "Yuuki Terumi",
+    ]
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -1062,6 +1099,15 @@ class BlueAyaChan(commands.Bot):
         tags = ['final_fantasy_tactics']
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
+    
+    '''
+        bbpic for the blaz boob community
+    '''
+    @commands.command(name='bbcfpic')
+    async def bb_pic_sfw(self, ctx):
+        tags = ['blazblue:_central_fiction']
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
 
 # -------------------------------------------------------------------------------------------------------------#
 ##############################################   GACHA COMMANDS   ##############################################
@@ -1180,6 +1226,15 @@ class BlueAyaChan(commands.Bot):
         global soku_chars
         rand = random.randint(0, len(soku_chars) - 1)
         await ctx.send(f'{ctx.author.name} your new main in Touhou 12.3 Hisoutensoku is {soku_chars[rand]}!')
+
+    """
+        BBCF
+    """
+    @commands.command(name ='bbcf')
+    async def soku(self, ctx):
+        global bbcf_chars
+        rand = random.randint(0, len(bbcf_chars) - 1)
+        await ctx.send(f'{ctx.author.name} your new main in Blaz Blue Central Fiction is {bbcf_chars[rand]}!')
 
     """
         Demon
