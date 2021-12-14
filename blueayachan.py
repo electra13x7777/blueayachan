@@ -1211,9 +1211,9 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='melee')
     async def melee(self, ctx):
-        if (str(ctx.channel).strip() != "liquidsquidd" and str(ctx.channel).strip() != "mpghappiness" and str(ctx.channel).strip() != "electra_rta" and str(ctx.channel).strip() != "darko_rta"):
-            await ctx.send(f"too hot for #{ctx.channel}")
-            return
+        #if (str(ctx.channel).strip() != "liquidsquidd" and str(ctx.channel).strip() != "mpghappiness" and str(ctx.channel).strip() != "electra_rta" and str(ctx.channel).strip() != "darko_rta"):
+        #    await ctx.send(f"too hot for #{ctx.channel}")
+        #    return
         global melee_chars
         rand = random.randint(0, len(melee_chars) - 1)
         await ctx.send(f'{ctx.author.name} your new main in melee is {melee_chars[rand]}!')
