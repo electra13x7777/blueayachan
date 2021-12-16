@@ -1110,7 +1110,7 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + url)
     
     '''
-        
+        idunpic
     '''
     @commands.command(name='idunpic')
     async def idun_pic_sfw(self, ctx):
@@ -1119,7 +1119,7 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + url)
     
     '''
-        
+       nemissapic 
     '''
     @commands.command(name='nemissapic')
     async def nemissa_pic_sfw(self, ctx):
