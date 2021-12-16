@@ -1122,7 +1122,7 @@ class BlueAyaChan(commands.Bot):
         
     '''
     @commands.command(name='nemissapic')
-    async def idun_pic_sfw(self, ctx):
+    async def nemissa_pic_sfw(self, ctx):
         tags = ['nemissa']
         url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
