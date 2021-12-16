@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 10/21/2021
+Date Published: 12/15/2021
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1107,6 +1107,24 @@ class BlueAyaChan(commands.Bot):
     async def bb_pic_sfw(self, ctx):
         tags = ['blazblue:_central_fiction']
         url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
+    
+    '''
+        
+    '''
+    @commands.command(name='idunpic')
+    async def idun_pic_sfw(self, ctx):
+        tags = ['idunn_(megami_tensei)']
+        url = self.danbooru_picture_sfw(tags, init_p=1)
+        await ctx.send(f'' + url)
+    
+    '''
+        
+    '''
+    @commands.command(name='nemissapic')
+    async def idun_pic_sfw(self, ctx):
+        tags = ['nemissa']
+        url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
 
 # -------------------------------------------------------------------------------------------------------------#
