@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 12/15/2021
+Date Published: 01/10/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -233,7 +233,9 @@ lumina_characters = \
         "Vlov Arkhangel",
         "Red Arcueido",
         "Saber From the Fate Series",
-        "and more"
+        "and more",
+        "Dead Loli Ancestor Noel",
+        "Aozaki Aoko"
     ]
 melee_chars = \
     [
@@ -1069,7 +1071,7 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='idolpic')
     async def idol_pic_sfw(self, ctx):
-        tags = ['love_live!']
+        tags = ['love_live!', 'idolmaster']
         url = self.danbooru_picture_sfw(tags)
         await ctx.send(f'' + url)
 
@@ -1126,6 +1128,7 @@ class BlueAyaChan(commands.Bot):
         tags = ['nemissa']
         url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
+
 
 # -------------------------------------------------------------------------------------------------------------#
 ##############################################   GACHA COMMANDS   ##############################################
@@ -1307,8 +1310,8 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_11_09_2021.txt"):
-        rand = random.randint(0, 2650 - 1)
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_01_10_2022.txt"):
+        rand = random.randint(0, 3541 - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
@@ -1324,7 +1327,7 @@ class BlueAyaChan(commands.Bot):
     # -------------------------------------------------------------------------------------------------------------#
     ###############################################   TIME COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
-
+    """
     @commands.command(name='streamtext')
     async def claude_stream_over_text(self, ctx):
         if (str(ctx.channel).strip() != "claude"):
@@ -1345,11 +1348,11 @@ class BlueAyaChan(commands.Bot):
             await ctx.send("")
         elif (dow == 'sundday'):
             await ctx.send("")
-
+    """
     # -------------------------------------------------------------------------------------------------------------#
     ###############################################   MISC COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
-
+    """
     '''
         pyramid
     '''
@@ -1449,6 +1452,7 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
         await ctx.send(f'' + msg + ' ' + msg)
         await ctx.send(f'' + msg)
+    """
 
     '''
         Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
@@ -1716,8 +1720,8 @@ class BlueAyaChan(commands.Bot):
                        f' Melees: {str(len(melee_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-                       f' Dreamboum Tweets Locally Scraped: 1618 |'
-                       f' Questionable lines of code: 1670')
+                       f' Dreamboum Tweets Locally Scraped: 3541 |'
+                       f' Questionable lines of code: 1747')
 
     '''
     
@@ -1738,6 +1742,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 1668')
+    print(f'Total Dreamboum Tweets Locally Scraped: 3541')
     blueayachan = BlueAyaChan()
     blueayachan.run()
