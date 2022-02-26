@@ -1314,8 +1314,9 @@ class BlueAyaChan(commands.Bot):
     async def jojos(self, ctx):
         global jojos_chars
         rand = random.randint(0, len(jojos_chars) - 1)
-        await ctx.send(f'{ctx.author.name} your new main in JoJo'"'"'s Bizarre Adventure: Heritage for the Future is {jojos_chars[rand]}!')
-
+        newjojo = jojos_chars[rand]
+        await ctx.send(f'{ctx.author.name} your new main in JoJos Bizarre Adventure: Heritage for the Future is {newjojo}!')
+        
 
     """
         Demon
