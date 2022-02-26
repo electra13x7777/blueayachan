@@ -1359,135 +1359,6 @@ class BlueAyaChan(commands.Bot):
             for l in fin:
                 lyrics.append(l)
         await ctx.send(lyrics[rand])
-    # -------------------------------------------------------------------------------------------------------------#
-    ###############################################   TIME COMMANDS   ##############################################
-    # -------------------------------------------------------------------------------------------------------------#
-    """
-    @commands.command(name='streamtext')
-    async def claude_stream_over_text(self, ctx):
-        if (str(ctx.channel).strip() != "claude"):
-            await ctx.send(f"too hot for #{ctx.channel}")
-            return
-        dow = calendar.day_name[date.today().weekday()].lower() # gets the day of the week
-        if(dow == 'monday'):
-            await ctx.send("Happy Melty Monday! MechoStrong")
-        elif(dow == 'tuesday'):
-            await ctx.send("No stream today DataSleepy")
-        elif (dow == 'wednesday'):
-            await ctx.send("hatDance Hat Today! hatDance")
-        elif (dow == 'thursday'):
-            await ctx.send("")
-        elif (dow == 'friday'):
-            await ctx.send("")
-        elif (dow == 'saturday'):
-            await ctx.send("")
-        elif (dow == 'sundday'):
-            await ctx.send("")
-    """
-    # -------------------------------------------------------------------------------------------------------------#
-    ###############################################   MISC COMMANDS   ##############################################
-    # -------------------------------------------------------------------------------------------------------------#
-    """
-    '''
-        pyramid
-    '''
-    @commands.command(name='pyramid')
-    async def pyramid(self, ctx):
-        if(ctx.author.name not in superuser):
-            return
-        chat = str(ctx.content)
-        msg = chat[9:].strip()
-        if(msg == '-h'):
-            await ctx.send(f'The !pyramid command creates customizable pyramids. '
-                           f'Syntax: "!pyramid <EMOTE1> <EMOTE2> <EMOTE3> <ARG>". '
-                           f'Text following the command is stripped into argv and '
-                           f'supports up to 3 emotes. Deafult settings create pyramids '
-                           f'sequentially based on the input. <ARG>: "-s/-sX": creates '
-                           f'a single or multiple "stacked" (hence -s) pyramid(s) with 3 different emotes. '
-                           f'For more "art" see "!castle <EMOTE>"')
-            return
-        async def pyramid_5_msgs(msg):
-            await ctx.send(f'' + msg)
-            await ctx.send(f'' + msg + ' ' + msg)
-            await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
-            await ctx.send(f'' + msg + ' ' + msg)
-            await ctx.send(f'' + msg)
-        msg_list = chat[9:].split(' ')
-        print(msg_list)
-        async def pyramid_5_msgs_stack(msg_list):
-            await ctx.send(f'' + msg_list[0])
-            await ctx.send(f'' + msg_list[0] + ' ' + msg_list[1])
-            await ctx.send(f'' + msg_list[0] + ' ' + msg_list[1] + ' ' + msg_list[2])
-            await ctx.send(f'' + msg_list[0] + ' ' + msg_list[1])
-            await ctx.send(f'' + msg_list[0])
-        if (len(msg_list) > 3):
-            if(msg_list[3] == '-s'):
-                await pyramid_5_msgs_stack(msg_list)
-            elif(msg_list[3] == '-s2'):
-                msg_list2 = msg_list
-                msg_list2.remove(msg_list2[3])
-                temp = msg_list2.pop(0)
-                msg_list2.append(temp)
-                await pyramid_5_msgs_stack(msg_list)
-                await pyramid_5_msgs_stack(msg_list2)
-            elif (msg_list[3] == '-s3'):
-                #print(f'msg: {msg_list}')
-                msg_list2 = msg_list
-                #print(f'msg2: {msg_list2}')
-                msg_list2.remove(msg_list2[3])
-                #print(f'msg2: {msg_list2}')
-                temp = msg_list2.pop(0)
-                msg_list2.append(temp)
-                #print(f'msg2: {msg_list2}')
-                msg_list3 = msg_list2
-                #print(f'msg3: {msg_list3}')
-                temp = msg_list2.pop(0)
-                #print(f'msg3: {msg_list3}')
-                msg_list3.append(temp)
-                #print(f'msg3: {msg_list3}')
-                await pyramid_5_msgs_stack(msg_list)
-                await pyramid_5_msgs_stack(msg_list2)
-                await pyramid_5_msgs_stack(msg_list3)
-            elif(len(msg_list) > 3 and msg_list[3] != '-s' and msg_list[3] != '-s3'):
-                await ctx.send(f"I'm a bot lazily written in python bro, you're gonna blow my stack if ya' don't cool it")
-        elif(len(msg_list) > 1):
-            for i in msg_list:
-                await pyramid_5_msgs(i)
-            return
-        else:
-            await pyramid_5_msgs(msg)
-
-    
-
-    '''
-        pyramid5x
-    '''
-    @commands.command(name='castle')
-    async def castle(self, ctx):
-        if (ctx.author.name not in superuser):
-            return
-        chat = str(ctx.content)
-        msg = chat[8:].strip()
-        await ctx.send(f'' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg)
-        await ctx.send(f'' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg)
-        await ctx.send(f'' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg + ' ' + msg)
-        await ctx.send(f'' + msg + ' ' + msg)
-        await ctx.send(f'' + msg)
-    """
 
     '''
         Command: !cfb - parses cfb.txt into lists used to create a name to send to the chat.
@@ -1589,7 +1460,8 @@ class BlueAyaChan(commands.Bot):
     @command.command(name='kinohacked')
     async def kinohacked(self, ctx):
         kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png"]
-        await ctx.send(f'{kinopics[random.randint(0, 1)]}')
+        rand = random.randint(0,len(kinopics)-1)
+        await ctx.send(f'{kinopics[rand]}')
 
     @commands.command(name='434')
     async def four_three_four(self, ctx):
