@@ -327,6 +327,31 @@ bbcf_chars = \
         "Valkenhayn R. Hellsing",
         "Yuuki Terumi",
     ]
+    jojos_chars = \
+        [
+            "Jotaro",
+            "Avdol",
+            "Kaykoin",
+            "Polnareff",
+            "DIO",
+            "Devo",
+            "Iggy",
+            "Midler",
+            "Vanilla Ice",
+            "New Kakyoin",
+            "Alessi",
+            "Chaka",
+            "Old Joseph",
+            "Maraiah",
+            "Hol Horse",
+            "Petshop",
+            "Black Polnareff",
+            "Khan",
+            "Hol & Boingo",
+            "Rubber Soul",
+            "Shadow Dio",
+            "Young Joseph"
+        ]
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -1283,6 +1308,16 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'{ctx.author.name} your new main in Blaz Blue Central Fiction is {bbcf_chars[rand]}!')
 
     """
+        Jojos
+    """
+    @commands.command(name ='jojos')
+    async def jojos(self, ctx):
+        global jojos_chars
+        rand = random.randint(0, len(jojos_chars) - 1)
+        await ctx.send(f'{ctx.author.name} your new main in JoJo'"'"'s Bizarre Adventure: Heritage for the Future is {jojos_chars[rand]}!')
+
+
+    """
         Demon
     """
     @commands.command(name='demongacha')
@@ -1459,7 +1494,7 @@ class BlueAyaChan(commands.Bot):
 
     @commands.command(name='kinohacked')
     async def kinohacked(self, ctx):
-        kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png"]
+        kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png", "https://i.imgur.com/YZC3ykm.png"]
         rand = random.randint(0,len(kinopics)-1)
         await ctx.send(f'{kinopics[rand]}')
 
