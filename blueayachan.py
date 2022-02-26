@@ -1354,14 +1354,11 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='spreadmywingslyric')
     async def spread_my_wings_lyric(self, ctx, fp="SPREAD_MY_WINGS.txt"):
         rand = random.randint(0, 60)
+        lyrics = []
         with open(fp, 'r', encoding='utf8') as fin:
-            x = 1
             for l in fin:
-                if(x == rand):
-                    await ctx.send(l)
-                else:
-                    x+=1
-
+                lyrics.append(l)
+        await ctx.send(lyrics[rand])
     # -------------------------------------------------------------------------------------------------------------#
     ###############################################   TIME COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
