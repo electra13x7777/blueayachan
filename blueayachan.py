@@ -1586,6 +1586,11 @@ class BlueAyaChan(commands.Bot):
     async def tridance(self, ctx):
         await ctx.send(f'https://i.imgur.com/3HGV7Hy')
 
+    @command.command(name='kinohacked')
+    async def kinohacked(self, ctx):
+        kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png"]
+        await ctx.send(f'{kinopics[random.randint(0, 1)]}')
+
     @commands.command(name='434')
     async def four_three_four(self, ctx):
         await ctx.send(f'https://twitter.com/LiquidSquid_/status/1215446601810042880?s=20')
