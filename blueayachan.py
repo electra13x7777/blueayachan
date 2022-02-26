@@ -325,33 +325,33 @@ bbcf_chars = \
         "Taokaka",
         "Tsubaki Yayoi",
         "Valkenhayn R. Hellsing",
-        "Yuuki Terumi",
+        "Yuuki Terumi"
+    ] 
+jojos_chars = \
+    [
+        "Jotaro",
+        "Avdol",
+        "Kaykoin",
+        "Polnareff",
+        "DIO",
+        "Devo",
+        "Iggy",
+        "Midler",
+        "Vanilla Ice",
+        "New Kakyoin",
+        "Alessi",
+        "Chaka",
+        "Old Joseph",
+        "Maraiah",
+        "Hol Horse",
+        "Petshop",
+        "Black Polnareff",
+        "Khan",
+        "Hol & Boingo",
+        "Rubber Soul",
+        "Shadow Dio",
+        "Young Joseph"
     ]
-    jojos_chars = \
-        [
-            "Jotaro",
-            "Avdol",
-            "Kaykoin",
-            "Polnareff",
-            "DIO",
-            "Devo",
-            "Iggy",
-            "Midler",
-            "Vanilla Ice",
-            "New Kakyoin",
-            "Alessi",
-            "Chaka",
-            "Old Joseph",
-            "Maraiah",
-            "Hol Horse",
-            "Petshop",
-            "Black Polnareff",
-            "Khan",
-            "Hol & Boingo",
-            "Rubber Soul",
-            "Shadow Dio",
-            "Young Joseph"
-        ]
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
