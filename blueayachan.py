@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 01/10/2022
+Date Published: 02/26/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -388,7 +388,7 @@ takuya_quotes = \
         "(Oh God... I want to be that towel.)",
         "O Juliet, thine eyes strike me with the force of a million volts! ...How 'bout that?",
         "I want to be scolded.",
-        "Former statements exit to be retracted.",
+        "Former statements exist to be retracted.",
         "Aaagh! Please don't dig up old shit like that!"
     ]
 # Dictionaries <K,V>
@@ -1128,6 +1128,31 @@ class BlueAyaChan(commands.Bot):
         tags = ['nemissa']
         url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
+    
+    '''
+    clodpic
+    '''
+    #@commands.command(name='claudepic')
+    #async def claude_pic(self, ctx):
+    #    tags = ['claude']
+    
+    '''
+    electrapic
+    DOES NOT QUERY DANBOORU
+    '''
+    #@commands.command(name='electrapic')
+    #async def electra_pic_sfw(self, ctx):
+    #    await ctx.send()
+
+    '''
+    generic pic
+    '''
+    @commands.command(name='pic')
+    async def dan_pic(self, ctx):
+        msg = str(ctx.content)
+        tags = msg[10:].strip()
+        url = self.danbooru_picture_sfw(tags, init_p=1)
+        await ctx.send(f'' + url)
 
 
 # -------------------------------------------------------------------------------------------------------------#
@@ -1321,6 +1346,19 @@ class BlueAyaChan(commands.Bot):
                     else:
                         await ctx.send(f'{l[0:-13]}')
                     return
+                else:
+                    x+=1
+    '''
+        spreadmywingslyric
+    '''
+    @commands.command(name='spreadmywingslyric')
+    async def spread_my_wings_lyric(self, ctx, fp="SPREAD_MY_WINGS.txt"):
+        rand = random.randint(0, 60)
+        with open(fp, 'r', encoding='utf8') as fin:
+            x = 1
+            for l in fin:
+                if(x == rand):
+                    await ctx.send(l)
                 else:
                     x+=1
 
