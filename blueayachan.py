@@ -1457,7 +1457,7 @@ class BlueAyaChan(commands.Bot):
     async def tridance(self, ctx):
         await ctx.send(f'https://i.imgur.com/3HGV7Hy')
 
-    @command.command(name='kinohacked')
+    @commands.command(name='kinohacked')
     async def kinohacked(self, ctx):
         kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png"]
         rand = random.randint(0,len(kinopics)-1)
