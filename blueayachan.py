@@ -1175,9 +1175,19 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='pic')
     async def dan_pic(self, ctx):
         msg = str(ctx.content)
-        tags = msg[10:].strip()
+        tags = msg[5:].strip()
         url = self.danbooru_picture_sfw(tags, init_p=1)
         await ctx.send(f'' + url)
+
+    '''
+    beatrix pic for demonsmallz
+    '''
+    @commands.command(name='pic')
+    async def beatrix_pic_sfw(self, ctx):
+        tags = ["beatrix_(ff9)"]
+        url = self.danbooru_picture_sfw(tags, init_p=1)
+        await ctx.send(f'' + url)
+
 
 
 # -------------------------------------------------------------------------------------------------------------#
