@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 02/26/2022
+Date Published: 02/27/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1182,7 +1182,7 @@ class BlueAyaChan(commands.Bot):
     '''
     beatrix pic for demonsmallz
     '''
-    @commands.command(name='pic')
+    @commands.command(name='beatrixpic')
     async def beatrix_pic_sfw(self, ctx):
         tags = ["beatrix_(ff9)"]
         url = self.danbooru_picture_sfw(tags, init_p=1)
