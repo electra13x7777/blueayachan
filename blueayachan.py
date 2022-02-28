@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 02/27/2022
+Date Published: 02/28/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -351,6 +351,22 @@ jojos_chars = \
         "Rubber Soul",
         "Shadow Dio",
         "Young Joseph"
+    ]
+akb_chars = \
+    [
+        "Akatsuki",
+        "Mycale",
+        "Sai",
+        "Kanae",
+        "Fritz",
+        "Marilyn Sue",
+        "Wei",
+        "Anonym",
+        "Elektrosoldat",
+        "Blitztank",
+        "Adler",
+        "Murakumo",
+        "Perfecti"       
     ]
 backup_links = \
     [
@@ -1326,7 +1342,16 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(0, len(jojos_chars) - 1)
         newjojo = jojos_chars[rand]
         await ctx.send(f'{ctx.author.name} your new main in JoJos Bizarre Adventure: Heritage for the Future is {newjojo}!')
-        
+    
+    """
+        AKB
+    """
+    @commands.command(name ='blitzkampf')
+    async def blitzkampf(self, ctx):
+        global akb_chars
+        rand = random.randint(0, len(akb_chars) - 1)
+        newakb = akb_chars[rand]
+        await ctx.send(f'{ctx.author.name} your new main in Akatsuki Blitzkampf Ausf. Achse is {newakb}!')  
 
     """
         Demon
@@ -1679,7 +1704,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 3541 |'
-                       f' Questionable lines of code: 1747')
+                       f' Questionable lines of code: 1731')
 
     '''
     
