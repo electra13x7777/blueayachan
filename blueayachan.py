@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 03/08/2022
+Date Published: 03/22/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1406,8 +1406,8 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_01_10_2022.txt"):
-        rand = random.randint(0, 3541 - 1)
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_03_22_2022.txt"):
+        rand = random.randint(0, 4312 - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
@@ -1725,6 +1725,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 3541')
+    print(f'Total Dreamboum Tweets Locally Scraped: 4312')
     blueayachan = BlueAyaChan()
     blueayachan.run()
