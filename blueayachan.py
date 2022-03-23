@@ -303,7 +303,7 @@ bbcf_chars = \
         "Hakumen",
         "Hazama",
         "Hibiki Kohaku",
-        "Iron Tiger",
+        "Iron Tager",
         "Jin Kisaragi",
         "Jubei",
         "Kagura Mutsuki",
@@ -1703,7 +1703,7 @@ class BlueAyaChan(commands.Bot):
                        f' Melees: {str(len(melee_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-                       f' Dreamboum Tweets Locally Scraped: 3541 |'
+                       f' Dreamboum Tweets Locally Scraped: 4312 |'
                        f' Questionable lines of code: 1731')
 
     '''
