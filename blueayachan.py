@@ -823,7 +823,12 @@ etrian_ost = \
         "Reparation": "https://www.youtube.com/watch?v=4xp__a5eFjY"
         #eo2
     }
+quiz_game = \
+    {
+
+    }
 pasta_dict = {} # Empty dictionary used for pasta cooldown
+quiz_dict = {} # Empty dictionary used to store the current question/channel
 superuser = \
     [
         f'electra_rta'
@@ -1390,6 +1395,26 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f"{titles[rand]} {etrian_ost[titles[rand]]}")
 
     # -------------------------------------------------------------------------------------------------------------#
+    ##############################################   TRIVIA COMMANDS   #############################################
+    # -------------------------------------------------------------------------------------------------------------#
+
+    '''
+        Shadow Hearts Quiz Game
+    '''
+    '''
+    @commands.command(name='Shadow Hearts: From the New World quiz')
+    async def shftnw_quiz(self, ctx):
+        global quiz_game, quiz_dict
+        if(len(quiz_dict) == 0):
+            #send question to irc and append channel name and question to quiz dict
+            # <K,V> == <Channel, Question>
+            return None
+        else:
+            #give a hint to current question
+            return None
+
+    '''
+    # -------------------------------------------------------------------------------------------------------------#
     ##############################################   QUOTE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
 
@@ -1556,10 +1581,9 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(0,len(hentext)-1)
         await ctx.send(f'{hentext[rand]}')
     
-    @commands.command(name="fuck")
-    async def fuck(self, ctx):
-        fucktext = 'fuck' + ctx[5:]
-        ctx.send(f'{fucktext}') 
+    @commands.command(name="ketchup")
+    async def ketchup_tweet(self, ctx):
+        await ctx.send(f'https://clips.twitch.tv/ArtsyGracefulIguanaPhilosoraptor') 
     
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
