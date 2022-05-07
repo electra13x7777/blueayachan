@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 03/22/2022
+Date Published: 05/06/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1556,7 +1556,7 @@ class BlueAyaChan(commands.Bot):
 
     @commands.command(name='kinohacked')
     async def kinohacked(self, ctx):
-        kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png", "https://i.imgur.com/YZC3ykm.png", "https://imgur.com/a/FcY8eHn", "https://imgur.com/a/7Xx91tS", "https://imgur.com/a/ScJmfFd", "https://i.imgur.com/pOQ240P.png"]
+        kinopics = ["https://i.imgur.com/NDuYKdx.png", "https://i.imgur.com/S0iYj74.png", "https://i.imgur.com/YZC3ykm.png", "https://imgur.com/a/FcY8eHn", "https://imgur.com/a/7Xx91tS", "https://imgur.com/a/ScJmfFd", "https://i.imgur.com/pOQ240P.png", "https://i.imgur.com/rBQDb2n.png"]
         rand = random.randint(0,len(kinopics)-1)
         await ctx.send(f'{kinopics[rand]}')
 
