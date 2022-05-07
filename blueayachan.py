@@ -1255,6 +1255,7 @@ class BlueAyaChan(commands.Bot):
     '''
         Etrian
     '''
+    '''
     @commands.command(name='etrian')
     async def etrian(self, ctx):
         global eo_classes
@@ -1287,7 +1288,7 @@ class BlueAyaChan(commands.Bot):
             ]
         met_rand = random.randint(0, len(metric)-1)
         await ctx.send(f'The {metric[met_rand]} Etrian is {eo_classes[rand]} {eo_classes[classes[rand]]}')
-
+    '''
     '''
         Melty
     '''
@@ -1431,8 +1432,8 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_03_22_2022.txt"):
-        rand = random.randint(0, 4312 - 1)
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_05_06_2022.txt"):
+        rand = random.randint(0, 4809 - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
@@ -1727,7 +1728,7 @@ class BlueAyaChan(commands.Bot):
                        f' Melees: {str(len(melee_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-                       f' Dreamboum Tweets Locally Scraped: 4312 |'
+                       f' Dreamboum Tweets Locally Scraped: 4809 |'
                        f' Questionable lines of code: 1731')
 
     '''
@@ -1749,6 +1750,6 @@ if(__name__ == '__main__'):
     print(f'Total Melees: {str(len(melee_chars))}')
     print(f'Total Sokus: {str(len(soku_chars))}')
     print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 4312')
+    print(f'Total Dreamboum Tweets Locally Scraped: 4809')
     blueayachan = BlueAyaChan()
     blueayachan.run()
