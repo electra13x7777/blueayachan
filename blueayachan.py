@@ -368,6 +368,26 @@ akb_chars = \
         "Murakumo",
         "Perfecti"       
     ]
+
+vsav_chars = \
+    [
+        "Anakaris",
+        "Aulbath",
+        "Bishamon",
+        "Bulleta",
+        "Demitri",
+        "Felicia",
+        "Gallon",
+        "Jedah",
+        "Lei-Lei",
+        "Lilith",
+        "Morrigan",
+        "Q-Bee",
+        "SCAMsquatch", #Sasquatch
+        "Victor",
+        "Zabel"
+    ]
+
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -1158,6 +1178,15 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'' + url)
     
     '''
+        vsavpic for the special june monthly fighting game
+    '''
+    @commands.command(name='vsavpic')
+    async def vsav_pic_sfw(self, ctx):
+        tags = ['vampire_(game)']
+        url = self.danbooru_picture_sfw(tags)
+        await ctx.send(f'' + url)
+
+    '''
         idunpic
     '''
     @commands.command(name='idunpic')
@@ -1358,6 +1387,17 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(0, len(akb_chars) - 1)
         newakb = akb_chars[rand]
         await ctx.send(f'{ctx.author.name} your new main in Akatsuki Blitzkampf Ausf. Achse is {newakb}!')  
+
+    """
+        VSAV
+    """
+    @commands.command(name ='vsav')
+    async def vsav(self, ctx):
+        global vsav_chars
+        rand = random.randint(0, len(vsav_chars) - 1)
+        newvsav = vsav_chars[rand]
+        await ctx.send(f'{ctx.author.name} your new main in Vampire Savior is {newvsav}!')  
+
 
     """
         Demon
