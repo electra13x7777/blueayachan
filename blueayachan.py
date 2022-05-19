@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 05/06/2022
+Date Published: 05/18/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -1224,22 +1224,23 @@ class BlueAyaChan(commands.Bot):
     generic pic
     '''
     @commands.command(name='pic')
-    async def dan_pic(self, ctx, timeout=60):
+    async def dan_pic(self, ctx):
         global pic_dict
+        timeout=60
         msg = str(ctx.content)
         tags = msg[5:].strip()
         url = self.danbooru_picture_sfw(tags, init_p=1)
         time_now = datetime.now()
-        if(str(ctx.user) not in pic_dict.keys()):
+        if(str(ctx.author.name) not in pic_dict.keys()):
             try:
                 await ctx.send(f'' + url)
             except:
                 commands.CommandError
                 await ctx.send(f'' + url)
-            pic_dict[str(ctx.user)] = datetime.now()
-        elif(str(ctx.user) in pic_dict.keys()):
+            pic_dict[str(ctx.author.name)] = datetime.now()
+        elif(str(ctx.author.name) in pic_dict.keys()):
             print(time_now.time())
-            diff = (time_now.minute*60 + time_now.second) - (pic_dict[str(ctx.user)].minute*60 + pic_dict[str(ctx.user)].second)
+            diff = (time_now.minute*60 + time_now.second) - (pic_dict[str(ctx.author.name)].minute*60 + pic_dict[str(ctx.author.name)].second)
             print(diff)
             if(diff >= timeout or diff <= -1): # becomes negative when the hour rolls over since i don't check for that this works fine
                 try:
@@ -1247,8 +1248,8 @@ class BlueAyaChan(commands.Bot):
                 except:
                     commands.CommandError
                     await ctx.send(f'' + url)
-                pic_dict[str(ctx.user)] = None
-                pic_dict[str(ctx.user)] = datetime.now()
+                pic_dict[str(ctx.author.name)] = None
+                pic_dict[str(ctx.author.name)] = datetime.now()
         else:
             try:
                 await ctx.send(f'' + url)
