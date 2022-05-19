@@ -1226,12 +1226,13 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='pic')
     async def dan_pic(self, ctx):
         global pic_dict
+        fail_link = 'https://imgur.com/a/vQsv7Rj'
         timeout=60
         msg = str(ctx.content)
         tags = msg[5:].strip()
         url = self.danbooru_picture_sfw(tags, init_p=1)
-        if(url == 'https://i.imgur.com/9oCJoKQ.png'):
-            await ctx.send('https://i.imgur.com/9oCJoKQ.png')
+        if(url == fail_link):
+            await ctx.send(fail_link)
             if(str(ctx.author.name) in pic_dict.keys()):
                 pic_dict[str(ctx.author.name)] = None
             return
