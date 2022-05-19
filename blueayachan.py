@@ -1230,6 +1230,9 @@ class BlueAyaChan(commands.Bot):
         msg = str(ctx.content)
         tags = msg[5:].strip()
         url = self.danbooru_picture_sfw(tags, init_p=1)
+        if(url == 'https://i.imgur.com/9oCJoKQ.png'):
+            await ctx.send('https://i.imgur.com/9oCJoKQ.png')
+            return
         time_now = datetime.now()
         if(str(ctx.author.name) not in pic_dict.keys()):
             try:
