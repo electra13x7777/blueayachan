@@ -848,6 +848,7 @@ quiz_game = \
 
     }
 pasta_dict = {} # Empty dictionary used for pasta cooldown
+pic_dict = {} # Empty dictionary used for pasta cooldown
 quiz_dict = {} # Empty dictionary used to store the current question/channel
 superuser = \
     [
@@ -1223,11 +1224,38 @@ class BlueAyaChan(commands.Bot):
     generic pic
     '''
     @commands.command(name='pic')
-    async def dan_pic(self, ctx):
+    async def dan_pic(self, ctx, timeout=60):
+        global pic_dict
         msg = str(ctx.content)
         tags = msg[5:].strip()
         url = self.danbooru_picture_sfw(tags, init_p=1)
-        await ctx.send(f'' + url)
+        time_now = datetime.now()
+        if(str(ctx.user) not in pic_dict.keys()):
+            try:
+                await ctx.send(f'' + url)
+            except:
+                commands.CommandError
+                await ctx.send(f'' + url)
+            pic_dict[str(ctx.user)] = datetime.now()
+        elif(str(ctx.user) in pic_dict.keys()):
+            print(time_now.time())
+            diff = (time_now.minute*60 + time_now.second) - (pic_dict[str(ctx.user)].minute*60 + pic_dict[str(ctx.user)].second)
+            print(diff)
+            if(diff >= timeout or diff <= -1): # becomes negative when the hour rolls over since i don't check for that this works fine
+                try:
+                    await ctx.send(f'' + url)
+                except:
+                    commands.CommandError
+                    await ctx.send(f'' + url)
+                pic_dict[str(ctx.user)] = None
+                pic_dict[str(ctx.user)] = datetime.now()
+        else:
+            try:
+                await ctx.send(f'' + url)
+            except:
+                commands.CommandError
+                await ctx.send(f'' + url)
+            return
 
     '''
     beatrix pic for demonsmallz
