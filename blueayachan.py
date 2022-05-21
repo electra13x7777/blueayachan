@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 05/18/2022
+Date Published: 05/20/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -368,7 +368,6 @@ akb_chars = \
         "Murakumo",
         "Perfecti"       
     ]
-
 vsav_chars = \
     [
         "Anakaris",
@@ -387,7 +386,6 @@ vsav_chars = \
         "Victor",
         "Zabel"
     ]
-
 backup_links = \
     [
         f'https://konachan.com/image/d647a7d3ed0197be796ea4894417b4e3/Konachan.com%20-%20273192%20autumn%20black_hair%20blush%20boat%20dress%20hat%20kneehighs%20landscape%20leaves%20red_eyes%20reflection%20scenic%20shameimaru_aya%20short_hair%20touhou%20water%20waterfall%20wings.jpg',
@@ -1229,7 +1227,7 @@ class BlueAyaChan(commands.Bot):
         fail_link = 'https://imgur.com/a/vQsv7Rj'
         timeout=60
         msg = str(ctx.content)
-        tags = msg[5:].strip()
+        tags = msg[5:].strip().split(" ")
         url = self.danbooru_picture_sfw(tags, init_p=1)
         if(url == fail_link):
             await ctx.send(fail_link)
