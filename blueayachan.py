@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 05/20/2022
+Date Published: 05/25/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -449,6 +449,31 @@ takuya_quotes = \
         "I want to be scolded.",
         "Former statements exist to be retracted.",
         "Aaagh! Please don't dig up old shit like that!"
+    ]
+fft_classes = \
+    [
+        "Squire",
+        "Chemist",
+        "Knight",
+        "Archer",
+        "White Mage",
+        "Black Mage",
+        "Monk",
+        "Thief",
+        "Mystic",
+        "Time Mage",
+        "Geomancer",
+        "Dragoon",
+        "Orator",
+        "Summoner",
+        "Samurai",
+        "Ninja",
+        "Dancer",
+        "Bard",
+        "Calculator",
+        "Mime",
+        "Dark Knight",
+        "Onion Knight"       
     ]
 # Dictionaries <K,V>
 melty_tags = \
@@ -909,6 +934,16 @@ class BlueAyaChan(commands.Bot):
     '''
 
 # -------------------------------------------------------------------------------------------------------------#
+#################################################### TIMEOUT ###################################################
+# -------------------------------------------------------------------------------------------------------------#
+
+    '''
+
+    '''
+    #def timeout_command(cmd, time:int):
+    #    return
+
+# -------------------------------------------------------------------------------------------------------------#
 ##################################################### PASTA ####################################################
 # -------------------------------------------------------------------------------------------------------------#
     '''
@@ -1223,6 +1258,9 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='pic')
     async def dan_pic(self, ctx):
+        if (str(ctx.channel).strip() == "mpghappiness"): # I assume that MPG does not want this in their chatroom lol...
+            await ctx.send(f"too hot for #{ctx.channel}")
+            return
         global pic_dict
         fail_link = 'https://imgur.com/a/vQsv7Rj'
         timeout=60
@@ -1431,6 +1469,15 @@ class BlueAyaChan(commands.Bot):
         newvsav = vsav_chars[rand]
         await ctx.send(f'{ctx.author.name} your new main in Vampire Savior is {newvsav}!')  
 
+    """
+        FFT
+    """
+    @commands.command(name ='fftclass')
+    async def fft_class(self, ctx):
+        global fft_classes
+        rand = random.randint(0, len(fft_classes) - 1)
+        new_fft_class = fft_classes[rand]
+        await ctx.send(f'{ctx.author.name} your new class in Final Fantasy Tactics is {new_fft_class}!')  
 
     """
         Demon
