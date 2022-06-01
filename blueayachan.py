@@ -1734,7 +1734,7 @@ class BlueAyaChan(commands.Bot):
         lower:int = int(ranges[0])
         upper:int = int(ranges[1])
         rand = random.randint(lower, upper)
-        await ctx.send(f'{ctx.author.name} your new integer valude is{rand}!')
+        await ctx.send(f'{ctx.author.name} your new integer value is {rand}!')
 
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
