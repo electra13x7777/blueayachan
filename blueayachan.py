@@ -1729,7 +1729,7 @@ class BlueAyaChan(commands.Bot):
 
     @commands.command(name="range")
     async def pick_random_range(self, ctx):
-        msg = str(ctx)
+        msg = str(ctx.content)
         ranges = msg[7:].strip().split(" ")
         lower:int = int(ranges[0])
         upper:int = int(ranges[1])
