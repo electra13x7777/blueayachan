@@ -1727,6 +1727,15 @@ class BlueAyaChan(commands.Bot):
             integer_val = 0
         await ctx.send(f"/me picks {random.randint(0, integer_val)}")
 
+    @commands.command(name="range")
+    async def pick_random_range(self, ctx):
+        msg = str(ctx)
+        ranges = msg[7:].strip().split(" ")
+        lower:int = int(ranges[0])
+        upper:int = int(ranges[1])
+        rand = random.randint(lower, upper)
+        await ctx.send(f'{ctx.author.name} your new integer valude is{rand}!')
+
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
