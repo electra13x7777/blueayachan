@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 05/25/2022
+Date Published: 05/31/2022
 File: blueayachan.py
 Author: Alex Barney
 
@@ -331,7 +331,7 @@ jojos_chars = \
     [
         "Jotaro",
         "Avdol",
-        "Kaykoin",
+        "Kakyoin",
         "Polnareff",
         "DIO",
         "Devo",
@@ -1259,8 +1259,12 @@ class BlueAyaChan(commands.Bot):
     @commands.command(name='pic')
     async def dan_pic(self, ctx):
         if (str(ctx.channel).strip() == "mpghappiness"): # I assume that MPG does not want this in their chatroom lol...
-            await ctx.send(f"too hot for #{ctx.channel}")
-            return
+           # if(ctx.channel.get_chatter(ctx.author.name).is_mod()):
+                #TODO: Test this
+            #    print("placeholder")
+            #else:
+                await ctx.send(f"this command is mod only for #{ctx.channel}")
+                return
         global pic_dict
         fail_link = 'https://imgur.com/a/vQsv7Rj'
         timeout=60
@@ -1273,7 +1277,7 @@ class BlueAyaChan(commands.Bot):
                 pic_dict[str(ctx.author.name)] = None
             return
         time_now = datetime.now()
-        if(str(ctx.author.name) not in pic_dict.keys()) or pic_dict[str(ctx.author.name)] == None:
+        if(str(ctx.author.name) not in pic_dict.keys() or pic_dict[str(ctx.author.name)] == None):
             try:
                 await ctx.send(f'' + url)
             except:
@@ -1704,13 +1708,31 @@ class BlueAyaChan(commands.Bot):
     
     @commands.command(name="ketchup")
     async def ketchup_tweet(self, ctx):
-        await ctx.send(f'https://clips.twitch.tv/ArtsyGracefulIguanaPhilosoraptor') 
+        await ctx.send(f'https://clips.twitch.tv/ArtsyGracefulIguanaPhilosoraptor')
+
+    #Amy asked for a command that picked between 2 things but this picks between an infinite ammount of things
+    @commands.command(name="pick")
+    async def pick_one_from_list(self, ctx):
+        msg = str(ctx.content)
+        choices = msg[6:].strip().split(" ")
+        rand = random.randint(0, len(choices) - 1)
+        await ctx.send(f"/me picks {choices[rand]}")
     
+    @commands.command(name="randint")
+    async def pick_random_int(self, ctx):
+        msg = str(ctx.content)
+        try:
+            integer_val = int(msg[9:].strip().split(" "))
+        except ArithmeticError:
+            integer_val = 0
+        await ctx.send(f"/me picks {random.randint(0, integer_val)}")
+
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
+    
     '''
-    Command: joinch - adds channel to channels.txt and joins bot to 
+        Command: joinch - adds channel to channels.txt and joins bot to 
                     channel if they are not in the file.
     '''
     @commands.command(name='joinch')
