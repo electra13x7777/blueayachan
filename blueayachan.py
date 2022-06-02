@@ -1,8 +1,11 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 05/31/2022
+Date Published: 06/02/2022
+Date Created: 06/16/2021
 File: blueayachan.py
-Author: Alex Barney
+Author: Alex Barney (electra_rta)
+
+Special Thanks to RedShifter and cha0stwitch for helping with various bugfixes!
 
 ╭━━╮╭╮╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╱╱╱╱╭╮
 ┃╭╮┃┃┃╱╱╱╱╱╱┃╭━╮┃╱╱╱╱╱╱╱╱╱┃┃
@@ -235,7 +238,9 @@ lumina_characters = \
         "Saber From the Fate Series",
         "and more",
         "Dead Loli Ancestor Noel",
-        "Aozaki Aoko"
+        "Aozaki Aoko",
+        "Mario",
+        "P. Ciel (Mace)"
     ]
 melee_chars = \
     [
@@ -385,6 +390,34 @@ vsav_chars = \
         "SCAMsquatch", #Sasquatch
         "Victor",
         "Zabel"
+    ]
+ggxxacplusr_chars = \
+    [
+        "A.B.A",
+        "Anji Mito",
+        "Axl Low",
+        "Baiken",
+        "Bridget",
+        "Chipp Zanuff",
+        "Dizz",
+        "Eddie",
+        "Faust",
+        "I-No",
+        "Jam Kuradoberi",
+        "Johnny",
+        "Justice",
+        "Kliff Undersn",
+        "Ky Kiske",
+        "May",
+        "Millia Rage",
+        "Order-Sol",
+        "Potemkin",
+        "Robo-Ky",
+        "Slayer",
+        "Sol Badguy",
+        "Testament",
+        "Venom",
+        "Zappa"
     ]
 backup_links = \
     [
@@ -1474,6 +1507,16 @@ class BlueAyaChan(commands.Bot):
         await ctx.send(f'{ctx.author.name} your new main in Vampire Savior is {newvsav}!')  
 
     """
+        GGXXAC+R
+    """
+    @commands.command(name='ggxxac+r')
+    async def ggxxacplusr(self, ctx):
+        global ggxxacplusr_chars
+        rand = random.randint(0, len(ggxxacplusr_chars)-1)
+        newggxxacpr = ggxxacplusr_chars[rand]
+        await ctx.send(f'{ctx.author.name} your new main in Guilty Gear XX Accent Core Plus R is {newggxxacpr}!')
+    
+    """
         FFT
     """
     @commands.command(name ='fftclass')
@@ -1717,15 +1760,6 @@ class BlueAyaChan(commands.Bot):
         choices = msg[6:].strip().split(" ")
         rand = random.randint(0, len(choices) - 1)
         await ctx.send(f"/me picks {choices[rand]}")
-    
-    @commands.command(name="randint")
-    async def pick_random_int(self, ctx):
-        msg = str(ctx.content)
-        try:
-            integer_val = int(msg[9:].strip().split(" "))
-        except ArithmeticError:
-            integer_val = 0
-        await ctx.send(f"/me picks {random.randint(0, integer_val)}")
 
     @commands.command(name="range")
     async def pick_random_range(self, ctx):
@@ -1876,11 +1910,17 @@ class BlueAyaChan(commands.Bot):
                        f' HornedAnimes: {str(len(ha_list))} |'
                        f' Etrians: {str(len(eo_classes.keys()))} |'
                        f' Meltys: {str(len(melty_chars) * 3)} |'
+                       f' Luminers: {str(len(lumina_characters))} |'
                        f' Melees: {str(len(melee_chars))} |'
+                       f' Sokus: {str(len(soku_chars))} |'
+                       f' Blitzkampfs: {str(len(akb_chars))} |'
+                       f' GGs: {str(len(ggxxacplusr_chars))} |'
+                       f' BBCFs: {str(len(bbcf_chars))} |'
+                       f' JoJos: {str(len(ggxxacplusr_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 4809 |'
-                       f' Questionable lines of code: 1731')
+                       f' Questionable lines of code: 1935')
 
     '''
     
@@ -1894,13 +1934,22 @@ class BlueAyaChan(commands.Bot):
     main function
 '''
 if(__name__ == '__main__'):
-    print(f'Total Pastas: {str(len(pasta_str))}')
-    print(f'Total HornedAnimes: {str(len(ha_list))}')
-    print(f'Total Etrians: {str(len(eo_classes))}')
-    print(f'Total Meltys: {str(len(melty_chars) * 3)}')
-    print(f'Total Melees: {str(len(melee_chars))}')
-    print(f'Total Sokus: {str(len(soku_chars))}')
-    print(f'Total Demons: {str(len(list(demons_nocturne.keys())))}')
-    print(f'Total Dreamboum Tweets Locally Scraped: 4809')
+    print(
+        f'Pastas: {str(len(pasta_str))} |'
+        f' HornedAnimes: {str(len(ha_list))} |'
+        f' Etrians: {str(len(eo_classes.keys()))} |'
+        f' Meltys: {str(len(melty_chars) * 3)} |'
+        f' Luminers: {str(len(lumina_characters))} |'
+        f' Melees: {str(len(melee_chars))} |'
+        f' Sokus: {str(len(soku_chars))} |'
+        f' Blitzkampfs: {str(len(akb_chars))} |'
+        f' GGs: {str(len(ggxxacplusr_chars))} |'
+        f' BBCFs: {str(len(bbcf_chars))} |'
+        f' JoJos: {str(len(ggxxacplusr_chars))} |'
+        f' Sokus: {str(len(soku_chars))} |'
+        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
+        f' Dreamboum Tweets Locally Scraped: 4809 |'
+        f' Questionable lines of code: 1935'
+    )
     blueayachan = BlueAyaChan()
     blueayachan.run()
