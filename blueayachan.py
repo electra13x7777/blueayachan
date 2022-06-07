@@ -399,7 +399,7 @@ ggxxacplusr_chars = \
         "Baiken",
         "Bridget",
         "Chipp Zanuff",
-        "Dizz",
+        "Dizzy",
         "Eddie",
         "Faust",
         "I-No",
@@ -1298,11 +1298,11 @@ class BlueAyaChan(commands.Bot):
             #else:
                 await ctx.send(f"this command is mod only for #{ctx.channel}")
                 return
-        global pic_dict
+        global pic_dict # TODO: make the key a list[Channel:str, time:DateTime]
         fail_link = 'https://imgur.com/a/vQsv7Rj'
         timeout=60
         msg = str(ctx.content)
-        tags = msg[5:].strip().split(" ")
+        tags = msg[5:].strip().split(" ") # TODO: bug here where multiple tags will not be searched
         url = self.danbooru_picture_sfw(tags, init_p=1)
         if(url == fail_link):
             await ctx.send(fail_link)
@@ -1767,7 +1767,7 @@ class BlueAyaChan(commands.Bot):
         ranges = msg[7:].strip().split(" ")
         lower:int = int(ranges[0])
         upper:int = int(ranges[1])
-        rand = random.randint(lower, upper)
+        rand = random.randint(min(lower, upper), max(lower, upper))
         await ctx.send(f'{ctx.author.name} your new integer value is {rand}!')
 
     # -------------------------------------------------------------------------------------------------------------#
