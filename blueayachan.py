@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 06/02/2022
+Date Published: 06/14/2022
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -1036,16 +1036,16 @@ class BlueAyaChan(commands.Bot):
             partition_meta(String metadata, String p_string) - searches for tag in meta and partitions out its value
         Description: Base to make image scraping really easy to do
     '''
-    def danbooru_picture_sfw(self, tag, limit_p=250, init_p=2, show_meta=False, artist_flag=True):
+    def danbooru_picture_sfw(self:object, tag, limit_p:int=250, init_p:int=2, show_meta:bool=False, artist_flag:bool=True):
         ## Helper Function Definitions ##
-        def get_meta(booru_client):
+        def get_meta(booru_client:object):
             metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
             print('Image queried from ' + booru_client.site_name)
             if(show_meta):
                 print(metadata)
             return metadata
 
-        def partition_meta(metadata, p_string):
+        def partition_meta(metadata:str, p_string:str):
             meta_str = str(metadata).partition(p_string)[2]
             tags = meta_str.split(',')
             if(show_meta):
@@ -1063,8 +1063,8 @@ class BlueAyaChan(commands.Bot):
         except pybooru.PybooruHTTPError:
             url = 'https://imgur.com/a/vQsv7Rj'
             fail_flag = True
-        if(url == '' or url == ['']): # check for valid url if none found recursively recall
-            return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get
+        if(url == '' or url == ['']): # check for valid url
+            return 'https://imgur.com/a/vQsv7Rj' # post fumo image if we get no queried image
         if(artist_flag and not fail_flag):
             artist = partition_meta(meta, "'tag_string_artist':")
             if(artist == '' or artist == [''] or fail_flag): # check if an artist has been parsed
@@ -1300,12 +1300,19 @@ class BlueAyaChan(commands.Bot):
                 return
         global pic_dict # TODO: make the key a list[Channel:str, time:DateTime]
         fail_link = 'https://imgur.com/a/vQsv7Rj'
+        has_tried_again=False
         timeout=60
         msg = str(ctx.content)
         tags = msg[5:].strip().split(" ") # TODO: bug here where multiple tags will not be searched
         url = self.danbooru_picture_sfw(tags, init_p=1)
+        # Fail Case (Bot will try to query an image again)
         if(url == fail_link):
-            await ctx.send(fail_link)
+            # Try Again with Page limit being 1
+            url = self.danbooru_picture_sfw(tags, limit_p=1, init_p=1)
+            has_tried_again=True
+        # Has Failed 2 Times (Bot Will Send Failure Response)
+        if(url == fail_link and has_tried_again):
+            await ctx.send(fail_link)                
             if(str(ctx.author.name) in pic_dict.keys()):
                 pic_dict[str(ctx.author.name)] = None
             return
@@ -1561,6 +1568,11 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(0, len(etrian_ost) - 1)
         titles = list(etrian_ost.keys())
         await ctx.send(f"{titles[rand]} {etrian_ost[titles[rand]]}")
+
+    '''
+        sh ost
+    '''
+    #@commands.command(name='shadowheartsost')
 
     # -------------------------------------------------------------------------------------------------------------#
     ##############################################   TRIVIA COMMANDS   #############################################
@@ -1920,7 +1932,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 4809 |'
-                       f' Questionable lines of code: 1935')
+                       f' Questionable lines of code: 1967')
 
     '''
     
@@ -1949,7 +1961,7 @@ if(__name__ == '__main__'):
         f' Sokus: {str(len(soku_chars))} |'
         f' Demons: {str(len(list(demons_nocturne.keys())))} |'
         f' Dreamboum Tweets Locally Scraped: 4809 |'
-        f' Questionable lines of code: 1935'
+        f' Questionable lines of code: 1967'
     )
     blueayachan = BlueAyaChan()
     blueayachan.run()
