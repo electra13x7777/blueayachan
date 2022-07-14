@@ -1,7 +1,7 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
 Date Published: 06/14/2022
-Date Created: 06/16/2021
+Date Created: 07/13/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
 
@@ -915,7 +915,8 @@ plebfilter = \
         'mpghappiness',
         'symm_',
         'NASAMarathon',
-        'v0oid'
+        'v0oid',
+        'LiquidSquid'
     ]
 silenced = \
     [
@@ -1039,7 +1040,7 @@ class BlueAyaChan(commands.Bot):
     def danbooru_picture_sfw(self:object, tag, limit_p:int=250, init_p:int=2, show_meta:bool=False, artist_flag:bool=True):
         ## Helper Function Definitions ##
         def get_meta(booru_client:object):
-            metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='safe')
+            metadata = booru_client.post_list(limit=1, page=init_page, tags=tag, rand=True, rating='general')
             print('Image queried from ' + booru_client.site_name)
             if(show_meta):
                 print(metadata)
@@ -1054,6 +1055,7 @@ class BlueAyaChan(commands.Bot):
             return tag
 
         ## Implementation ##
+        filter
         client = Danbooru(site_name='safebooru')
         init_page = random.randint(init_p, limit_p) # Starts at page 2 since sometimes porn slips through the cracks on 1
         fail_flag = False # flag to set if HTTP Error
@@ -1072,12 +1074,17 @@ class BlueAyaChan(commands.Bot):
             return f'{url} Artist: {artist}'
         return url
 
+    async def filter_channels(ctx):
+        if(ctx.channel_str in plebfilter):
+            await ctx.send(f"too hot for #{ctx.channel}")
+            return
     '''
     Command: !ayapic - Queries safebooru and returns a link to a picture of
                        Aya Shameimaru
     '''
     @commands.command(name='ayapic')
     async def aya_picture_sfw(self, ctx):
+        await filter_channels(ctx)
         if (str(ctx.channel).strip() == "mpghappiness"):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
