@@ -1,7 +1,7 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 06/14/2022
-Date Created: 07/13/2021
+Date Published: 07/13/2022
+Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
 
@@ -1074,17 +1074,20 @@ class BlueAyaChan(commands.Bot):
             return f'{url} Artist: {artist}'
         return url
 
+    '''
     async def filter_channels(ctx):
         if(ctx.channel_str in plebfilter):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
+    '''
+
     '''
     Command: !ayapic - Queries safebooru and returns a link to a picture of
                        Aya Shameimaru
     '''
     @commands.command(name='ayapic')
     async def aya_picture_sfw(self, ctx):
-        await filter_channels(ctx)
+        #await filter_channels(ctx)
         if (str(ctx.channel).strip() == "mpghappiness"):
             await ctx.send(f"too hot for #{ctx.channel}")
             return
@@ -1298,13 +1301,16 @@ class BlueAyaChan(commands.Bot):
     '''
     @commands.command(name='pic')
     async def dan_pic(self, ctx):
+        mpg_flag:bool = False
         if (str(ctx.channel).strip() == "mpghappiness"): # I assume that MPG does not want this in their chatroom lol...
-           # if(ctx.channel.get_chatter(ctx.author.name).is_mod()):
+           if(ctx.channel.get_chatter(ctx.author.name).is_mod()):
                 #TODO: Test this
-            #    print("placeholder")
-            #else:
-                await ctx.send(f"this command is mod only for #{ctx.channel}")
-                return
+                #    print("placeholder")
+                mpg_flag=True
+            
+        if(str(ctx.channel).strip() == "mpghappiness" and mpg_flag==False):
+            await ctx.send(f"this command is mod only for #{ctx.channel}")
+            return
         global pic_dict # TODO: make the key a list[Channel:str, time:DateTime]
         fail_link = 'https://imgur.com/a/vQsv7Rj'
         has_tried_again=False
