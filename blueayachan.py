@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 07/13/2022
+Date Published: 07/14/2022
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -1624,8 +1624,8 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_05_06_2022.txt"):
-        rand = random.randint(0, 4809 - 1)
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_07_14_2022.txt"):
+        rand = random.randint(0, 5621 - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
@@ -1944,8 +1944,8 @@ class BlueAyaChan(commands.Bot):
                        f' JoJos: {str(len(ggxxacplusr_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-                       f' Dreamboum Tweets Locally Scraped: 4809 |'
-                       f' Questionable lines of code: 1967')
+                       f' Dreamboum Tweets Locally Scraped: 5621 |'
+                       f' Questionable lines of code: 1980')
 
     '''
     
@@ -1973,8 +1973,8 @@ if(__name__ == '__main__'):
         f' JoJos: {str(len(ggxxacplusr_chars))} |'
         f' Sokus: {str(len(soku_chars))} |'
         f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-        f' Dreamboum Tweets Locally Scraped: 4809 |'
-        f' Questionable lines of code: 1967'
+        f' Dreamboum Tweets Locally Scraped: 5621 |'
+        f' Questionable lines of code: 1980'
     )
     blueayachan = BlueAyaChan()
     blueayachan.run()
