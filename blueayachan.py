@@ -964,11 +964,12 @@ class BlueAyaChan(commands.Bot):
         curtime = datetime.now()
         print(f'[' + str(curtime.strftime("%H:%M:%S")) + '] #' + str(message.channel) + " <" + message.author.name +">: " + message.content)
         if(message.channel in dreamboum_only):
-            if(message.content.lower() == '!dreamboumtweet' or message.content.lower() == '!dreamboumtweet'):
+            if(message.content.lower() == '!dreamboumtweet' or message.content.lower() == 'dreamboumtweet'):
                 await self.handle_commands(message)
             else:
-                return    
-        await self.handle_commands(message)
+                return
+        if(message.channel not in dreamboum_only):    
+            await self.handle_commands(message)
     '''################- C O M M A N D S -################'''
     '''
     @commands.command(name='test')
