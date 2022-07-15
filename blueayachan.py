@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 07/14/2022
+Date Published: 07/15/2022
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -918,6 +918,10 @@ plebfilter = \
         'v0oid',
         'LiquidSquid'
     ]
+dreamboum_only = \
+    [
+        'LiquidSquid'
+    ]
 silenced = \
     [
     ]
@@ -959,6 +963,11 @@ class BlueAyaChan(commands.Bot):
     async def event_message(self, message):
         curtime = datetime.now()
         print(f'[' + str(curtime.strftime("%H:%M:%S")) + '] #' + str(message.channel) + " <" + message.author.name +">: " + message.content)
+        if(message.channel in dreamboum_only):
+            if(message.content.lower() == '!dreamboumtweet' or message.content.lower() == '!dreamboumtweet'):
+                await self.handle_commands(message)
+            else:
+                return    
         await self.handle_commands(message)
     '''################- C O M M A N D S -################'''
     '''
@@ -1304,6 +1313,7 @@ class BlueAyaChan(commands.Bot):
         mpg_flag:bool = False
         if (str(ctx.channel).strip() == "mpghappiness"): # I assume that MPG does not want this in their chatroom lol...
            if(ctx.channel.get_chatter(ctx.author.name).is_mod()):
+           #if(ctx.author.)
                 #TODO: Test this
                 #    print("placeholder")
                 mpg_flag=True
