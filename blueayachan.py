@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 07/16/2022
+Date Published: 08/22/2022
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -241,7 +241,9 @@ lumina_characters = \
         "Dead Loli Ancestor Noel",
         "Aozaki Aoko",
         "Mario",
-        "P. Ciel (Mace)"
+        "P. Ciel (Mace)",
+        "Mashu from various R18 doujins",
+        "Neco Arc!!!!!"
     ]
 melee_chars = \
     [
