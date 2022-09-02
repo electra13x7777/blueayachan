@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/02/2022
+Date Published: 09/02/2022 rev3
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -1815,7 +1815,10 @@ class BlueAyaChan(commands.Bot):
         chen_str = ''
         for i in range(rand):
             chen_str+=(chen_emote)
-        await ctx.send(f'{chen_str} {rand+1}x Chen Combo!')
+        if(rand <= 1):
+            await ctx.send(f'{chen_str}')
+        else:
+            await ctx.send(f'{chen_str}{rand}x Chen Combo!')
 
     #Amy asked for a command that picked between 2 things but this picks between an infinite ammount of things
     @commands.command(name="pick")
