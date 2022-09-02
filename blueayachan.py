@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/02/2022 rev3
+Date Published: 09/02/2022 rev4
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -1810,8 +1810,11 @@ class BlueAyaChan(commands.Bot):
         if(str(ctx.channel).lower == 'claude'):
             chen_emote = 'HONKHONK '
         elif(str(ctx.channel).lower == 'darko_rta'):
-            chen_emote = 'saHonk'
+            chen_emote = 'saHonk '
+        else:
+            chen_emote = 'HONKHONK '
         rand:int = random.randint(0,10)
+        print(rand)
         chen_str = ''
         for i in range(rand):
             chen_str+=(chen_emote)
