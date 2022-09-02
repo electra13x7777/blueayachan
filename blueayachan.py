@@ -1814,7 +1814,7 @@ class BlueAyaChan(commands.Bot):
         rand:int = random.randint(0,10)
         chen_str = ''
         for i in range(rand):
-            chen_str.append(chen_emote)
+            chen_str+=(chen_emote)
         await ctx.send(f'{chen_str} {rand+1}x Chen Combo!')
 
     #Amy asked for a command that picked between 2 things but this picks between an infinite ammount of things
