@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/02/2022 rev4
+Date Published: 09/20/2022
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -1840,6 +1840,10 @@ class BlueAyaChan(commands.Bot):
         rand = random.randint(min(lower, upper), max(lower, upper))
         await ctx.send(f'{ctx.author.name} your new integer value is {rand}!')
 
+    #theclaude wants a command to post "I love Shadow Hearts: From the New World"
+    @commands.command(name='iloveshadowhearts:fromthenewworld')
+    async def iloveshadowhearts(self, ctx):
+        await ctx.send(f'{ctx.author.name} says,  "I love Shadow Hearts: From the New World"')
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
@@ -1990,7 +1994,7 @@ class BlueAyaChan(commands.Bot):
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
                        f' Dreamboum Tweets Locally Scraped: 5621 |'
-                       f' Questionable lines of code: 1980')
+                       f' Questionable lines of code: 2029')
 
     '''
     
@@ -2019,7 +2023,7 @@ if(__name__ == '__main__'):
         f' Sokus: {str(len(soku_chars))} |'
         f' Demons: {str(len(list(demons_nocturne.keys())))} |'
         f' Dreamboum Tweets Locally Scraped: 5621 |'
-        f' Questionable lines of code: 1980'
+        f' Questionable lines of code: 2029'
     )
     blueayachan = BlueAyaChan()
     blueayachan.run()
