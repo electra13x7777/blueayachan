@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/21/2022
+Date Published: 09/21/2022 rev2
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -964,16 +964,15 @@ class BlueAyaChan(commands.Bot):
         print(f'{self.nick} is ready to launch')
     #log chats
     async def event_message(self, message):
-    
         curtime = datetime.now()
         print(f'[' + str(curtime.strftime("%H:%M:%S")) + '] #' + str(message.channel) + " <" + message.author.name +">: " + message.content)
         if(str(message.channel) in dreamboum_only):
             if(message.content.lower() == '!dreamboumtweet' or message.content.lower() == 'dreamboumtweet'):
-                await self.handle_commands(message.content.lower())
+                await self.handle_commands(message)
             else:
                 return
         if(str(message.channel) not in dreamboum_only):    
-            await self.handle_commands(message.content.lower())
+            await self.handle_commands(message)
     '''################- C O M M A N D S -################'''
     '''
     @commands.command(name='test')
@@ -1846,6 +1845,9 @@ class BlueAyaChan(commands.Bot):
     async def iloveshadowhearts(self, ctx):
         await ctx.send(f'{ctx.author.name} says,  "I love Shadow Hearts: From the New World"')
     
+    @commands.command(name='ILoveShadowHearts:FromTheNewWorld')
+    async def iloveshadowhearts_claude_ver(self, ctx):
+        await ctx.send(f'{ctx.author.name} says,  "I love Shadow Hearts: From the New World"')
     # -------------------------------------------------------------------------------------------------------------#
     #########################################   JOIN/LEAVE COMMANDS   ##############################################
     # -------------------------------------------------------------------------------------------------------------#
