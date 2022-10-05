@@ -1,6 +1,6 @@
 '''
 Project: BlueAyaChan - Twitch IRC Bot
-Date Published: 09/21/2022 rev2
+Date Published: 10/05/2022 
 Date Created: 06/16/2021
 File: blueayachan.py
 Author: Alex Barney (electra_rta)
@@ -41,6 +41,7 @@ if not sys.warnoptions:
 
 last_pasta_call = datetime.now()
 # Lists
+db_tweet_total = 6569
 ha_list = \
     [
             "HornedAnime",
@@ -1638,8 +1639,10 @@ class BlueAyaChan(commands.Bot):
         dreamboumtweet
     '''
     @commands.command(name='dreamboumtweet')
-    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_07_14_2022.txt"):
-        rand = random.randint(0, 5621 - 1)
+
+    async def dreamboum_tweet(self, ctx, fp="dreamboum_tweets_10_05_2022.txt"):
+        global db_tweet_total
+        rand = random.randint(0,  db_tweet_total - 1)
         with open(fp, 'r', encoding='utf8') as fin:
             x = 1
             for l in fin:
@@ -1997,8 +2000,8 @@ class BlueAyaChan(commands.Bot):
                        f' JoJos: {str(len(ggxxacplusr_chars))} |'
                        f' Sokus: {str(len(soku_chars))} |'
                        f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-                       f' Dreamboum Tweets Locally Scraped: 5621 |'
-                       f' Questionable lines of code: 2029')
+                       f' Dreamboum Tweets Locally Scraped: {db_tweet_total} |'
+                       f' Questionable lines of code: 2036')
 
     '''
     
@@ -2026,8 +2029,8 @@ if(__name__ == '__main__'):
         f' JoJos: {str(len(ggxxacplusr_chars))} |'
         f' Sokus: {str(len(soku_chars))} |'
         f' Demons: {str(len(list(demons_nocturne.keys())))} |'
-        f' Dreamboum Tweets Locally Scraped: 5621 |'
-        f' Questionable lines of code: 2029'
+        f' Dreamboum Tweets Locally Scraped: {db_tweet_total} |'
+        f' Questionable lines of code: 2036'
     )
     blueayachan = BlueAyaChan()
     blueayachan.run()
